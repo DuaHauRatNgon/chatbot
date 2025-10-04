@@ -1,0 +1,20 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lavenderDream" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E5F5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E1BEE7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CE93D8;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="lavender" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="12" fill="#BA68C8" opacity="0.2"/>
+      <circle cx="15" cy="15" r="8" fill="#AB47BC" opacity="0.15"/>
+      <circle cx="45" cy="45" r="10" fill="#BA68C8" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#lavenderDream)"/>
+  <rect width="400" height="300" fill="url(#lavender)"/>
+  <circle cx="100" cy="80" r="25" fill="#E1BEE7" opacity="0.6"/>
+  <circle cx="300" cy="60" r="20" fill="#CE93D8" opacity="0.5"/>
+  <circle cx="200" cy="100" r="15" fill="#F8BBD9" opacity="0.4"/>
+</svg>
+

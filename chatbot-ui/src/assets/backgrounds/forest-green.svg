@@ -1,0 +1,19 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="forestGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F5E8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C8E6C9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A5D6A7;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="leaves" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="8" fill="#66BB6A" opacity="0.3"/>
+      <circle cx="10" cy="10" r="5" fill="#4CAF50" opacity="0.2"/>
+      <circle cx="30" cy="30" r="6" fill="#66BB6A" opacity="0.25"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#forestGreen)"/>
+  <rect width="400" height="300" fill="url(#leaves)"/>
+  <path d="M0,250 Q50,200 100,250 T200,250 T300,250 T400,250 L400,300 L0,300 Z" fill="#8BC34A" opacity="0.6"/>
+  <path d="M0,270 Q50,220 100,270 T200,270 T300,270 T400,270 L400,300 L0,300 Z" fill="#689F38" opacity="0.4"/>
+</svg>
+
