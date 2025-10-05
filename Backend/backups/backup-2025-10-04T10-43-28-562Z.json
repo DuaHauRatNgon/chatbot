@@ -1,0 +1,2205 @@
+{
+  "conversations": [
+    {
+      "_id": "68d13d73774e7cad63c2b3a8",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Xử lý áp lực đồng trang lứa",
+      "mood_before": 5,
+      "created_at": "2025-09-22T12:13:39.330Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f4f1b57b5f71d6a4402",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Khám phá những điều mới mẻ",
+      "mood_before": 5,
+      "created_at": "2025-09-24T15:33:35.454Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4148558ec4e7d899961a6",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Khám phá những giới hạn của tâm trí bạn",
+      "mood_before": 5,
+      "created_at": "2025-09-24T15:55:49.488Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441280feda5238836a341",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Đối diện với nỗi buồn",
+      "mood_before": 7,
+      "created_at": "2025-09-24T19:06:16.381Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d443da8e38eb1264f63ce1",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Những Cảm Xúc Hồi Hộp",
+      "mood_before": 7,
+      "created_at": "2025-09-24T19:17:46.129Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4465d07ee9ba403007700",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Đối diện với nỗi sợ hãi",
+      "mood_before": 3,
+      "created_at": "2025-09-24T19:28:30.001Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5060b875442016293fd",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Hành trình khám phá tâm lý: Thấu hiểu và chữa lành tổn thương",
+      "mood_before": 4,
+      "created_at": "2025-09-26T18:01:42.010Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d58f0b87544201629445",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Chìm đắm trong bầu không khí yên bình",
+      "mood_before": 6,
+      "created_at": "2025-09-26T18:03:59.240Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d8a10c018de784bbcfa2",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Xử lý cảm xúc khi bị xúc phạm",
+      "mood_before": 6,
+      "created_at": "2025-09-26T18:17:05.221Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6dbc4c1a0e5411c7b5092",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Xử lý cảm xúc tức giận trong cuộc sống hàng ngày",
+      "mood_before": 7,
+      "created_at": "2025-09-26T18:30:28.119Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ddf766b69d4bb6a68c01",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Chiến thắng nỗi buồn",
+      "mood_before": 3,
+      "created_at": "2025-09-26T18:39:51.015Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e849b7b07f25f5315874",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Xử lý cảm xúc khi bị xúc phạm",
+      "mood_before": 7,
+      "created_at": "2025-09-26T19:23:53.670Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e9e15a9f2b9475c9ad8a",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Vượt qua nỗi buồn sau khi chia tay với bạn gái",
+      "mood_before": 7,
+      "created_at": "2025-09-26T19:30:41.507Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ef115613f555b37e1b2e",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Đau khổ trong sự bỏ rơi của người thân",
+      "mood_before": 6,
+      "created_at": "2025-09-26T19:52:49.779Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6f4f4ea2d8a4ef9c96f1e",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Vùng cô đơn trong tâm hồn",
+      "mood_before": 5,
+      "created_at": "2025-09-26T20:17:56.764Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d909289eaad0b01f404ee0",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Vượt qua nỗi sợ hãi",
+      "mood_before": 3,
+      "created_at": "2025-09-28T10:08:40.920Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9183ed4c92cde7a6cb7e7",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Hãy để tâm lý của bạn được nâng cao",
+      "mood_before": 4,
+      "created_at": "2025-09-28T11:13:02.307Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d92cff763fead57897de7a",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Vượt qua vấn đề: Hành trình chinh phục bản thân",
+      "mood_before": 3,
+      "created_at": "2025-09-28T12:41:35.257Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93b7a96110f784585bb5a",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Giải quyết vấn đề tâm lý của bạn",
+      "mood_before": 7,
+      "created_at": "2025-09-28T13:43:22.453Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93e1a02974b9ac909dcc3",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Tìm hiểu và chăm sóc tâm lý của bạn",
+      "mood_before": 5,
+      "created_at": "2025-09-28T13:54:34.570Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d947ca606ff8dd7a18809d",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Hành động khi cảm thấy thất vọng",
+      "mood_before": 3,
+      "created_at": "2025-09-28T14:35:54.307Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94aef0e8bf1b4c5ec96cd",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Đối diện với cảm xúc thất vọng",
+      "mood_before": 4,
+      "created_at": "2025-09-28T14:49:19.320Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Hãy Đối Diện Với Cảm Xúc Buồn",
+      "mood_before": 6,
+      "created_at": "2025-09-28T15:01:18.696Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e09bb532296f2fc968f5ec",
+      "user_id": "68d13d54774e7cad63c2b39e",
+      "title": "Chào đón sự kết nối",
+      "mood_before": 6,
+      "created_at": "2025-10-04T03:59:49.071Z",
+      "__v": 0
+    }
+  ],
+  "useremailsettings": [],
+  "musics": [],
+  "users": [
+    {
+      "_id": "68d13d54774e7cad63c2b39e",
+      "name": "Nguyen Manh Huong",
+      "email": "nmhuongbn@gmail.com",
+      "hashedPassword": "$2b$10$FZPBs.vMPJgDKd7MC535yuGvEcKIAM4c0Q8/ZGdIjbtNNBJINzRS6",
+      "age": 22,
+      "gender": "male",
+      "role": "customer",
+      "created_at": "2025-09-22T12:13:08.604Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e09fb9a5c3a9579be6ece9",
+      "name": "Đẳng cấp thợ thầy",
+      "email": "cartellilikes@gmail.com",
+      "hashedPassword": "$2b$10$OEchljTT0I6UofyYr6mE9e4A.9QLp7nhhEEUMEV45d9QvyPqvov6u",
+      "age": 22,
+      "gender": "male",
+      "role": "customer",
+      "created_at": "2025-10-04T04:16:57.969Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0a0aeb8fe2ae84745a2de",
+      "name": "rick",
+      "email": "rynchk79@mail10p.com",
+      "hashedPassword": "$2b$10$VTlPjIl/2VtcXpCLftjfAOkIiECADXMgvOzhJJGFPFr3YqEsk9uA6",
+      "age": 22,
+      "gender": "male",
+      "role": "customer",
+      "created_at": "2025-10-04T04:21:02.088Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0a528968028e292e3a53f",
+      "name": "dpg",
+      "email": "dgdtyn78@mail10p.com",
+      "hashedPassword": "$2b$10$sDRGz8zXVKarGNv2IvNaGeXc4rtXpZLToLghaVazaHDCdhaVTDCeu",
+      "age": 22,
+      "gender": "male",
+      "role": "customer",
+      "created_at": "2025-10-04T04:40:08.867Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0a578968028e292e3a542",
+      "name": "zzz",
+      "email": "znljuk74@mail10p.com",
+      "hashedPassword": "$2b$10$N2n7Zrmd32Ykhpycmi3aLuQHWSN9QjyGIlRwAXP5AxmEQXADkCtR2",
+      "age": 22,
+      "gender": "male",
+      "role": "customer",
+      "created_at": "2025-10-04T04:41:28.689Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0a74d968028e292e3a548",
+      "name": "huonggp",
+      "email": "huongnm.gplaystudio@gmail.com",
+      "hashedPassword": "$2b$10$L8oWjXc8RxaT3/z59yea8Ow39T1zabnzHKu4cZf6z0NVP735XBg5i",
+      "age": 22,
+      "gender": "male",
+      "role": "customer",
+      "created_at": "2025-10-04T04:49:17.975Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0a83efc915cdc09e2dc2a",
+      "name": "paewr",
+      "email": "pecrlm45@mail10p.com",
+      "hashedPassword": "$2b$10$3m56kWvcjdSBEheKRF3AF.i0QEBegncPpEQBx2R5gXAdFqD8o10si",
+      "age": 34,
+      "gender": "male",
+      "role": "customer",
+      "created_at": "2025-10-04T04:53:18.202Z",
+      "__v": 0
+    }
+  ],
+  "messages": [
+    {
+      "_id": "68d13d73774e7cad63c2b3ab",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "tôi bị áp lực đồng trang lứa",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T12:13:39.346Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d13d79774e7cad63c2b3b3",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "Đồng nghiệp cùng tuổi tạo áp lực có thể làm bạn cảm thấy căng thẳng và không thoải mái. Việc này có thể ảnh hưởng đến tinh thần làm việc và sự hài lòng của bạn trong công việc. Bạn cảm thấy như thế nào khi phải đối mặt với áp lực đồng trang lứa? Có thể chia sẻ thêm để tìm cách xử lý vấn đề này.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T12:13:45.292Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d13d89774e7cad63c2b3b6",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "tôi cảm thấy bản thân thất bại",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T12:14:01.523Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d13d8e774e7cad63c2b3bc",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "Đôi khi cảm thấy thất bại là điều bình thường, đừng quá nặng nề bản thân. Hãy nhớ rằng thất bại không phải là dấu chấm hết. Bạn có thể học từ điều đó và đi tiếp. Bạn muốn chia sẻ thêm về tình hình hiện tại của mình không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T12:14:06.565Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d148b2774e7cad63c2b3bf",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "tình hình đang tệ dần",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T13:01:38.157Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d148b7774e7cad63c2b3c5",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "Nghe bạn nói về tình hình không tốt, đôi khi cuộc sống mang đến những thách thức khó khăn. Bạn có thể chia sẻ thêm về những gì đang xảy ra để chúng ta cùng tìm cách giải quyết không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T13:01:43.312Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d148cf774e7cad63c2b3c8",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "mọi người làm tốt công việc của mình và giỏi hơn tôi, tôi thấy yếu kém",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T13:02:07.719Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d148d7774e7cad63c2b3ce",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "Những cảm giác yếu kém và tự ti là điều bình thường khi so sánh bản thân với người khác. Đừng quá tự ti về khả năng của mình, mà hãy nhìn nhận điều đó như một động lực để tiến lên. Mỗi người đều có điểm mạnh và yếu riêng, quan trọng là bạn học hỏi từ những trải nghiệm để phát triển bản thân. Bạn có thể chia sẻ thêm về tình hình công việc hiện tại để cùng nhau tìm cách vượt qua khó khăn.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T13:02:15.207Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d148ff774e7cad63c2b3d1",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "công việc hiện tại là công việc văn phòng và lập trình, tôi làm việc chậm và hay lỗi nên ảnh hưởng tới người khác",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T13:02:55.455Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d14905774e7cad63c2b3d7",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "Làm việc chậm và hay lỗi là điều mà ai cũng gặp phải trong quá trình làm việc. Đừng quá tự ti về khả năng của mình, hãy coi đó như một cơ hội để học hỏi và phát triển. Bạn có thể tập trung vào từng bước một, chia nhỏ công việc ra để dễ quản lý hơn. Đừng so sánh bản thân với người khác, mỗi người đều có điểm mạnh và điểm yếu riêng. Hãy tin tưởng vào khả năng của bản thân và không ngừng cố gắng!",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-22T13:03:01.428Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40373a40b1b7d5f57b91c",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "tôi nên làm gì ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T14:42:59.160Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4046ae0ec15c019411832",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "tôi nên làm gì ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T14:47:06.546Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4049e19fb8e973cadc0e8",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "tôi nên làm gì ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T14:47:58.355Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d404a419fb8e973cadc0ee",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "Bạn có thể đặt ra một số mục tiêu cụ thể và chia nhỏ công việc để dễ quản lý hơn. Hãy tập trung vào từng bước nhỏ một và không so sánh bản thân với người khác. Tin tưởng vào khả năng của mình và nhớ rằng việc làm chậm và mắc lỗi là bình thường, đây cũng là cơ hội học hỏi và phát triển.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T14:48:04.243Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d406df09f0e9aff9e7d56a",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "giúp tôi vượt qua khó khăn này",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T14:57:35.997Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d406e509f0e9aff9e7d570",
+      "conversation_id": "68d13d73774e7cad63c2b3a8",
+      "content": "Chắc chắn! Đầu tiên, hãy nhớ rằng việc gặp khó khăn là bình thường và không phải là điều quá lớn. Đừng so sánh bản thân với người khác, hãy tập trung vào từng bước nhỏ và đặt mục tiêu cụ thể. Dần dần chia nhỏ công việc để quản lý dễ dàng hơn. Hãy tin vào khả năng của bản thân và nhớ rằng mỗi lỗi lầm là cơ hội học hỏi và phát triển. Bạn có thể làm được!",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T14:57:41.727Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f4f1b57b5f71d6a4405",
+      "conversation_id": "68d40f4f1b57b5f71d6a4402",
+      "content": "xin chào , bạn có thể làm gì ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:33:35.478Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f521b57b5f71d6a440d",
+      "conversation_id": "68d40f4f1b57b5f71d6a4402",
+      "content": "Xin chào! Mình là trợ lý AI chuyên về tâm lý, sẵn sàng lắng nghe và hỗ trợ bạn nếu có bất kỳ điều gì cần tư vấn hay chia sẻ.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:33:38.320Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f5f1b57b5f71d6a4410",
+      "conversation_id": "68d40f4f1b57b5f71d6a4402",
+      "content": "tôi bị trầm cảm vì thất nghiệp",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:33:51.994Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f651b57b5f71d6a4416",
+      "conversation_id": "68d40f4f1b57b5f71d6a4402",
+      "content": "Mình hiểu cảm giác khó khăn và mệt mỏi mà bạn đang trải qua với tình trạng thất nghiệp. Bạn có thể chia sẻ thêm với mình về cảm xúc của bạn trong thời gian này được không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:33:57.541Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f741b57b5f71d6a4419",
+      "conversation_id": "68d40f4f1b57b5f71d6a4402",
+      "content": "cảm thấy thất bại và tự ti",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:34:12.334Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f791b57b5f71d6a441f",
+      "conversation_id": "68d40f4f1b57b5f71d6a4402",
+      "content": "Tôi hiểu cảm giác thất bại và tự ti có thể khiến bạn cảm thấy không thoải mái và buồn rầu. Bạn có thể kể rõ hơn về những tình huống cụ thể khiến bạn cảm thấy như vậy được không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:34:17.471Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f8a1b57b5f71d6a4422",
+      "conversation_id": "68d40f4f1b57b5f71d6a4402",
+      "content": "chán nản vì hết tiền rồi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:34:34.737Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d40f911b57b5f71d6a4428",
+      "conversation_id": "68d40f4f1b57b5f71d6a4402",
+      "content": "Tôi hiểu cảm giác chán nản khi phải đối mặt với tình trạng hết tiền. Đừng quá tự ti vì điều này, mọi người đều gặp khó khăn và thất bại trong cuộc sống. Bạn có thể chia sẻ thêm về cảm giác và tình hình hiện tại của bạn không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:34:41.856Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4148558ec4e7d899961a9",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "bạn có thể làm gì ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:55:49.513Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4148958ec4e7d899961b2",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "Có thể bạn muốn chia sẻ về tâm trạng hiện tại của mình hoặc nhận tư vấn về cách giải quyết vấn đề đang gặp phải. Bạn muốn mình lắng nghe và hỗ trợ bạn trong vấn đề nào?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:55:53.730Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4149758ec4e7d899961b5",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "tôi cảm thấy tức giận vì bát mì không ngon",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:56:07.667Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4149c58ec4e7d899961bc",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "Nghe bạn nói về cảm xúc tức giận vì bát mì không ngon, có lẽ bạn đã mong đợi một bữa ăn ngon lành. Bạn có thể chia sẻ thêm về cảm xúc của mình sau khi trải qua trải nghiệm không như ý này không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:56:12.498Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d414a858ec4e7d899961bf",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "tôi đã nấu như sách hướng dẫn nhưng thất bại",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:56:24.817Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d414ac58ec4e7d899961c6",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "Hiểu lắm, việc đầu bếp đôi khi gặp khó khăn là điều không hiếm. Bạn cảm thấy thất vọng và tức giận về kết quả của bữa mì không thành công chứ? Bạn có thể chia sẻ thêm về tình hình không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:56:28.827Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d414bc58ec4e7d899961c9",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "vị của nó tệ và tôi thấy thất vọng",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:56:44.051Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d414c058ec4e7d899961d0",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "Tôi hiểu cảm xúc thất vọng của bạn khi bữa mì không như ý. Đôi khi, kết quả không như mong đợi có thể gây ra cảm giác tức giận và thất vọng. Bạn muốn kể thêm về tình hình để mình hiểu rõ hơn không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T15:56:48.800Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d41f8e02441e79ef8120cf",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "tôi cảm thấy ghét nấu ăn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T16:42:54.552Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d41f9302441e79ef8120d6",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "Tôi hiểu cảm giác của bạn khi cảm thấy ghét nấu ăn. Đôi khi việc nấu ăn có thể là một trở ngại lớn và khiến chúng ta cảm thấy không thoải mái. Bạn có thể chia sẻ thêm về cảm xúc của mình khi nấu ăn để mình có thể hiểu rõ hơn không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T16:42:59.358Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d440ae02441e79ef8120d9",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "càng hào hứng nấu ăn thì càng thất vọng khi ra thành quả",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:04:14.287Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d440b402441e79ef8120e0",
+      "conversation_id": "68d4148558ec4e7d899961a6",
+      "content": "Nghe bạn chia sẻ về cảm giác thất vọng sau khi nấu ăn, đôi khi sự kỳ vọng cao có thể tạo áp lực và khiến chúng ta cảm thấy thất vọng hơn khi kết quả không như ý. Bạn đã thử thảo luận về cảm xúc của mình sau khi nấu ăn với người thân hoặc bạn bè chưa?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:04:20.321Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441280feda5238836a344",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "tôi thấy buồn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:06:16.408Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4412d0feda5238836a34d",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "Rất tiếc khi nghe bạn đang cảm thấy buồn. Bạn có thể chia sẻ với tôi về lý do khiến bạn cảm thấy như vậy được không? Tôi ở đây để lắng nghe và hỗ trợ bạn.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:06:21.657Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441350feda5238836a350",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "điểm thi tôi thấp",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:06:29.842Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4413a0feda5238836a357",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "Đừng quá lo lắng vì điểm thi thấp, đó không phản ánh giá trị thực sự của bạn. Bạn có thể chia sẻ với mình về cảm xúc của bạn sau khi nhận kết quả không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:06:34.148Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441540feda5238836a35a",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "giá như tôi chăm học hơn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:07:00.092Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441590feda5238836a361",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "Bạn đang cảm thấy hối tiếc về việc không chăm học đúng không? Đừng quá tự trách bản thân, quan trọng là nhìn vào tương lai và tập trung vào những bước tiếp theo. Bạn muốn chia sẻ thêm về cảm xúc của mình không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:07:05.252Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441800feda5238836a364",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "nếu điểm kì sau vẫn thấp thì tôi trượt tốt nhiệp",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:07:44.357Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441840feda5238836a36b",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "Bạn đang lo lắng về tương lai nếu điểm kì sau vẫn không cao. Đừng tự trách mình quá nhiều vì điều đó, hãy cố gắng tập trung vào việc học và chuẩn bị cho kì thi tiếp theo. Điểm số không phản ánh đúng giá trị thực sự của bạn, và có nhiều cách khác để thể hiện khả năng của mình. Hãy tin tưởng vào khả năng và nỗ lực của bản thân, và đừng bỏ cuộc. Hãy thực hành chăm chỉ và cố gắng hơn ở kì thi sau nhé!",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:07:48.445Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4418e0feda5238836a36e",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "tóm tắt tình huống của tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:07:58.311Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441940feda5238836a375",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "Bạn gặp lo lắng về kết quả học tập trong tương lai và đã trải qua một giai đoạn căng thẳng với việc chuẩn bị cho kì thi. Bạn cảm thấy áp lực và tự trách mình quá nhiều về điểm số, nhưng không nên quá chú trọng vào điều đó. Hãy tập trung vào việc học và chuẩn bị tốt cho kì thi tiếp theo. Điểm số không phản ánh đúng năng lực thực sự của bạn. Hãy tin tưởng vào khả năng của bản thân và đừng bỏ cuộc, cố gắng hơn ở kì thi sau.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:08:04.143Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441a60feda5238836a378",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "tôi phải làm gì ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:08:22.267Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d441ab0feda5238836a37f",
+      "conversation_id": "68d441280feda5238836a341",
+      "content": "Chào bạn, ở đây an toàn và mình sẵn sàng lắng nghe. Bạn có thể kể rõ hơn về tình hình hiện tại của bạn được không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:08:27.464Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d443da8e38eb1264f63ce4",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "tôi thấy hồi hộp",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:17:46.152Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d443e18e38eb1264f63ced",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "Nghe bạn nói vậy, có lẽ có một số việc đang khiến bạn cảm thấy lo lắng hoặc căng thẳng. Bạn có thể chia sẻ thêm về những gì đang xảy ra không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:17:53.600Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d443f08e38eb1264f63cf0",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "tôi thấy căng thẳng vì sắp có buổi phỏng vấn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:18:08.389Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444068e38eb1264f63cf7",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "tôi thấy căng thẳng vì sắp có buổi phỏng vấn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:18:30.077Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444098e38eb1264f63cfe",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "Hiểu rất rõ cảm giác căng thẳng trước buổi phỏng vấn. Bạn có thể kể rõ hơn về những điều khiến bạn cảm thấy lo lắng không? Chia sẻ điều này giúp giảm áp lực đấy.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:18:33.726Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4446a8e38eb1264f63d01",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "kết quả của tôi thế nào ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:20:10.226Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4446e8e38eb1264f63d08",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "Xin lỗi bạn, trợ lý không thể cung cấp thông tin về kết quả của bạn mà không biết thêm chi tiết cụ thể. Bạn có thể chia sẻ thêm để tôi hiểu rõ hơn không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:20:14.037Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444778e38eb1264f63d0b",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "tóm tắt tình huống của tôi ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:20:23.932Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4447c8e38eb1264f63d12",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "Chào bạn! Bạn đang cảm thấy căng thẳng và lo lắng trước buổi phỏng vấn sắp tới. Bạn muốn chia sẻ thêm về tình hình và cảm xúc của mình để giảm áp lực và căng thẳng, đúng không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:20:28.958Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4448e8e38eb1264f63d15",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "tôi cảm giấy áp lực dù đã chuẩn bị kĩ",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:20:46.559Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444938e38eb1264f63d1c",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "Tôi hiểu cảm giác áp lực khi chuẩn bị cho một buổi phỏng vấn. Bạn có thể kể rõ hơn về những gì đang gây áp lực cho bạn không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:20:51.241Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444b68e38eb1264f63d1f",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "liệu rằng tôi có pass phỏng vấn không :<",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:21:26.723Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444ba8e38eb1264f63d26",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "Hiện tại bạn đang cảm thấy lo lắng và căng thẳng trước buổi phỏng vấn sắp tới phải không? Đừng quá áp đặt bản thân mình. Đôi khi, việc chuẩn bị kỹ lưỡng và tự tin trong bản thân cũng đã là bước quan trọng để thành công. Bạn đã chuẩn bị kỹ cho phỏng vấn chưa?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:21:30.778Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444c58e38eb1264f63d29",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "tôi đã chuẩn bị kỹ",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:21:41.008Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444c98e38eb1264f63d30",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "Việc chuẩn bị kỹ chắc chắn đã làm giảm một phần áp lực trước buổi phỏng vấn. Tuy nhiên, không tránh khỏi cảm giác căng thẳng và lo lắng trước ngày H. Bạn có thể chia sẻ thêm về những gì đang khiến bạn cảm thấy áp lực không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:21:45.027Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444d58e38eb1264f63d33",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "cho tôi lời khuyên",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:21:57.725Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d444da8e38eb1264f63d3a",
+      "conversation_id": "68d443da8e38eb1264f63ce1",
+      "content": "Chắc chắn! Bạn có thể chia sẻ với mình vấn đề bạn đang gặp phải để mình có thể hỗ trợ tốt hơn không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:22:02.061Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4465e07ee9ba403007703",
+      "conversation_id": "68d4465d07ee9ba403007700",
+      "content": "tôi thấy sợ hãi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:28:30.023Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4466207ee9ba40300770c",
+      "conversation_id": "68d4465d07ee9ba403007700",
+      "content": "Bạn đừng lo lắng, ở đây an toàn và không có gì phán xét. Bạn có thể chia sẻ với mình về nguyên nhân khiến bạn cảm thấy sợ hãi không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:28:34.318Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4467407ee9ba40300770f",
+      "conversation_id": "68d4465d07ee9ba403007700",
+      "content": "tôi sắp phải đi xa, 1 nơi mới",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:28:52.220Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4467707ee9ba403007716",
+      "conversation_id": "68d4465d07ee9ba403007700",
+      "content": "Phải đối mặt với việc phải đi đến một nơi mới có thể gây ra cảm giác lo lắng và căng thẳng. Bạn có thể chia sẻ thêm về cảm xúc của mình hoặc những điều bạn lo ngại khi chuẩn bị đi xa không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:28:55.573Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4468907ee9ba403007719",
+      "conversation_id": "68d4465d07ee9ba403007700",
+      "content": "tôi thấy lo lắng, bất an, hồi hộp",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:29:13.887Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d4468e07ee9ba403007720",
+      "conversation_id": "68d4465d07ee9ba403007700",
+      "content": "Nghe bạn chia sẻ về cảm xúc lo lắng, bất an và hồi hộp, mình hiểu điều này có thể khiến bạn cảm thấy căng thẳng. Bạn có thể kể rõ hơn về nguyên nhân khiến bạn cảm thấy như vậy không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-24T19:29:18.615Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5060b87544201629400",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "tôi thấy tổn thương",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:01:42.053Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d50b0b87544201629409",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "Bạn đã trải qua điều gì khiến bạn cảm thấy tổn thương? Đó là tình trạng kéo dài từ bao lâu không? Cảm giác tổn thương này ảnh hưởng đến cuộc sống hàng ngày của bạn như thế nào?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:01:47.674Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5180b8754420162940c",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "thầy giáo chửi tôi là ngu",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:02:00.106Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d51d0b87544201629413",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "Thật không may khi bạn phải trải qua tình huống đáng buồn như vậy. Bạn cảm thấy như thế nào khi bị thầy giáo chửi là ngu?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:02:05.221Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5300b87544201629416",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "thấy thất vọng và buồn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:02:24.999Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5360b8754420162941d",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "Mình hiểu bạn cảm thấy thất vọng và buồn. Bạn có thể nói cho mình biết điều gì đã xảy ra khiến bạn cảm thấy như vậy không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:02:30.756Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5460b87544201629420",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "tôi mắc lỗi nghiêm trọng và thầy giáo đã mắng tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:02:46.192Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d54b0b87544201629427",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "Bạn không cô đơn trong tình huống này. Mọi người đều có lúc gặp phải sai lầm. Bạn có thể kể rõ hơn về tình huống cụ thể khiến bạn cảm thấy thất vọng sau khi bị mắng không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:02:51.635Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d55d0b8754420162942a",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "bạn có lời khuyên gì không ?",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:03:09.073Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5610b87544201629431",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "Chắc chắn! Bạn có thể kể rõ hơn về tình huống bạn đang gặp phải không? Điều này đã ảnh hưởng đến bạn như thế nào?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:03:13.878Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d56f0b87544201629434",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "tôi không muốn đến lớp nữa",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:03:27.071Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5730b8754420162943b",
+      "conversation_id": "68d6d5060b875442016293fd",
+      "content": "Bạn cảm thấy không muốn đến lớp có thể do cảm thấy thất vọng và buồn bã sau tình huống bạn gặp phải. Bạn có thể kể rõ hơn về lý do bạn không muốn đến lớp nữa được không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:03:31.819Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d58f0b87544201629448",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "xin chào",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:03:59.254Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5910b87544201629451",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "Chào bạn! Rất vui được gặp bạn ở đây. Bạn cảm thấy thế nào hôm nay?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:01.383Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5970b87544201629454",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "tôi thấy xấu hổ",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:07.652Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d59a0b8754420162945b",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "Không sao cả, mọi người đôi khi cảm thấy như vậy. Bạn muốn chia sẻ thêm về lý do bạn cảm thấy xấu hổ không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:10.692Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5a50b8754420162945e",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "tôi bị rách quần trên xe bus",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:21.100Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5a90b87544201629465",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "Xin lỗi bạn phải trải qua tình huống khó khăn đó. Đừng lo, đây không phải là điều gì quá lớn để lo lắng. Bạn có thể kể rõ hơn khi nào tình trạng này xảy ra và cảm giác của bạn sau sự cố không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:25.209Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5b80b87544201629468",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "để lộ quần lót hello kitty màu hồng",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:40.533Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5bc0b8754420162946f",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "Đó có thể là một tình huống khá khó xử và gây xấu hổ. Bạn không cần phải lo lắng, vì mọi người đều gặp phải những tình huống khó xử như vậy trong cuộc sống. Bạn có thể tự an ủi bản thân bằng cách nhận ra rằng điều đó chỉ là một sự cố nhỏ và không đáng quan trọng. Nếu bạn cảm thấy cần nói chuyện thêm về điều này, tôi sẽ luôn lắng nghe.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:44.279Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5c80b87544201629472",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "an ủi tôi đi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:56.105Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5cb0b87544201629479",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "Bạn đừng lo lắng, mọi người đều từng gặp những tình huống xấu hổ như vậy. Có thể bạn cảm thấy rách quần trên xe bus là một sự cố lớn, nhưng thực sự đó chỉ là một sự cố nhỏ trong cuộc sống. Bạn đã thử nghĩ về cách nhìn nhận nó một cách nhẹ nhàng chưa?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:04:59.671Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5ea0b8754420162947c",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "nào hãy động viên tôi đi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:05:30.529Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5ef0b87544201629483",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "Bạn đang trải qua một giai đoạn khó khăn, nhưng hãy nhớ rằng mọi khó khăn đều có thể vượt qua. Hãy tập trung vào những điều tích cực trong cuộc sống và tin rằng mọi việc sẽ tốt đẹp hơn. Hãy giữ tinh thần lạc quan lên và không bao giờ từ bỏ!",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:05:35.832Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5f60b87544201629486",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "rồi sao nữa",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:05:42.962Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d5fb0b8754420162948d",
+      "conversation_id": "68d6d58f0b87544201629445",
+      "content": "Bạn có thể chia sẻ thêm về tình hình của mình để mình hiểu rõ hơn và cùng bạn tìm ra giải pháp cho vấn đề đó.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:05:47.655Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d8a10c018de784bbcfa5",
+      "conversation_id": "68d6d8a10c018de784bbcfa2",
+      "content": "tôi cảm thấy bị xúc phạm",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:17:05.251Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d8a30c018de784bbcfae",
+      "conversation_id": "68d6d8a10c018de784bbcfa2",
+      "content": "Tôi hiểu cảm giác của bạn khi bị xúc phạm. Bạn có thể chia sẻ thêm về tình huống đã xảy ra để chúng ta cùng tìm cách giải quyết không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:17:07.716Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d8bb0c018de784bbcfb1",
+      "conversation_id": "68d6d8a10c018de784bbcfa2",
+      "content": "hàng xóm đã quát tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:17:31.586Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d8bf0c018de784bbcfb8",
+      "conversation_id": "68d6d8a10c018de784bbcfa2",
+      "content": "Tôi rất tiếc vì bạn phải trải qua tình huống khó chịu đó. Bạn có thể chia sẻ thêm với tôi về tình hình cụ thể không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:17:35.313Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d8e90c018de784bbcfbb",
+      "conversation_id": "68d6d8a10c018de784bbcfa2",
+      "content": "chỉ vì tôi đái bậy vào tường rào nhà ổng",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:18:17.722Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6d8ec0c018de784bbcfc2",
+      "conversation_id": "68d6d8a10c018de784bbcfa2",
+      "content": "Tôi hiểu bạn đang cảm thấy xấu hổ và lo lắng sau sự cố đái bậy. Chắc chắn rằng bạn đã học được bài học từ tình huống này và sẽ không lặp lại nữa.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:18:20.775Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6dbc4c1a0e5411c7b5095",
+      "conversation_id": "68d6dbc4c1a0e5411c7b5092",
+      "content": "tôi thấy tức giận",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:30:28.144Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6dbc7c1a0e5411c7b509e",
+      "conversation_id": "68d6dbc4c1a0e5411c7b5092",
+      "content": "Rất tiếc khi nghe bạn đang cảm thấy tức giận. Bạn muốn chia sẻ với mình về lí do khiến bạn tức giận không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:30:31.360Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6dbd4c1a0e5411c7b50a1",
+      "conversation_id": "68d6dbc4c1a0e5411c7b5092",
+      "content": "lũ nhóc hàng xóm trêu tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:30:44.314Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6dbd7c1a0e5411c7b50a8",
+      "conversation_id": "68d6dbc4c1a0e5411c7b5092",
+      "content": "Rất tiếc khi bạn phải đối mặt với tình huống khó chịu như vậy. Bạn có thể cảm thấy tức giận và bực tức vì sự không công bằng này. Bạn đã nghĩ đến cách xử lý vấn đề này chưa?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:30:47.737Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ddf766b69d4bb6a68c04",
+      "conversation_id": "68d6ddf766b69d4bb6a68c01",
+      "content": "tôi cảm thấy buồn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:39:51.042Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ddf966b69d4bb6a68c0d",
+      "conversation_id": "68d6ddf766b69d4bb6a68c01",
+      "content": "Tôi rất tiếc khi nghe bạn nói rằng bạn đang cảm thấy buồn. Điều gì đã xảy ra gần đây khiến bạn cảm thấy như vậy? Bạn có muốn chia sẻ thêm về cảm xúc của mình không? Nếu bạn muốn, chúng ta có thể cùng nhau tìm hiểu nguyên nhân và tìm ra cách để giải quyết.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:39:53.849Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6de1566b69d4bb6a68c18",
+      "conversation_id": "68d6ddf766b69d4bb6a68c01",
+      "content": "bé mèo cưng đã bỏ tôi đi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:40:21.767Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6de1a66b69d4bb6a68c1f",
+      "conversation_id": "68d6ddf766b69d4bb6a68c01",
+      "content": "Tôi rất tiếc khi nghe bạn nói về việc bé mèo cưng đã bỏ bạn. Điều này chắc chắn gây ra sự đau lòng và cô đơn cho bạn. Bạn đã thử tìm hiểu nguyên nhân tại sao bé mèo lại ra đi chưa? Có thể có những vấn đề sức khỏe hoặc môi trường gì đó ảnh hưởng đến quyết định của bé mèo không? Nếu muốn, bạn có thể chia sẻ thêm để ta có thể hiểu rõ hơn về tình huống và cùng nhau tìm cách giải quyết.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:40:26.093Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6de5c66b69d4bb6a68c30",
+      "conversation_id": "68d6ddf766b69d4bb6a68c01",
+      "content": "mèo cưng cảm thấy cô đơn dù đã có tôi, bé mèo ăn ít và chán nản, mèo muốn ra ngoài chơi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:41:32.011Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6de6066b69d4bb6a68c37",
+      "conversation_id": "68d6ddf766b69d4bb6a68c01",
+      "content": "Mình hiểu bạn cảm thấy lo lắng khi thấy mèo cưng của bạn trở nên cô đơn và chán nản. Việc mèo ăn ít và muốn ra ngoài chơi có thể là dấu hiệu của sự buồn bã và thiếu hứng thú. Bạn có thể tìm hiểu xem có bất kỳ thay đổi nào gần đây trong môi trường sống hoặc sức khỏe của mèo không? Đôi khi, việc cung cấp thêm sự chăm sóc và quan tâm, cũng như tạo điều kiện để mèo vận động và khám phá mới có thể giúp cải thiện tinh thần của mèo. Ngoài ra, bạn cũng có thể tham khảo ý kiến của bác sĩ thú y để biết cách hỗ trợ tốt nhất cho bé mèo của bạn.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T18:41:36.178Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e849b7b07f25f5315877",
+      "conversation_id": "68d6e849b7b07f25f5315874",
+      "content": "tôi thấy bị xúc phạm",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:23:53.695Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e84eb7b07f25f5315880",
+      "conversation_id": "68d6e849b7b07f25f5315874",
+      "content": "Tôi rất tiếc khi nghe bạn nói về cảm giác bị xúc phạm. Việc bị xúc phạm có thể gây ra những cảm xúc khó chịu và không thoải mái. Bạn có thể chia sẻ thêm về tình huống cụ thể mà bạn cảm thấy bị xúc phạm không? Điều gì đã xảy ra khiến bạn cảm thấy như vậy? Chúng ta có thể cùng nhau tìm hiểu và xem xét cách giải quyết vấn đề này. Luôn nhớ rằng bạn không đơn độc và luôn có người ở đây lắng nghe và hỗ trợ bạn.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:23:58.190Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e864b7b07f25f5315883",
+      "conversation_id": "68d6e849b7b07f25f5315874",
+      "content": "một người trên đường đã sỉ nhục tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:24:20.977Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e86ab7b07f25f531588a",
+      "conversation_id": "68d6e849b7b07f25f5315874",
+      "content": "Tôi rất tiếc khi nghe bạn bị sỉ nhục trên đường. Đó có thể là một trải nghiệm đau lòng và gây ra cảm giác không thoải mái. Bạn muốn kể cho mình nghe chi tiết về tình huống đó không? Có phải bạn cảm thấy tức giận và vô cùng khó chịu sau sự việc này không? Đừng lo lắng, bạn không đơn độc và luôn có sự hỗ trợ từ những người xung quanh. Hãy chia sẻ thêm để chúng ta có thể tìm cách giúp bạn vượt qua tình huống này.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:24:26.033Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e89eb7b07f25f531588d",
+      "conversation_id": "68d6e849b7b07f25f5315874",
+      "content": "tôi bấm còi và lão ta chửi mắng tôi thậm tệ",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:25:18.487Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e8a2b7b07f25f5315894",
+      "conversation_id": "68d6e849b7b07f25f5315874",
+      "content": "Tôi rất tiếc khi nghe về trải nghiệm khó chịu mà bạn đã phải trải qua. Việc bị chửi mắng có thể khiến bạn cảm thấy tức giận và không thoải mái. Bạn cảm thấy như thế nào sau sự việc này? Liệu có điều gì khác mà bạn muốn chia sẻ về tình huống này không? Nếu bạn muốn, bạn có thể kể chi tiết hơn về cách mà bạn đang xử lý cảm xúc của mình sau sự việc này.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:25:22.634Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e9e15a9f2b9475c9ad8d",
+      "conversation_id": "68d6e9e15a9f2b9475c9ad8a",
+      "content": "tôi thấy buồn vì bạn gái chia tay",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:30:41.532Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6e9e65a9f2b9475c9ad96",
+      "conversation_id": "68d6e9e15a9f2b9475c9ad8a",
+      "content": "Tôi hiểu cảm giác buồn bã mà bạn đang trải qua sau khi chia tay với bạn gái. Mất đi một mối quan hệ quan trọng như vậy thường gây ra nhiều cảm xúc khó chịu, bao gồm sự cô đơn, tiếc nuối và lo lắng về tương lai. Bạn đã thử dành thời gian để chấp nhận cảm xúc của mình chưa? Việc này rất quan trọng để bước tiếp và hồi phục. Bạn có thể chia sẻ thêm với tôi về cảm xúc của mình sau chia tay không? Đồng thời, đừng quên tự thưởng cho bản thân và tập trung vào việc phục hồi sau khoảnh khắc khó khăn này.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:30:46.435Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ea0b5a9f2b9475c9ad99",
+      "conversation_id": "68d6e9e15a9f2b9475c9ad8a",
+      "content": "tôi muốn được an ủi và động viên",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:31:23.875Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ea125a9f2b9475c9ada0",
+      "conversation_id": "68d6e9e15a9f2b9475c9ad8a",
+      "content": "Tôi ở đây để lắng nghe và hỗ trợ bạn trong khoảnh khắc khó khăn này. Đầu tiên, hãy nhớ rằng không sao cảm thấy buồn sau một chia tay. Đó là một phần quá trình phục hồi tự nhiên và quan trọng. Hãy cho bản thân thời gian để chấp nhận và xử lý cảm xúc của mình. Bạn đã thể hiện sự mạnh mẽ khi biết đến nhu cầu của mình và tìm kiếm sự an ủi. Hãy nhớ rằng bạn xứng đáng được quan tâm và yêu thương. Cố gắng dành thời gian để chăm sóc bản thân, làm những điều bạn yêu thích, kết nối với gia đình hoặc bạn bè, và không ngần ngại nhận sự giúp đỡ từ những người xung quanh. Hãy tin tưởng vào khả năng của bản thân và luôn nhớ rằng cuộc sống vẫn có nhiều điều tốt đẹp đang chờ đợi bạn phía trước.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:31:30.306Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ea475a9f2b9475c9ada3",
+      "conversation_id": "68d6e9e15a9f2b9475c9ad8a",
+      "content": "tôi thấy tổn thương và trống rỗng",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:32:23.934Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ea4e5a9f2b9475c9adaa",
+      "conversation_id": "68d6e9e15a9f2b9475c9ad8a",
+      "content": "Tôi hiểu cảm xúc của bạn khi bạn cảm thấy tổn thương và trống rỗng. Đôi khi sau một mất mát quan trọng như chia tay, chúng ta có thể trải qua giai đoạn đau khổ và hụt hẫng. Cảm giác tổn thương và trống rỗng là bình thường trong quá trình phục hồi sau một sự kiện đau lòng như vậy. Bạn đã cho bản thân thời gian để chấp nhận cảm xúc này chưa? Thay vì cố gắng che giấu hoặc tránh né, hãy cho phép mình trải qua từng giai đoạn của quá trình phục hồi. Bạn có thể tập trung vào chăm sóc bản thân, dành thời gian cho các hoạt động yêu thích, kết nối với bạn bè hoặc người thân, hoặc thậm chí tạo điều kiện để chia sẻ cảm xúc với người tin tưởng. Chỉ khi bạn chấp nhận và tha thứ cho bản thân, bạn mới có thể tìm lại sự an ủi và tiếp tục phía trước.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:32:30.268Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ea635a9f2b9475c9adad",
+      "conversation_id": "68d6e9e15a9f2b9475c9ad8a",
+      "content": "giúp tôi vượt qua nào",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:32:51.474Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ea685a9f2b9475c9adb4",
+      "conversation_id": "68d6e9e15a9f2b9475c9ad8a",
+      "content": "Tôi hiểu bạn đang trải qua giai đoạn khó khăn sau chia tay và cảm thấy buồn bã, mệt mỏi. Đây là thời điểm quan trọng để chăm sóc bản thân và tập trung vào việc phục hồi. Bạn có thể bắt đầu bằng việc chấp nhận cảm xúc của mình, không giữ lại và không tự áy náy vì điều đã qua. Thực hành self-care là rất quan trọng - dành thời gian cho những hoạt động yêu thích, chăm sóc sức khỏe cả về thể chất lẫn tinh thần, và kết nối với người thân và bạn bè.",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:32:56.952Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ef115613f555b37e1b31",
+      "conversation_id": "68d6ef115613f555b37e1b2e",
+      "content": "tôi thấy tủi thân vì người anh em thân thiết đã bỏ rơi tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:52:49.805Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ef195613f555b37e1b3a",
+      "conversation_id": "68d6ef115613f555b37e1b2e",
+      "content": "Ohh, bạn ơi, mình rất tiếc khi nghe bạn nói về cảm giác tủi thân và cô đơn sau khi người anh em bỏ rơi bạn. Đó thật sự là một trải nghiệm khó chịu và đau lòng. :( Hãy nhớ rằng việc bị từ chối không phản ánh giá trị thực sự của bạn, và đây không phải là lỗi của bạn. Mình hoàn toàn hiểu khó khăn mà bạn đang phải trải qua. Bạn có muốn kể cho mình nghe thêm về tình huống để chúng ta có thể hiểu rõ hơn không? Bạn đã nghĩ xem có cách nào để vượt qua trở ngại này chưa?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:52:57.010Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ef4a5613f555b37e1b41",
+      "conversation_id": "68d6ef115613f555b37e1b2e",
+      "content": "chúng tôi đã từng vào sinh ra tử, vậy mà cậu ấy lại phản bội tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:53:46.849Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6ef4f5613f555b37e1b48",
+      "conversation_id": "68d6ef115613f555b37e1b2e",
+      "content": "Oh wow, bạn ơi! Thật đau lòng khi người anh em thân thiết lại phản bội bạn như vậy. :( Hãy biết rằng việc bị từ chối không phản ánh giá trị thực sự của bạn đâu! Có lẽ cần thời gian để hiểu rõ hơn về tình huống này và xem xét cách vượt qua nó. Bạn đã nghĩ đến cách nào để tự xử lý trong tình huống này chưa? Mình sẽ luôn ở đây lắng nghe và chia sẻ cùng bạn, không để bạn phải đơn độc! <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T19:53:51.522Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6f4f4ea2d8a4ef9c96f21",
+      "conversation_id": "68d6f4f4ea2d8a4ef9c96f1e",
+      "content": "tôi thấy cô đơn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T20:17:56.794Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d6f4fcea2d8a4ef9c96f2a",
+      "conversation_id": "68d6f4f4ea2d8a4ef9c96f1e",
+      "content": "Oh noooooo, bạn ơi! Mình hiểu cảm giác cô đơn này lắm! :( Đừng buồn lòng, vì bạn không phải đối diện với cảm xúc ấy một mình đâu! Cô đơn có thể xuất phát từ nhiều nguyên nhân khác nhau - có thể do thiếu giao tiếp xã hội, mất mát, hoặc áp lực cuộc sống. Bạn muốn chia sẻ với mình thêm về lý do khiến bạn cảm thấy như vậy không? Có phải do công việc, mối quan hệ hay bất kỳ điều gì khác không? :o Mình có thể gợi ý cho bạn một số cách để giải quyết cảm giác cô đơn này, như tìm kiếm sự hỗ trợ từ bạn bè, gia đình hoặc chuyên gia tâm lý. Hãy nhớ rằng, luôn có người ở bên và sẵn lòng lắng nghe! Bạn có thể thử mở lòng và chia sẻ để tìm ra hướng giải quyết tốt nhất cho mình <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-26T20:18:04.785Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d909289eaad0b01f404ee3",
+      "conversation_id": "68d909289eaad0b01f404ee0",
+      "content": "tôi thấy sợ hãi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T10:08:40.952Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9092f9eaad0b01f404eec",
+      "conversation_id": "68d909289eaad0b01f404ee0",
+      "content": "Oh no, bạn ơi! Sự sợ hãi có thể làm cho chúng ta cảm thấy rối bời và lo lắng đó. :( Hãy nói cho mình biết xem bạn đang sợ điều gì nhé? Sợ hãi có thể xuất phát từ nhiều nguyên nhân khác nhau, như căng thẳng, áp lực trong công việc hoặc cuộc sống, hay thậm chí chỉ do sự không chắc chắn về tương lai. Bạn đã tự nhận ra lý do cụ thể khiến bạn cảm thấy sợ chưa? :) Khi chúng ta hiểu rõ nguyên nhân, chúng ta cũng dễ dàng hơn để xử lý vấn đề đó. Ngoài ra, việc chia sẻ cảm xúc với người thân yêu và tìm kiếm sự hỗ trợ từ họ cũng giúp giảm bớt sự sợ hãi đấy. Bạn không nên giữ mọi lo lắng cho riêng mình, mình luôn ở đây để lắng nghe và hỗ trợ bạn đấy! <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T10:08:47.642Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9099a9eaad0b01f404f09",
+      "conversation_id": "68d909289eaad0b01f404ee0",
+      "content": "gã bảo vệ bê đê cứ bám lấy tôi ở trường học",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T10:10:34.921Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d909a39eaad0b01f404f10",
+      "conversation_id": "68d909289eaad0b01f404ee0",
+      "content": "Oh mình hiểu bạn ơi, cảm ơn bạn đã chia sẻ điều này với mình. Cảm giác bị bám theo và quấy rối làm cho bạn cảm thấy không thoải mái và lo lắng, phải không? :( Bạn có thể nói rõ hơn về tình huống này được không? Gã bảo vệ đó là ai trong trường của bạn? Bạn đã thử nói chuyện với người quản lý trường hoặc những người khác để được hỗ trợ chưa? Đừng ngần ngại, việc chia sẻ vấn đề này với người khác có thể giúp bạn tìm ra giải pháp và đưa ra hành động cụ thể để bảo vệ bản thân. Bạn cũng có thể đề xuất ý kiến của mình hoặc nhờ sự hỗ trợ từ bạn bè, giáo viên hoặc phụ huynh. Hãy nhớ rằng, luôn có cách giải quyết cho mọi vấn đề và mình sẽ luôn ở đây để ủng hộ bạn! <3 :)",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T10:10:43.919Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d909ca9eaad0b01f404f13",
+      "conversation_id": "68d909289eaad0b01f404ee0",
+      "content": "tôi thấy phiền và không dám tới trường",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T10:11:22.766Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d909d19eaad0b01f404f1a",
+      "conversation_id": "68d909289eaad0b01f404ee0",
+      "content": "Oh no, bạn ơi, mình hiểu cảm giác phiền lòng và lo lắng khi không dám tới trường. Đừng buồn nhé, bạn không phải đối diện với tình huống này một mình đâu! ^^ Bạn có thể cho mình biết nguyên nhân cụ thể khiến bạn cảm thấy như vậy không? Có phải do gặp khó khăn ở trường, hay sự bài xích từ người bảo vệ khiến bạn lo sợ? :/ Việc chia sẻ vấn đề này với người khác có thể giúp giảm bớt áp lực và tìm ra giải pháp hơn đấy. Bạn đã nghĩ đến việc nói chuyện với gia đình, bạn bè hoặc giáo viên để họ có thể hỗ trợ bạn chưa? Hãy nhớ rằng, việc chia sẻ là bước quan trọng để tìm ra cách giải quyết vấn đề. Mình ở đây luôn sẵn lòng lắng nghe và ủng hộ bạn trong mọi tình huống đấy! <3 :)",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T10:11:29.381Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9183ed4c92cde7a6cb7ea",
+      "conversation_id": "68d9183ed4c92cde7a6cb7e7",
+      "content": "tôi thấy buồn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T11:13:02.327Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d91844d4c92cde7a6cb7f2",
+      "conversation_id": "68d9183ed4c92cde7a6cb7e7",
+      "content": "Oh no, bạn ơi! Mình rất tiếc khi nghe tin bạn đang cảm thấy buồn. :( Có điều gì xảy ra khiến bạn cảm thấy như vậy không? Bạn muốn kể cho mình nghe để chia sẻ không? Mình ở đây và sẵn sàng lắng nghe đó! <3 Buồn có thể đến từ nhiều nguyên nhân khác nhau, từ căng thẳng, mối quan hệ hay áp lực trong công việc. Bạn đã thử các hoạt động giúp giảm stress như thư giãn, tập yoga hay tập thể dục chưa? Việc chăm sóc bản thân là điều quan trọng, bạn nhớ điều đó nhé! Mình tin rằng sau mỗi cơn mưa sẽ là bầu trời tươi sáng, và mình ở đây để ủng hộ bạn lấy lại tinh thần vui vẻ! ^^",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T11:13:08.203Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9185cd4c92cde7a6cb7f5",
+      "conversation_id": "68d9183ed4c92cde7a6cb7e7",
+      "content": "vì tôi đã bỏ lỡ cơ hội đi concert âm nhạc",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T11:13:32.232Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d91863d4c92cde7a6cb7fb",
+      "conversation_id": "68d9183ed4c92cde7a6cb7e7",
+      "content": "Oh no, bạn ơi! Mình hiểu cảm giác thất vọng khi bỏ lỡ cơ hội đi concert âm nhạc. :( Đừng buồn nữa nhé, có lẽ sẽ có những cơ hội tuyệt vời khác đang chờ bạn phía trước! ^^ Concert âm nhạc là một trải nghiệm tuyệt vời để thư giãn và tận hưởng âm nhạc yêu thích. Bạn có thể chia sẻ với mình về niềm đam mê âm nhạc của bạn không? Mình muốn biết bạn thích loại nhạc gì và ban đầu bạn mong đợi điều gì ở concert đó? :D Dù không tham gia được lần này, bạn có thể tìm cách khắc phục bằng cách nghe lại những bản nhạc yêu thích, hoặc chuẩn bị cho cơ hội tới bằng việc theo dõi thông tin về các sự kiện âm nhạc sắp tới. Hãy nghĩ pozitiv và hy vọng vào những trải nghiệm tuyệt vời sắp tới, bạn nhé! <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T11:13:39.005Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9187dd4c92cde7a6cb7fe",
+      "conversation_id": "68d9183ed4c92cde7a6cb7e7",
+      "content": "tôi thấy tiếc nuối và trầm cảm",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T11:14:05.334Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d91885d4c92cde7a6cb804",
+      "conversation_id": "68d9183ed4c92cde7a6cb7e7",
+      "content": "Ohh bạn ơi, mình thấu hiểu cảm xúc tiếc nuối và trầm cảm của bạn đó! :( Đừng buồn lòng quá nha, bởi mọi khó khăn đều có cách vượt qua! Hãy để mình giúp bạn tìm ra nguyên nhân đằng sau cảm xúc này nhé. Bạn cảm thấy tiếc nuối và trầm cảm chủ yếu từ điều gì? Có phải do mất mát, thất bại hoặc áp lực trong cuộc sống học tập, công việc không? Hay có những suy nghĩ tiêu cực đang chi phối tâm trạng của bạn? Hãy chia sẻ thêm với mình để chúng ta có thể tìm ra giải pháp cho tình hình này nhé! <3 Mình tin rằng, dù khó khăn đến đâu, bạn vẫn sẽ vượt qua được mà! Cùng nhau đối diện vấn đề và tìm kiếm các hoạt động tích cực, ví dụ như thực hành mindfulness, yoga, hoặc kỹ thuật hít thở sâu để giúp giảm căng thẳng và nâng cao tinh thần. Bạn không bao giờ phải đơn độc với cảm xúc của mình khi có mình mình ở đây ủng hộ bạn lúc nào cũng. ^^ :)",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T11:14:13.013Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9189dd4c92cde7a6cb807",
+      "conversation_id": "68d9183ed4c92cde7a6cb7e7",
+      "content": "hãy an ủi tôi đi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T11:14:37.366Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d918a2d4c92cde7a6cb80d",
+      "conversation_id": "68d9183ed4c92cde7a6cb7e7",
+      "content": "Aww bạn ơi, đừng buồn nữa nhé! 🥺😔 Mình hiểu cảm giác khó chịu và cần sự an ủi lắm. Đôi khi trong cuộc sống, chúng ta có những thời điểm gặp phải khó khăn hoặc cảm thấy mệt mỏi. Nhưng hãy nhớ rằng, sau mỗi cơn mưa sẽ là bầu trời sáng! 💪😊 Bạn muốn kể cho mình nghe về điều gì khiến bạn buồn để mình có thể chia sẻ và giúp bạn hơn không? Cùng nhau chia sẻ và tìm ra cách để vượt qua nha! ❤️",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T11:14:42.754Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d92cff763fead57897de7d",
+      "conversation_id": "68d92cff763fead57897de7a",
+      "content": "tôi đang gặp vấn đề",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T12:41:35.279Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d92d03763fead57897de85",
+      "conversation_id": "68d92cff763fead57897de7a",
+      "content": "Oh no! Đừng lo lắng quá bạn ơi, mình ở đây để lắng nghe và hỗ trợ bạn mọi lúc đấy! Bạn có thể chia sẻ vấn đề mà bạn đang gặp phải không? Mình muốn hiểu rõ hơn để có thể giúp bạn đấy! ^^ Có thể vấn đề liên quan đến công việc, gia đình, tình yêu hay sức khỏe không? Bạn cảm thấy như thế nào khi đối diện với vấn đề này? Mình tin rằng chúng ta có thể cùng nhau tìm ra giải pháp cho tình huống khó khăn này. Hãy tin tưởng và bắt đầu chia sẻ nhé!",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T12:41:39.937Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d92d27763fead57897de88",
+      "conversation_id": "68d92cff763fead57897de7a",
+      "content": "tôi thấy buồn chán",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T12:42:15.398Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d92d2c763fead57897de8e",
+      "conversation_id": "68d92cff763fead57897de7a",
+      "content": "Oh no! Mình rất tiếc khi nghe bạn cảm thấy buồn chán. :( Buồn chán có thể đến từ nhiều nguyên nhân khác nhau - có thể do stress, cảm xúc không ổn định, hay một loạt các yếu tố khác trong cuộc sống hàng ngày. Bạn muốn chia sẻ với mình về điều gì làm bạn cảm thấy buồn chán không? Mình sẽ lắng nghe và hiểu bạn hơn để có thể giúp đỡ. Bạn đã thử các phương pháp nào để cải thiện tâm trạng của mình chưa? Hãy nhớ rằng, không có gì sai khi cảm thấy buồn chán và bạn không phải đối diện với nó một mình. Mình ở đây để sẵn lòng hỗ trợ bạn bất cứ lúc nào! <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T12:42:20.512Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93b7a96110f784585bb5d",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "tôi đang gặp vấn đề về tâm lý",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:43:22.473Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93b8196110f784585bb65",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "Oh no, bạn ơi! Mình hiểu cảm giác khó khăn khi phải đối diện với vấn đề tâm lý. Đừng lo lắng, bạn đã làm điều đúng khi nhận ra và muốn giải quyết vấn đề này. Việc chia sẻ và tìm kiếm sự hỗ trợ là bước quan trọng trong việc phục hồi tâm lý của mình. Bạn muốn kể cho mình nghe thêm về những gì bạn đang trải qua không? Có phải stress, lo lắng, hay trầm cảm đến với bạn không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:43:29.020Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93b9696110f784585bb68",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "tôi cảm thấy bế tắc và bất lực",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:43:50.846Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93b9c96110f784585bb6e",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "Hello bạn ơi, mình hiểu cảm giác bế tắc và bất lực này của bạn đấy! Đôi khi trong cuộc sống, chúng ta có thể gặp phải những cảm xúc mệt mỏi và không biết phải làm sao. Nhưng đừng lo lắng quá nhiều nhé! Việc nhận ra vấn đề và muốn giải quyết nó đã là một bước quan trọng trong quá trình phục hồi tâm lý. Bạn có thể chia sẻ thêm với mình về nguyên nhân gây ra cảm giác bế tắc và bất lực của bạn không? Có phải do áp lực từ công việc, học tập hay mối quan hệ trong cuộc sống không? Hãy để chúng ta cùng nhau đi sâu vào vấn đề này và tìm cách giải quyết nhé! Bạn không cô đơn trong cuộc chiến này đâu, mình luôn ở đây để đồng hành và ủng hộ bạn <3:)",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:43:56.971Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93bb596110f784585bb71",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "vợ tôi thu hết tiền lương tháng của tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:44:21.009Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93bba96110f784585bb77",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "Oh no, bạn ơi, mình hiểu cảm giác khó chịu và bực tức khi vợ thu hết tiền lương của bạn. :( Điều này có thể tạo ra căng thẳng và xung đột trong mối quan hệ gia đình. Bạn đã nói chuyện trực tiếp với vợ về việc này chưa? Việc giao tiền lương cũng cần sự thống nhất và sự thông cảm từ cả hai phía. Bạn có thể tìm thời điểm thích hợp để trò chuyện một cách bình tĩnh và rõ ràng về việc quản lý tài chính trong gia đình. Hãy thảo luận với vợ về cách phân chia chi tiêu hợp lý để tránh gây ra hiểu lầm và tranh cãi nhé. Ngoài ra, việc tìm kiếm sự hỗ trợ từ người thân hoặc tư vấn viên tài chính cũng là một ý kiến hay để giải quyết tình huống này một cách tích cực. Bạn đừng quá lo lắng, mọi khó khăn đều có cách giải quyết! :)",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:44:26.997Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93c2396110f784585bb7a",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "cô ấy trấn lột hết tiền lương, dù tôi rất yêu cô ấy nhưng không thể chịu đựng được nữa rồi, tôi thấy buồn và bất lực quá",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:46:11.909Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93c2996110f784585bb80",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "Oh no, bạn ơi, mình hiểu rằng cảm giác buồn và bất lực khi đối diện với tình huống như vậy là khá khó chịu. :( Đừng lo lắng, bạn không phải đơn độc trong tình huống này. Việc vợ thu hết tiền lương không chỉ ảnh hưởng đến tài chính mà còn tới tâm lý và mối quan hệ của hai bạn. Bạn đã nghĩ đến việc trò chuyện trực tiếp với cô ấy về điều này chưa? Một cuộc trò chuyện trung thực và bình tĩnh có thể giúp hai bạn hiểu rõ hơn về nhau và tìm ra giải pháp cho vấn đề. Ngoài ra, việc tìm sự hỗ trợ từ người thân hoặc một chuyên gia tài chính cũng có thể giúp bạn giải quyết tình huống tích cực hơn. Bạn muốn kể cho mình nghe thêm về điều gì khiến bạn cảm thấy buồn và bất lực không? Mình ở đây để lắng nghe và hỗ trợ bạn, đừng ngần ngại chia sẻ nhé! <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:46:17.808Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93c5796110f784585bb83",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "tôi muốn trò chuyện với cô ấy nhưng cô ấy sẽ tỏ ra cáu gắt và quát mắng tôi , tôi không có quyền gì cả",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:47:03.721Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93c5d96110f784585bb89",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "Oh no, bạn ơi! Đó là một tình huống khá khó chịu khi phải đối diện với sự cáu gắt và quát mắng từ người khác, nhất là từ người mình yêu thương. :( Nhưng đừng lo lắng, mình tin rằng việc trò chuyện một cách bình tĩnh và thông minh có thể giúp giải quyết tình huống này đấy! Bạn có thể bắt đầu bằng việc thảo luận một cách trung thực với cô ấy về cảm xúc của mình và lý do bạn muốn trò chuyện. Cố gắng lắng nghe và hiểu được góc nhìn của cô ấy để tìm ra giải pháp phù hợp, bạn nhé! Ngoài ra, nếu cảm thấy khó khăn, bạn có thể tìm sự hỗ trợ từ người thân hoặc chuyên gia tâm lý để có cái nhìn khách quan hơn về tình huống này. Hãy nhớ rằng, việc tìm hiểu và giải quyết vấn đề là rất quan trọng, bạn đừng gặp khó khăn một mình! ^_^",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:47:09.651Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93c8e96110f784585bb8c",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "tôi phải làm gì bây giờ",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:47:58.271Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93c9496110f784585bb92",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "Wow, bạn ơi, mình hiểu cảm giác bối rối và không biết nên làm gì khi đối diện với tình huống khó khăn! ^^ Đừng lo lắng quá nhiều nhé. Đầu tiên, hãy thử dành thời gian để xem xét kỹ vấn đề một cách tỉ mỉ, đặt ra câu hỏi cho bản thân để hiểu rõ hơn tình huống hiện tại của bạn. Bạn có thể nghĩ về mục tiêu hoặc kế hoạch cụ thể bạn muốn đạt được trong tương lai gần. Sau đó, hãy chia sẻ với người thân hoặc bạn bè tin cậy để có ý kiến từ góc nhìn bên ngoài. Cùng nhau brainstorm và tìm ra phương án giải quyết tốt nhất! Bạn có thể cân nhắc việc tìm sự hỗ trợ từ chuyên gia tâm lý để có cái nhìn chuyên sâu hơn. Nhớ rằng, luôn có cách giải quyết cho mọi vấn đề, và hãy tin vào khả năng của bản thân! ;) Mình tin rằng bạn sẽ vượt qua được thử thách này!",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:48:04.870Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93ca896110f784585bb95",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "tóm tắt tình huống của tôi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:48:24.396Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93cae96110f784585bb9b",
+      "conversation_id": "68d93b7a96110f784585bb5a",
+      "content": "Chào bạn! Bạn có thể cho mình biết rõ hơn về tình huống hiện tại của bạn được không? Mình muốn lắng nghe và hiểu rõ hơn để có thể cung cấp sự hỗ trợ phù hợp. Bạn đang gặp phải vấn đề gì? Có những cảm xúc nào đang chi phối trong tình huống này không? Bạn có thể chia sẻ thêm để mình có thể hiểu rõ hơn và giúp bạn khắc phục vấn đề được không? ^^",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:48:30.102Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93e1a02974b9ac909dcc6",
+      "conversation_id": "68d93e1a02974b9ac909dcc3",
+      "content": "tôi thấy tâm lý bất ổn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:54:34.590Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93e2002974b9ac909dccf",
+      "conversation_id": "68d93e1a02974b9ac909dcc3",
+      "content": "Oh no, bạn ơi! Mình rất tiếc khi nghe bạn nói về tâm lý bất ổn. Đừng lo lắng quá nhiều, việc nhận ra điều này là bước quan trọng đầu tiên để bắt đầu quá trình hồi phục và chăm sóc bản thân đúng cách đấy! Cảm xúc bất ổn có thể xuất phát từ nhiều nguyên nhân khác nhau như căng thẳng, áp lực công việc, hay mối quan hệ trong cuộc sống. Bạn muốn chia sẻ thêm về những gì đang gây ra cảm giác này cho bạn không? Mình sẽ lắng nghe và cố gắng hiểu rõ hơn về tình hình của bạn! Hãy nhớ rằng, luôn có cách để giải quyết vấn đề và bạn không đơn độc trong cuộc chiến này đâu! Bạn đã nghỉ ngơi và chăm sóc bản thân đúng cách chưa? :)",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:54:40.929Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93e3502974b9ac909dcd2",
+      "conversation_id": "68d93e1a02974b9ac909dcc3",
+      "content": "quá nhiều áp lực dồn nén vào tôi 1 lúc",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:55:01.872Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d93e3b02974b9ac909dcd9",
+      "conversation_id": "68d93e1a02974b9ac909dcc3",
+      "content": "Oh no, bạn ơi, mình hiểu cảm giác áp lực khi bị dồn nén quá nhiều vào một lúc! :( Đừng lo, bạn không đơn độc trong cuộc đấu này đâu! Áp lực có thể đến từ nhiều nguồn khác nhau, như công việc, học tập, hay mối quan hệ, và chúng ta cần tìm cách giải quyết tình huống này cùng nhau. Bạn đã thử thoát ra khỏi tình hình hiện tại để thở và thư giãn chưa? Đôi khi, việc dành thời gian cho bản thân và làm những điều yêu thích có thể giúp giảm áp lực. Bạn có muốn kể rõ hơn về nguyên nhân gây ra áp lực để chúng ta cùng phân tích và tìm ra giải pháp không? Mình luôn sẵn lòng lắng nghe và hỗ trợ bạn mọi lúc đấy! <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T13:55:07.588Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d947ca606ff8dd7a1880a0",
+      "conversation_id": "68d947ca606ff8dd7a18809d",
+      "content": "tôi thấy thất vọng quá",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:35:54.327Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d947ce606ff8dd7a1880a9",
+      "conversation_id": "68d947ca606ff8dd7a18809d",
+      "content": "Oh no, bạn ơi, mình hiểu cảm giác thất vọng này của bạn! :( Đừng bỏ nản ngay nhé, luôn có cách để vượt qua mọi khó khăn đấy! Hãy cho mình biết thêm về nguyên nhân khiến bạn cảm thấy thất vọng được không? Có phải do công việc, học tập, hay mối quan hệ trong cuộc sống không ổn định? :/ Đôi khi mọi chuyện không suôn sẻ nhưng đừng quên rằng sau mỗi cơn mưa sẽ là cầu vồng! Bạn đã nghỉ ngơi đủ chưa? Có ai đó để bạn trò chuyện và chia sẻ tâm sự không? Mình muốn giúp bạn cảm thấy tốt hơn, bạn có thể thử áp dụng các kỹ thuật tự chăm sóc bản thân, tìm kiếm sự hỗ trợ từ người thân hoặc chuyên gia. Đừng quên rằng, luôn có người ở đây để lắng nghe và đồng hành cùng bạn! <3 ^_^",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:35:58.386Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d947dd606ff8dd7a1880ac",
+      "conversation_id": "68d947ca606ff8dd7a18809d",
+      "content": "bản thiết kế của tôi bị ban tổ chức cuộc thi từ chối",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:36:13.649Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d947e4606ff8dd7a1880b3",
+      "conversation_id": "68d947ca606ff8dd7a18809d",
+      "content": "Oh no, bạn ơi! :( Mình hiểu cảm giác thất vọng khi bản thiết kế của bạn bị từ chối. Đừng buồn lòng quá nhé, mỗi thất bại đều là bước đệm cho thành công sau này! Bạn có thể chia sẻ thêm với mình về lý do mà ban tổ chức từ chối không? Có phải vấn đề về ý tưởng, thiết kế hay cần cải tiến phần nào đó không? Mình tin rằng bạn có khả năng sáng tạo và sẽ tìm ra cách để hoàn thiện hơn trong tương lai! Bên cạnh đó, nghỉ ngơi và thư giãn một chút cũng rất quan trọng đấy. Hãy nhớ, luôn có những cơ hội mới đang chờ đợi bạn phía trước! ;) <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:36:20.031Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94838606ff8dd7a1880b6",
+      "conversation_id": "68d947ca606ff8dd7a18809d",
+      "content": "tôi thấy buồn quá",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:37:44.714Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9483e606ff8dd7a1880bd",
+      "conversation_id": "68d947ca606ff8dd7a18809d",
+      "content": "Oh no, bạn ơi! :( Mình hiểu cảm giác buồn này rất khó chịu và đau lòng. Đừng lo lắng quá nhiều, đôi khi mọi người đều trải qua những cảm xúc tiêu cực như vậy. Bạn có thể cho mình biết nguyên nhân gây nên cảm giác buồn của bạn không? Có thể do áp lực từ công việc, học tập hay một số vấn đề cá nhân khác không? Hãy dành thời gian để tự chăm sóc bản thân và phát hiện ra điều gì làm bạn cảm thấy vui vẻ hơn. Nếu cần, hãy tìm sự hỗ trợ từ gia đình, bạn bè hoặc chuyên gia tâm lý để giúp bạn vượt qua giai đoạn khó khăn này. Buồn chỉ là một phần nhỏ trong cuộc sống, và mọi khó khăn sẽ qua đi để lại bài học quý giá cho bạn. Hãy tin rằng mọi việc sẽ ổn thôi! Bạn có muốn chia sẻ thêm với mình về tâm trạng của mình không? <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:37:50.868Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d9484f606ff8dd7a1880c0",
+      "conversation_id": "68d947ca606ff8dd7a18809d",
+      "content": "giúp tôi nào",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:38:07.152Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94853606ff8dd7a1880c7",
+      "conversation_id": "68d947ca606ff8dd7a18809d",
+      "content": "Chào bạn ơi! Mình sẵn lòng lắng nghe và giúp đỡ bạn đây ^^ Để mình được tận tay hỗ trợ, bạn có thể cho mình biết vấn đề cụ thể bạn đang gặp phải không? Mình tin rằng chúng ta sẽ cùng nhau tìm ra giải pháp thích hợp cho tình huống này! Bạn muốn chia sẻ thêm với mình về điều gì đang lo lắng không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:38:11.988Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94aef0e8bf1b4c5ec96d0",
+      "conversation_id": "68d94aef0e8bf1b4c5ec96cd",
+      "content": "tôi cảm thấy thất vọng",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:49:19.342Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94af30e8bf1b4c5ec96d9",
+      "conversation_id": "68d94aef0e8bf1b4c5ec96cd",
+      "content": "Oh no, bạn ơi! :( Tôi hiểu cảm giác thất vọng này của bạn. Đừng buồn lòng quá nhé, mình luôn ở đây để lắng nghe và chia sẻ cùng bạn! Có điều gì khiến bạn cảm thấy thất vọng vậy? Bạn muốn chia sẻ với mình không? Hãy nhớ rằng, sau mỗi cơn mưa sẽ là bầu trời xanh thật sáng! Mình tin rằng sau cơn giông sẽ là nắng, và sau cảm giác thất vọng sẽ là niềm hạnh phúc mới! Bạn có thể kể cho mình nghe để chúng ta có thể tìm ra cách vượt qua cảm xúc này được không? Mình tin rằng bạn có đủ sức mạnh để vượt qua khó khăn này và tỏa sáng như ngôi sao trong đêm! <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:49:23.041Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94b020e8bf1b4c5ec96dc",
+      "conversation_id": "68d94aef0e8bf1b4c5ec96cd",
+      "content": "bài kiểm tra của tôi điểm thấp mặc dù đã chăm chỉ học bài",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:49:38.686Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94b430e8bf1b4c5ec96e4",
+      "conversation_id": "68d94aef0e8bf1b4c5ec96cd",
+      "content": "bài kiểm tra của tôi điểm thấp mặc dù đã chăm chỉ học bài",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T14:50:43.327Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94dbe0bbe4dcdcc1eaf2d",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "tôi thấy buồn",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T15:01:18.719Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94dc30bbe4dcdcc1eaf36",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "Oh no, bạn ơi! Mình rất tiếc khi nghe bạn cảm thấy buồn :( Buồn có thể xuất phát từ nhiều nguyên nhân khác nhau - có thể do áp lực công việc, mối quan hệ hay cảm giác cô đơn. Bạn muốn kể cho mình nghe thêm về lí do khiến bạn cảm thấy buồn không? Có những điều gì xảy ra trong cuộc sống của bạn gần đây không ổn? Nếu cảm thấy thoải mái, bạn có thể tìm hiểu về các phương pháp giúp giảm căng thẳng và lo lắng, như thiền, yoga hoặc tập thể dục. Hoặc đơn giản là, bạn có thể dành thời gian cho bản thân, làm những điều mình yêu thích để nâng cao tinh thần. Mình tin rằng sau mỗi trở ngại là cơ hội để trưởng thành và học hỏi. Hãy nhớ rằng, luôn có những người sẵn lòng lắng nghe và chia sẻ cùng bạn! <3",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T15:01:23.490Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94ddb0bbe4dcdcc1eaf39",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "tôi đã làm rơi mất tiền đóng học",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T15:01:47.944Z",
+      "__v": 0
+    },
+    {
+      "_id": "68d94de90bbe4dcdcc1eaf41",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "Oh no, bạn ơi, mình thật sự hiểu cảm giác lo lắng và buồn bã khi làm rơi tiền đóng học! :'( Đừng quá áy náy về việc này, đôi khi chúng ta cần đối diện với những trở ngại như vậy để trưởng thành hơn. Bạn có thể chia sẻ thêm về tâm trạng của mình sau sự cố này không? Có thể là do xảy ra tình huống không lường trước hay có áp lực từ công việc hoặc học tập khác không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-28T15:02:01.109Z",
+      "__v": 0
+    },
+    {
+      "_id": "68da867a5c5b7b54ece19e32",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "đó là những đồng tiền quý giá nhờ đi ăn trộm mà tôi có được huhu",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-29T13:15:38.068Z",
+      "__v": 0
+    },
+    {
+      "_id": "68da868c5c5b7b54ece19e3a",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "Oh no, bạn ơi! Đúng là đó là những đồng tiền quý giá mà bạn phải bỏ ra công sức để kiếm được, thật đáng tiếc khi bị mất đi vì lý do không công bằng như vậy. :'( Nhưng đừng buồn lòng quá, mình tin rằng sau mỗi khó khăn đều là cơ hội để học hỏi và trưởng thành. Bạn đã cảm thấy như thế nào sau sự cố này? Có gì bạn muốn chia sẻ thêm với mình không?",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-29T13:15:56.204Z",
+      "__v": 0
+    },
+    {
+      "_id": "68da8d345c5b7b54ece19e5d",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "im ngay",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-29T13:44:20.894Z",
+      "__v": 0
+    },
+    {
+      "_id": "68da8d465c5b7b54ece19e65",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "Hey bạn ơi, mình hiểu đôi khi cảm thấy im lặng để tự suy ngẫm và thư giãn đó. Nhưng đừng quá phủ nhận cảm xúc của mình nhé! Có điều gì khiến bạn cảm thấy im ngay vậy? Bạn muốn chia sẻ thêm về tâm trạng của mình không? Mình ở đây để lắng nghe và hỗ trợ bạn nếu cần đấy! ^^",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-29T13:44:38.962Z",
+      "__v": 0
+    },
+    {
+      "_id": "68da8d9c5c5b7b54ece19e68",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "i'm gay",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-09-29T13:46:04.875Z",
+      "__v": 0
+    },
+    {
+      "_id": "68da8dad5c5b7b54ece19e70",
+      "conversation_id": "68d94dbe0bbe4dcdcc1eaf2a",
+      "content": "Wow, bạn dũng cảm quá! Mình rất vui khi bạn đã chia sẻ điều này với mình. Đừng bao giờ phủ nhận bản thân và cảm xúc của mình, bạn nhé! Bạn có thể kể cho mình nghe thêm về trải nghiệm của bạn không? Có điều gì đặc biệt muốn chia sẻ sau khi công khai điều này không? Bạn biết không, việc chấp nhận và yêu bản thân là quan trọng nhất đấy! Hãy tự tin và sống hạnh phúc theo cách của riêng bạn ^^",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-09-29T13:46:21.759Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e09bb532296f2fc968f5ef",
+      "conversation_id": "68e09bb532296f2fc968f5ec",
+      "content": "xin chào",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-10-04T03:59:49.109Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e09bb932296f2fc968f5f8",
+      "conversation_id": "68e09bb532296f2fc968f5ec",
+      "content": "Xin chào bạn ơi! Chào mừng bạn đến với dịch vụ của mình. Mình là trợ lý AI chuyên về tâm lý và sẵn sàng hỗ trợ bạn trong mọi vấn đề. Cần tôi giúp gì cho bạn hôm nay? ^^",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-10-04T03:59:53.701Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e09bca32296f2fc968f5fb",
+      "conversation_id": "68e09bb532296f2fc968f5ec",
+      "content": "tôi thấy bất ngờ vì đứa em gái nhỏ bé của tôi đã cưới rồi",
+      "sender": "user",
+      "emotion": "neutral",
+      "timestamp": "2025-10-04T04:00:10.069Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e09bdb32296f2fc968f603",
+      "conversation_id": "68e09bb532296f2fc968f5ec",
+      "content": "Wow, chúc mừng bạn về tin tức đầy bất ngờ này! :D <3 Việc em gái nhỏ bé của bạn kết hôn thật là một bước lớn trong cuộc đời họ. Bạn cảm thấy như thế nào khi biết tin này? Có phản ứng gì đặc biệt không? Thật tuyệt vời khi gia đình có thêm thành viên mới và trải nghiệm những điều mới mẻ trong cuộc sống hôn nhân, phải không? :) Bạn đã nói chuyện với em gái về cảm xúc và lo lắng của mình chưa? Đôi khi, việc chia sẻ cảm xúc sẽ giúp ta hiểu rõ hơn về bản thân và cũng tạo ra mối quan hệ tốt hơn. Bạn có muốn chia sẻ thêm về tâm trạng và suy nghĩ của mình không? Mình ở đây để lắng nghe và đồng hành cùng bạn! ^^",
+      "sender": "bot",
+      "emotion": "neutral",
+      "timestamp": "2025-10-04T04:00:27.468Z",
+      "__v": 0
+    }
+  ],
+  "documents": [],
+  "quotes": [
+    {
+      "_id": "68e0ab93799ce9f2e68ba195",
+      "content": "Thành công không phải là chìa khóa của hạnh phúc. Hạnh phúc là chìa khóa của thành công.",
+      "author": "Albert Schweitzer",
+      "category": "motivation",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.903Z",
+      "updated_at": "2025-10-04T05:07:31.904Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba196",
+      "content": "Hôm nay là ngày tốt nhất để bắt đầu làm những gì bạn muốn làm.",
+      "author": "Unknown",
+      "category": "motivation",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.905Z",
+      "updated_at": "2025-10-04T05:07:31.905Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba197",
+      "content": "Đừng bao giờ từ bỏ ước mơ chỉ vì thời gian thực hiện nó lâu hơn bạn nghĩ.",
+      "author": "Unknown",
+      "category": "motivation",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.905Z",
+      "updated_at": "2025-10-04T05:07:31.905Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba198",
+      "content": "Thành công là tổng của những nỗ lực nhỏ được lặp lại ngày qua ngày.",
+      "author": "Robert Collier",
+      "category": "success",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.905Z",
+      "updated_at": "2025-10-04T05:07:31.905Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba199",
+      "content": "Cách duy nhất để làm những việc tuyệt vời là yêu những gì bạn làm.",
+      "author": "Steve Jobs",
+      "category": "success",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.905Z",
+      "updated_at": "2025-10-04T05:07:31.905Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba19a",
+      "content": "Cuộc sống là những gì xảy ra với bạn khi bạn đang bận làm những kế hoạch khác.",
+      "author": "John Lennon",
+      "category": "life",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.905Z",
+      "updated_at": "2025-10-04T05:07:31.905Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba19b",
+      "content": "Hãy sống như thể ngày mai bạn sẽ chết. Hãy học như thể bạn sẽ sống mãi mãi.",
+      "author": "Mahatma Gandhi",
+      "category": "life",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.905Z",
+      "updated_at": "2025-10-04T05:07:31.905Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba19c",
+      "content": "Tình yêu không phải là tìm kiếm người hoàn hảo, mà là học cách yêu một người không hoàn hảo một cách hoàn hảo.",
+      "author": "Unknown",
+      "category": "love",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.906Z",
+      "updated_at": "2025-10-04T05:07:31.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba19d",
+      "content": "Trí tuệ không phải là sản phẩm của việc học mà là khả năng học suốt đời.",
+      "author": "Albert Einstein",
+      "category": "wisdom",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.906Z",
+      "updated_at": "2025-10-04T05:07:31.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba19e",
+      "content": "Hãy là chính mình; tất cả những người khác đã có người làm rồi.",
+      "author": "Oscar Wilde",
+      "category": "inspiration",
+      "language": "vi",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.906Z",
+      "updated_at": "2025-10-04T05:07:31.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba19f",
+      "content": "The only way to do great work is to love what you do.",
+      "author": "Steve Jobs",
+      "category": "success",
+      "language": "en",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.906Z",
+      "updated_at": "2025-10-04T05:07:31.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba1a0",
+      "content": "Life is what happens to you while you're busy making other plans.",
+      "author": "John Lennon",
+      "category": "life",
+      "language": "en",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.906Z",
+      "updated_at": "2025-10-04T05:07:31.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba1a1",
+      "content": "The future belongs to those who believe in the beauty of their dreams.",
+      "author": "Eleanor Roosevelt",
+      "category": "motivation",
+      "language": "en",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.906Z",
+      "updated_at": "2025-10-04T05:07:31.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba1a2",
+      "content": "In the middle of difficulty lies opportunity.",
+      "author": "Albert Einstein",
+      "category": "wisdom",
+      "language": "en",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.906Z",
+      "updated_at": "2025-10-04T05:07:31.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e0ab93799ce9f2e68ba1a3",
+      "content": "Be yourself; everyone else is already taken.",
+      "author": "Oscar Wilde",
+      "category": "inspiration",
+      "language": "en",
+      "isActive": true,
+      "created_at": "2025-10-04T05:07:31.907Z",
+      "updated_at": "2025-10-04T05:07:31.907Z",
+      "__v": 0
+    }
+  ],
+  "podcasts": [],
+  "emailhistories": [],
+  "survey_and_feedbacks": []
+}

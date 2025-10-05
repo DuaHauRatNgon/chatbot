@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userRepository = require("../repository/userRepository");
+const emailService = require("./emailService");
 
 class UserService {
   async register(userData) {
@@ -15,6 +16,18 @@ class UserService {
         gender,
         role,
       });
+
+      // Nếu đăng ký thành công, gửi email chào mừng
+      if (result.success && result.user) {
+        try {
+          await emailService.sendWelcomeEmail(result.user.email, result.user.name);
+          console.log(`Welcome email sent to ${result.user.email}`);
+        } catch (emailError) {
+          console.error('Error sending welcome email:', emailError);
+          // Không throw error để không ảnh hưởng đến quá trình đăng ký
+        }
+      }
+
       return result;
     } catch (error) {
       return {

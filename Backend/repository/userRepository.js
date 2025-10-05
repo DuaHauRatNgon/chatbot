@@ -67,6 +67,29 @@ class UserRepository {
             };
         }
     }
+
+    async getUserById(userId) {
+        try {
+            const user = await User.findById(userId);
+            if (!user) {
+                return null;
+            }
+            return user;
+        } catch (error) {
+            console.error('Error getting user by ID:', error);
+            return null;
+        }
+    }
+
+    async getAllUsers() {
+        try {
+            const users = await User.find({}, { hashedPassword: 0 }); // Loại bỏ password
+            return users;
+        } catch (error) {
+            console.error('Error getting all users:', error);
+            return [];
+        }
+    }
 }
 
 module.exports = new UserRepository();

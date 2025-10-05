@@ -17,6 +17,9 @@ const podcastRoute = require("./routes/podcastRoutes");
 const documentRoutes = require("./routes/documentRoutes");
 const surveysAndFeedbackRoutes = require("./routes/surveysAndFeedbackRoutes");
 const assessmentRoutes = require("./routes/assessmentRoutes");
+const emailRoutes = require("./routes/emailRoutes");
+const quotesRoutes = require("./routes/quotesRoutes");
+const schedulerService = require("./services/schedulerService");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
@@ -34,6 +37,8 @@ app.use("/api/musics", musicRoute); // => /api/musics
 app.use("/api/podcasts", podcastRoute);
 app.use("/api/surveysAndFeedback", surveysAndFeedbackRoutes);
 app.use("/api/assessments", assessmentRoutes);
+app.use("/api/emails", emailRoutes);
+app.use("/api/quotes", quotesRoutes);
 app.use("/music", express.static(path.join(__dirname, "../uploadMusic")));
 app.use("/podcast", express.static(path.join(__dirname, "../uploadPodcast")));
 
@@ -45,4 +50,11 @@ app.get("/", (req, res) => {
   res.send("hello");
 });
 
-app.listen(5000, () => console.log(`Example app listening at ` + baseUrl));
+app.listen(5000, () => {
+    console.log(`Example app listening at ` + baseUrl);
+    
+    // Khởi động scheduler sau khi server đã chạy
+    setTimeout(() => {
+        schedulerService.start();
+    }, 2000); // Chờ 2 giây để đảm bảo database đã kết nối
+});
