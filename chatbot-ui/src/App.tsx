@@ -9,6 +9,7 @@ import { AuthProvider } from './context/AuthContext'
 import { Welcome } from './pages/welcome/welcome';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { PublicRoute } from './components/PublicRoute';
+import MoodPage from '@/pages/mood/MoodPage';
 import { ConversationProvider } from '@/context/ConversationContext';
 import ChatBot404 from '@/pages/404'; // Import trang 404
 
@@ -47,6 +48,14 @@ function App(): JSX.Element {
                       </ConversationProvider>
                     </ProtectedRoute>
                   } 
+                />
+                <Route 
+                  path='/mood' 
+                  element={
+                    <ProtectedRoute>
+                      <MoodPage />
+                    </ProtectedRoute>
+                  }
                 />
                 
                 {/* Route public - chỉ user chưa đăng nhập mới vào được */}

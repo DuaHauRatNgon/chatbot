@@ -50,7 +50,9 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.1.0",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.3",
+    "inspirational-quotes": "^2.0.1",
+    "affirmations": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

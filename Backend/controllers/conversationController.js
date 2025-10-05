@@ -24,6 +24,29 @@ class ConversationController {
     }
   }
 
+  // GET /api/conversations/mood-history
+  async getMoodHistory(req, res) {
+    try {
+      const userId = req.userId; // from auth middleware
+      const { from, to } = req.query;
+
+      const result = await conversationService.getMoodHistory(userId, { from, to });
+
+      return res.status(result.statusCode).json({
+        success: result.success,
+        message: result.message,
+        data: result.data || null,
+      });
+    } catch (error) {
+      console.error("Controller error:", error);
+      return res.status(500).json({
+        success: false,
+        message: "Lỗi server không xác định",
+        data: null,
+      });
+    }
+  }
+
   // POST /api/conversations
   async createConversation(req, res) {
     try {

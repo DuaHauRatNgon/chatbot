@@ -19,4 +19,12 @@ router.get(
   conversationController.getConversationsByUserId
 );
 
+// GET /api/conversations/mood-history - Lịch sử cảm xúc của user đăng nhập
+router.get(
+  "/mood-history",
+  authenticateToken,
+  requirePermission({ roles: ["customer"] }),
+  conversationController.getMoodHistory
+);
+
 module.exports = router;

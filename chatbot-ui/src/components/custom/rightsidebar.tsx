@@ -3,9 +3,10 @@ import { SurveyAndFeedback } from '@/components/custom/survey-and-feedback';
 import HorizontalMenu from '@/components/custom/horizontalmenu'
 import { Music } from '@/components/custom/music';
 import { ChatThemeSelector } from '@/components/custom/ChatThemeSelector';
+import MoodHistoryChart from '@/components/custom/MoodHistoryChart';
 import { useState } from 'react';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { LogOut } from "lucide-react";
+import { LogOut, HeartPulse } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface RightSidebarProps {
@@ -51,6 +52,14 @@ export const RightSidebar = ({ isOpen, onClose }: RightSidebarProps) => {
         <div className="flex-1 overflow-y-auto">
           {activeTab === 'theme' && <ChatThemeSelector />}
           {activeTab === 'music' && <Music isActive={true} />}
+          {activeTab === 'mood' && (
+            <div className="p-1">
+              <h3 className="text-sm font-semibold mb-2">Lịch sử cảm xúc</h3>
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm" onClick={() => navigate('/mood')}>
+                <HeartPulse className="h-4 w-4 mr-2" /> Mở trang phân tích cảm xúc
+              </Button>
+            </div>
+          )}
           {/* <Podcast isActive={activeTab === 'podcast'} /> */}
         </div>
       </div>

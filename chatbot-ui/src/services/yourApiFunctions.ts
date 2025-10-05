@@ -1,4 +1,45 @@
 import apiClient from './apiClient';
+
+export interface MoodHistoryPoint {
+  date: string;
+  total: number;
+  happy: number;
+  sad: number;
+  angry: number;
+  neutral: number;
+}
+
+export async function fetchMoodHistory(params?: { from?: string; to?: string }) {
+  const response = await apiClient.get<{ success: boolean; data: MoodHistoryPoint[] }>(
+    `/conversations/mood-history`,
+    { params }
+  );
+  return response.data.data || [];
+}
+
+export interface QuoteItem {
+  _id: string;
+  content: string;
+  author: string;
+  category?: string;
+  language?: string;
+}
+
+export async function fetchQuotes(params?: { page?: number; limit?: number; category?: string; language?: string }) {
+  const response = await apiClient.get<{ success: boolean; data: QuoteItem[] }>(`/quotes`, { params });
+  return response.data.data || [];
+}
+
+export async function fetchRandomQuote(): Promise<QuoteItem | null> {
+  try {
+    const list = await fetchQuotes({ page: 1, limit: 50, language: 'vi' });
+    if (list.length === 0) return null;
+    const idx = Math.floor(Math.random() * list.length);
+    return list[idx];
+  } catch {
+    return null;
+  }
+}
 import {
   LoginCredentials,
   User,

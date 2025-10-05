@@ -1,5 +1,5 @@
 import React from 'react';
-import { Music, Mic, Brain, Palette } from 'lucide-react';
+import { Music, Palette, HeartPulse } from 'lucide-react';
 
 const HorizontalMenu = ({ activeTab, onTabChange }) => {
   const menuItems = [
@@ -14,6 +14,12 @@ const HorizontalMenu = ({ activeTab, onTabChange }) => {
       label: 'Âm nhạc',
       icon: Music,
       color: 'from-pink-500 to-rose-500'
+    },
+    {
+      id: 'mood',
+      label: 'Cảm xúc',
+      icon: HeartPulse,
+      color: 'from-green-500 to-emerald-500'
     },
     // {
     //   id: 'podcast',

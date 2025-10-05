@@ -1,4 +1,7 @@
 const conversationRepository = require("../repository/conversationRepository");
+const mongoose = require("mongoose");
+const Message = require("../model/message");
+const Conversation = require("../model/conversation");
 
 class ConversationService {
   // Lấy tất cả conversations của user
@@ -155,6 +158,110 @@ class ConversationService {
       return {
         success: false,
         message: "Lỗi server khi lấy thống kê",
+        statusCode: 500,
+      };
+    }
+  }
+
+  // Lịch sử cảm xúc theo thời gian (dựa trên tin nhắn của user)
+  async getMoodHistory(userId, options = {}) {
+    try {
+      if (!userId) {
+        return {
+          success: false,
+          message: "User ID là bắt buộc",
+          statusCode: 400,
+        };
+      }
+
+      const { from, to } = options;
+
+      const matchDate = {};
+      if (from) {
+        const fromDate = new Date(from);
+        if (!isNaN(fromDate.getTime())) matchDate.$gte = fromDate;
+      }
+      if (to) {
+        const toDate = new Date(to);
+        if (!isNaN(toDate.getTime())) matchDate.$lte = toDate;
+      }
+
+      const dateFilterStage = Object.keys(matchDate).length
+        ? { timestamp: matchDate }
+        : {};
+
+      // Aggregate messages -> join conversations -> filter by user -> only sender=user -> group by day
+      const pipeline = [
+        {
+          $lookup: {
+            from: Conversation.collection.name,
+            localField: "conversation_id",
+            foreignField: "_id",
+            as: "conversation",
+          },
+        },
+        { $unwind: "$conversation" },
+        {
+          $match: {
+            "conversation.user_id": new mongoose.Types.ObjectId(userId),
+            sender: "user",
+            ...dateFilterStage,
+          },
+        },
+        {
+          $project: {
+            emotion: 1,
+            timestamp: 1,
+            day: {
+              $dateToString: { format: "%Y-%m-%d", date: "$timestamp" },
+            },
+          },
+        },
+        {
+          $group: {
+            _id: "$day",
+            total: { $sum: 1 },
+            happy: {
+              $sum: { $cond: [{ $eq: ["$emotion", "happy"] }, 1, 0] },
+            },
+            sad: {
+              $sum: { $cond: [{ $eq: ["$emotion", "sad"] }, 1, 0] },
+            },
+            angry: {
+              $sum: { $cond: [{ $eq: ["$emotion", "angry"] }, 1, 0] },
+            },
+            neutral: {
+              $sum: { $cond: [{ $eq: ["$emotion", "neutral"] }, 1, 0] },
+            },
+          },
+        },
+        { $sort: { _id: 1 } },
+        {
+          $project: {
+            _id: 0,
+            date: "$_id",
+            total: 1,
+            happy: 1,
+            sad: 1,
+            angry: 1,
+            neutral: 1,
+          },
+        },
+      ];
+
+      const data = await Message.aggregate(pipeline).exec();
+
+      return {
+        success: true,
+        message: "Lấy lịch sử cảm xúc thành công",
+        data,
+        statusCode: 200,
+      };
+    } catch (error) {
+      console.error("Service error:", error);
+      return {
+        success: false,
+        message: "Lỗi server khi lấy lịch sử cảm xúc",
         statusCode: 500,
       };
     }
