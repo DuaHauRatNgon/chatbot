@@ -10,6 +10,7 @@ import { Welcome } from './pages/welcome/welcome';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { PublicRoute } from './components/PublicRoute';
 import MoodPage from '@/pages/mood/MoodPage';
+import BooksPage from '@/pages/books/BooksPage';
 import { ConversationProvider } from '@/context/ConversationContext';
 import ChatBot404 from '@/pages/404'; // Import trang 404
 
@@ -54,6 +55,22 @@ function App(): JSX.Element {
                   element={
                     <ProtectedRoute>
                       <MoodPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route 
+                  path='/books' 
+                  element={
+                    <ProtectedRoute>
+                      <BooksPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route 
+                  path='/books/:slug' 
+                  element={
+                    <ProtectedRoute>
+                      <BooksPage />
                     </ProtectedRoute>
                   }
                 />

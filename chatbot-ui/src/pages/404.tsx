@@ -94,8 +94,8 @@ const ChatBot404: React.FC = () => {
                     </div>
                   ) : showMessage ? (
                     <div className="text-white/90 text-left">
-                      <p className="font-medium mb-1">Xin lỗi! Tôi không thể tìm thấy trang này 😔</p>
-                      <p className="text-sm text-white/70">Có vẻ như trang bạn đang tìm kiếm đã biến mất vào không gian mạng...</p>
+                      <p className="font-medium mb-1">Sorry, tui không tìm thấy sách đó（＞人＜；）</p>
+                      <p className="text-sm text-white/70">Có vẻ như trang bạn đang tìm kiếm đã biến mất vào không gian...</p>
                     </div>
                   ) : (
                     <div className="h-8"></div>
