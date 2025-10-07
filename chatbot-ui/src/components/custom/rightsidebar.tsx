@@ -75,7 +75,7 @@ export const RightSidebar = ({ isOpen, onClose }: RightSidebarProps) => {
       {/* Survey Forms Section - Bottom Half */}
       <div className="flex-shrink-0 border-t border-gray-300 pt-4 flex flex-col max-h-80">
         <h2 className="text-lg font-semibold mb-4 flex items-center flex-shrink-0">
-          📋 Hỗ trợ
+          📋 Phản hồi ý kiến
         </h2>
         <div className="flex-1 overflow-y-auto">
           <SurveyAndFeedback/>
