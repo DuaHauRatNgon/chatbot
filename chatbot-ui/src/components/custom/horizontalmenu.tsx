@@ -1,5 +1,5 @@
 import React from 'react';
-import { Music, Palette, HeartPulse } from 'lucide-react';
+import { Music, Palette, HeartPulse, Book } from 'lucide-react';
 
 const HorizontalMenu = ({ activeTab, onTabChange }) => {
   const menuItems = [
@@ -20,6 +20,12 @@ const HorizontalMenu = ({ activeTab, onTabChange }) => {
       label: 'Cảm xúc',
       icon: HeartPulse,
       color: 'from-green-500 to-emerald-500'
+    },
+      {
+      id: 'books',
+      label: 'Đọc sách',
+      icon: Book,
+      color: 'from-yellow-500 to-orange-500'
     },
     // {
     //   id: 'podcast',

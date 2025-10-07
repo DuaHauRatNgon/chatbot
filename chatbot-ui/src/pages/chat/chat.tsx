@@ -101,7 +101,7 @@ export function Chat() {
       sender: "user",
       _id: `temp-user-${uuidv4()}`,
       conversation_id: selectedConversationId || 'temp',
-      emotion: 'neutral',
+      emotion: 'fear',
       timestamp: new Date().toISOString(),
       __v: 0
     };
@@ -145,7 +145,7 @@ export function Chat() {
       sender: "bot",
       _id: `temp-bot-${uuidv4()}`,
       conversation_id: selectedConversationId || 'temp',
-      emotion: 'neutral',
+      emotion: 'fear',
       timestamp: new Date().toISOString(),
       __v: 0
     };
@@ -183,7 +183,7 @@ export function Chat() {
         sender: "bot",
         _id: `temp-bot-assessment-${uuidv4()}`,
         conversation_id: selectedConversationId,
-        emotion: 'neutral',
+        emotion: 'fear',
         timestamp: new Date().toISOString(),
         __v: 0
       };
@@ -209,7 +209,7 @@ export function Chat() {
       sender: "bot",
       _id: `temp-error-${uuidv4()}`,
       conversation_id: selectedConversationId || 'temp',
-      emotion: 'neutral',
+      emotion: 'fear',
       timestamp: new Date().toISOString(),
       __v: 0
     };

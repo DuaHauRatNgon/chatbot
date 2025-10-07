@@ -22,8 +22,8 @@ const messageSchema = new mongoose.Schema({
   },
   emotion: {
     type: String,
-    enum: ["happy", "sad", "angry", "neutral"],
-    default: "neutral",
+    enum: ["happy", "sad", "angry", "fear"],
+    default: "fear",
   },
 });
 

@@ -49,7 +49,7 @@ export const ChatArea: React.FC = () => {
                conversation_id: selectedConversationId || 'temp', // Sẽ được cập nhật sau khi tạo conversation mới
                content: botMessageContent,
                sender: 'bot',
-               emotion: 'neutral', // Hoặc parse từ response nếu có
+               emotion: 'fear', // Hoặc parse từ response nếu có
                timestamp: new Date().toISOString(),
                __v: 0
            };
@@ -127,7 +127,7 @@ export const ChatArea: React.FC = () => {
           conversation_id: selectedConversationId || 'temp', // Sẽ được cập nhật
           content: messageText,
           sender: 'user',
-          emotion: 'neutral', // Hoặc xác định cảm xúc ở client nếu cần
+          emotion: 'fear', // Hoặc xác định cảm xúc ở client nếu cần
           timestamp: new Date().toISOString(),
           __v: 0
       };

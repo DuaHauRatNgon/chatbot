@@ -19,6 +19,7 @@ const surveysAndFeedbackRoutes = require("./routes/surveysAndFeedbackRoutes");
 const assessmentRoutes = require("./routes/assessmentRoutes");
 const emailRoutes = require("./routes/emailRoutes");
 const quotesRoutes = require("./routes/quotesRoutes");
+const dailyMoodRoutes = require("./routes/dailyMoodRoutes");
 const schedulerService = require("./services/schedulerService");
 app.use(express.json());
 app.use(bodyParser.json());
@@ -39,6 +40,7 @@ app.use("/api/surveysAndFeedback", surveysAndFeedbackRoutes);
 app.use("/api/assessments", assessmentRoutes);
 app.use("/api/emails", emailRoutes);
 app.use("/api/quotes", quotesRoutes);
+app.use("/api/daily-moods", dailyMoodRoutes);
 app.use("/music", express.static(path.join(__dirname, "../uploadMusic")));
 app.use("/podcast", express.static(path.join(__dirname, "../uploadPodcast")));
 

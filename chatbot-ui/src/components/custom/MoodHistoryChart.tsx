@@ -45,7 +45,7 @@ export const MoodHistoryChart: React.FC<MoodHistoryChartProps> = ({ from, to }) 
       <div className="flex items-end gap-2 h-40 w-full border border-gray-200 rounded-lg p-3 bg-white">
         {data.map((d) => {
           const happyH = (d.happy / maxTotal) * 100;
-          const neutralH = (d.neutral / maxTotal) * 100;
+          const fearH = (d.fear / maxTotal) * 100;
           const sadH = (d.sad / maxTotal) * 100;
           const angryH = (d.angry / maxTotal) * 100;
           return (
@@ -53,7 +53,7 @@ export const MoodHistoryChart: React.FC<MoodHistoryChartProps> = ({ from, to }) 
               <div className="flex flex-col justify-end w-full h-28">
                 <div style={{ height: `${angryH}%` }} className="w-full bg-red-400 rounded-t-sm" title={`angry: ${d.angry}`}></div>
                 <div style={{ height: `${sadH}%` }} className="w-full bg-blue-400" title={`sad: ${d.sad}`}></div>
-                <div style={{ height: `${neutralH}%` }} className="w-full bg-gray-300" title={`neutral: ${d.neutral}`}></div>
+                <div style={{ height: `${fearH}%` }} className="w-full bg-purple-400" title={`fear: ${d.fear}`}></div>
                 <div style={{ height: `${happyH}%` }} className="w-full bg-green-400 rounded-b-sm" title={`happy: ${d.happy}`}></div>
               </div>
               <div className="mt-1 text-[10px] text-gray-600 rotate-[-30deg] origin-top-left h-8 whitespace-nowrap">{d.date.slice(5)}</div>
@@ -64,7 +64,7 @@ export const MoodHistoryChart: React.FC<MoodHistoryChartProps> = ({ from, to }) 
 
       <div className="mt-3 grid grid-cols-4 gap-2 text-xs text-gray-700">
         <div className="flex items-center gap-2"><span className="inline-block w-3 h-3 bg-green-400 rounded-sm"></span>Vui (happy)</div>
-        <div className="flex items-center gap-2"><span className="inline-block w-3 h-3 bg-gray-300 rounded-sm"></span>Trung tính (neutral)</div>
+        <div className="flex items-center gap-2"><span className="inline-block w-3 h-3 bg-purple-400 rounded-sm"></span>Sợ hãi (fear)</div>
         <div className="flex items-center gap-2"><span className="inline-block w-3 h-3 bg-blue-400 rounded-sm"></span>Buồn (sad)</div>
         <div className="flex items-center gap-2"><span className="inline-block w-3 h-3 bg-red-400 rounded-sm"></span>Tức giận (angry)</div>
       </div>

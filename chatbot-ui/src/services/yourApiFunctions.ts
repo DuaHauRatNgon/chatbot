@@ -6,7 +6,7 @@ export interface MoodHistoryPoint {
   happy: number;
   sad: number;
   angry: number;
-  neutral: number;
+  fear: number;
 }
 
 export async function fetchMoodHistory(params?: { from?: string; to?: string }) {
@@ -228,6 +228,45 @@ export const getUserAssessmentsAPI = async (userId: string): Promise<{ success: 
     return response.data;
   } catch (error) {
     console.error('Error getting user assessments:', error);
+    throw error;
+  }
+};
+
+// Daily Mood API functions
+export interface DailyMoodData {
+  date: string;
+  happy: number;
+  fear: number;
+  sad: number;
+  angry: number;
+}
+
+export const saveDailyMoodAPI = async (emotion: string): Promise<{ success: boolean; data: any; message: string }> => {
+  try {
+    const response = await apiClient.post('/daily-moods', { emotion });
+    return response.data;
+  } catch (error) {
+    console.error('Error saving daily mood:', error);
+    throw error;
+  }
+};
+
+export const getDailyMoodHistoryAPI = async (days: number = 7): Promise<DailyMoodData[]> => {
+  try {
+    const response = await apiClient.get<{ success: boolean; data: DailyMoodData[] }>(`/daily-moods/history?days=${days}`);
+    return response.data.data || [];
+  } catch (error) {
+    console.error('Error fetching daily mood history:', error);
+    throw error;
+  }
+};
+
+export const getTodayMoodAPI = async (): Promise<{ success: boolean; data: any; message: string }> => {
+  try {
+    const response = await apiClient.get('/daily-moods/today');
+    return response.data;
+  } catch (error) {
+    console.error('Error getting today mood:', error);
     throw error;
   }
 };

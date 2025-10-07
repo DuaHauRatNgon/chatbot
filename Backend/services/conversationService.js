@@ -230,8 +230,8 @@ class ConversationService {
             angry: {
               $sum: { $cond: [{ $eq: ["$emotion", "angry"] }, 1, 0] },
             },
-            neutral: {
-              $sum: { $cond: [{ $eq: ["$emotion", "neutral"] }, 1, 0] },
+            fear: {
+              $sum: { $cond: [{ $eq: ["$emotion", "fear"] }, 1, 0] },
             },
           },
         },
@@ -244,7 +244,7 @@ class ConversationService {
             happy: 1,
             sad: 1,
             angry: 1,
-            neutral: 1,
+            fear: 1,
           },
         },
       ];

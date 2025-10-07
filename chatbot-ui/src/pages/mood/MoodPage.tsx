@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { fetchRandomQuote } from '@/services/yourApiFunctions';
+import { fetchRandomQuote, getDailyMoodHistoryAPI, saveDailyMoodAPI, getTodayMoodAPI } from '@/services/yourApiFunctions';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
-type MoodKey = 'happy' | 'neutral' | 'sad' | 'angry';
+type MoodKey = 'happy' | 'fear' | 'sad' | 'angry';
 
 interface DayMood {
   date: string; // YYYY-MM-DD
   happy: number;
-  neutral: number;
+  fear: number;
   sad: number;
   angry: number;
 }
@@ -45,7 +46,7 @@ function generateMockData(): DayMood[] {
   return days.map((date) => ({
     date,
     happy: Math.floor(Math.random() * 5),
-    neutral: Math.floor(Math.random() * 5),
+    fear: Math.floor(Math.random() * 5),
     sad: Math.floor(Math.random() * 5),
     angry: Math.floor(Math.random() * 3),
   }));
@@ -55,16 +56,16 @@ function EmotionLinesChart({ data }: { data: DayMood[] }) {
   // Inside Out-inspired colors
   const EMOTION_COLOR: Record<MoodKey, string> = {
     happy: '#f59e0b',   // Joy - amber
-    neutral: '#8b5cf6', // Use purple for contrast (Inside Out fear vibe)
+    fear: '#8b5cf6',    // Fear - purple
     sad: '#3b82f6',     // Sadness - blue
     angry: '#ef4444',   // Anger - red
   };
 
   // Prepare series per emotion as percentages (0..1)
   const series = useMemo(() => {
-    return ['happy', 'neutral', 'sad', 'angry'].map((k => k as MoodKey)).map((key) => {
+    return ['happy', 'fear', 'sad', 'angry'].map((k => k as MoodKey)).map((key) => {
       return data.map((d) => {
-        const total = d.happy + d.neutral + d.sad + d.angry || 1;
+        const total = d.happy + d.fear + d.sad + d.angry || 1;
         return (d[key] / total);
       });
     });
@@ -136,7 +137,7 @@ function EmotionLinesChart({ data }: { data: DayMood[] }) {
 
         {/* Lines per emotion */}
         {paths.map((dStr, i) => {
-          const key = (['happy','neutral','sad','angry'][i]) as MoodKey;
+          const key = (['happy','fear','sad','angry'][i]) as MoodKey;
           return <path key={key} d={dStr} fill="none" stroke={EMOTION_COLOR[key]} strokeWidth={3} strokeLinecap="round" />
         })}
 
@@ -164,7 +165,7 @@ function EmotionLinesChart({ data }: { data: DayMood[] }) {
             <div className="font-semibold mb-1">{data[hoverIdx].date}</div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1">
               <div className="flex items-center gap-2"><span className="inline-block w-2 h-2 rounded-full" style={{background:'#f59e0b'}}></span>Vui: {data[hoverIdx].happy}</div>
-              <div className="flex items-center gap-2"><span className="inline-block w-2 h-2 rounded-full" style={{background:'#8b5cf6'}}></span>Trung tính: {data[hoverIdx].neutral}</div>
+              <div className="flex items-center gap-2"><span className="inline-block w-2 h-2 rounded-full" style={{background:'#8b5cf6'}}></span>Sợ hãi: {data[hoverIdx].fear}</div>
               <div className="flex items-center gap-2"><span className="inline-block w-2 h-2 rounded-full" style={{background:'#3b82f6'}}></span>Buồn: {data[hoverIdx].sad}</div>
               <div className="flex items-center gap-2"><span className="inline-block w-2 h-2 rounded-full" style={{background:'#ef4444'}}></span>Tức giận: {data[hoverIdx].angry}</div>
             </div>
@@ -178,13 +179,40 @@ function EmotionLinesChart({ data }: { data: DayMood[] }) {
 export default function MoodPage() {
   const [quote, setQuote] = useState<{ content: string; author: string } | null>(null);
   const [todos, setTodos] = useState<{ id: string; text: string; done: boolean }[]>([]);
-  const [data] = useState<DayMood[]>(generateMockData());
+  const [data, setData] = useState<DayMood[]>(generateMockData());
+  const [selectedMood, setSelectedMood] = useState<MoodKey | null>(null);
+  const [todayMood, setTodayMood] = useState<MoodKey | null>(null);
+  const [isLoadingMood, setIsLoadingMood] = useState(false);
   const navigate = useNavigate();
   const [gifUrl, setGifUrl] = useState<string | null>(null);
   const [gifLoading, setGifLoading] = useState<boolean>(false);
   const GIPHY_KEY = (import.meta as any).env?.VITE_GIPHY_API_KEY || 'x0nSdVDeX8AP55370oqM94zweBNenVQF';
 
   useEffect(() => {
+    // Load mood history from API
+    (async () => {
+      try {
+        const moodHistory = await getDailyMoodHistoryAPI(7);
+        setData(moodHistory);
+      } catch (error) {
+        console.error('Error loading mood history:', error);
+        toast.error('Không thể tải lịch sử cảm xúc');
+      }
+    })();
+
+    // Load today's mood
+    (async () => {
+      try {
+        const result = await getTodayMoodAPI();
+        if (result.data && result.data.emotion) {
+          setTodayMood(result.data.emotion as MoodKey);
+          setSelectedMood(result.data.emotion as MoodKey);
+        }
+      } catch (error) {
+        console.error('Error loading today mood:', error);
+      }
+    })();
+
     (async () => {
       // Quote: try inspirational-quotes; fallback to backend quotes list
       try {
@@ -257,77 +285,216 @@ export default function MoodPage() {
     });
   };
 
+  const handleMoodSelect = async (mood: MoodKey) => {
+    setSelectedMood(mood);
+    setIsLoadingMood(true);
+    try {
+      await saveDailyMoodAPI(mood);
+      setTodayMood(mood);
+      toast.success('Đã lưu cảm xúc hôm nay!');
+      
+      // Reload mood history
+      const moodHistory = await getDailyMoodHistoryAPI(7);
+      setData(moodHistory);
+    } catch (error) {
+      console.error('Error saving mood:', error);
+      toast.error('Không thể lưu cảm xúc');
+    } finally {
+      setIsLoadingMood(false);
+    }
+  };
+
+  const moodCharacters = [
+    { 
+      key: 'happy' as MoodKey, 
+      image: '/emotions/joy.png', 
+      label: 'Vui', 
+      character: 'Joy',
+      color: 'from-amber-400 to-yellow-300', 
+      bgColor: 'bg-amber-50', 
+      borderColor: 'border-amber-300' 
+    },
+    { 
+      key: 'fear' as MoodKey, 
+      image: '/emotions/fear.png', 
+      label: 'Sợ hãi', 
+      character: 'Fear',
+      color: 'from-violet-400 to-purple-300', 
+      bgColor: 'bg-violet-50', 
+      borderColor: 'border-violet-300' 
+    },
+    { 
+      key: 'sad' as MoodKey, 
+      image: '/emotions/sadness.png', 
+      label: 'Buồn', 
+      character: 'Sadness',
+      color: 'from-sky-400 to-blue-300', 
+      bgColor: 'bg-sky-50', 
+      borderColor: 'border-sky-300' 
+    },
+    { 
+      key: 'angry' as MoodKey, 
+      image: '/emotions/anger.png', 
+      label: 'Tức giận', 
+      character: 'Anger',
+      color: 'from-rose-400 to-red-300', 
+      bgColor: 'bg-rose-50', 
+      borderColor: 'border-rose-300' 
+    },
+  ];
+
   return (
-    <div className="relative p-1 max-w-4xl mx-auto">
+    <div className="relative p-4 mx-auto min-h-screen">
       {/* Soft background blobs */}
       <div className="pointer-events-none absolute -top-10 -left-10 w-60 h-60 rounded-full bg-yellow-200/30 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-8 -right-12 w-72 h-72 rounded-full bg-blue-200/30 blur-3xl" />
 
       <div className="relative">
-        <div className="flex items-center justify-between mb-4">
-          <h1 className="text-2xl font-extrabold bg-gradient-to-r from-amber-500 via-fuchsia-500 to-sky-500 bg-clip-text text-transparent">Bức sóng cảm xúc (7 ngày)</h1>
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-3xl font-extrabold bg-gradient-to-r from-amber-500 via-fuchsia-500 to-sky-500 bg-clip-text text-transparent">Trang cảm xúc</h1>
           <button className="text-sm text-blue-600 hover:underline" onClick={() => navigate('/')}>Quay lại chat</button>
         </div>
 
-        {/* Legend */}
-        <div className="flex items-center gap-3 mb-5 text-xs">
-          <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-amber-100 text-amber-700">😊 Vui</span>
-          <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-violet-100 text-violet-700">😌 Trung tính</span>
-          <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-sky-100 text-sky-700">😢 Buồn</span>
-          <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-rose-100 text-rose-700">😡 Tức giận</span>
-        </div>
-
-        {/* 2x2 grid layout: 1) Wave 2) GIF 3) Todos 4) Quote */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* 1) Emotion multi-line chart */}
-          <div className="rounded-xl p-4 md:p-6 bg-white/60 border border-white/40 shadow-sm">
-            <EmotionLinesChart data={data} />
-          </div>
-
-          {/* 2) GIF with fixed aspect ratio */}
-          <div className="border border-pink-100 p-5 shadow-sm">
-            <h2 className="font-semibold mb-2 text-pink-600">GIF tích cực hôm nay nè</h2>
-            <div className="w-full rounded-lg bg-white/60 border border-pink-100 flex items-center justify-center p-3" style={{ aspectRatio: '16 / 9', maxHeight: 360 }}>
-              {gifLoading && <div className="w-full h-full flex items-center justify-center text-sm text-gray-500">Đang tải GIF...</div>}
-              {!gifLoading && gifUrl && (
-                <img src={gifUrl} alt="daily inspirational gif" className="max-w-full max-h-full object-contain" />
-              )}
-            </div>
-          </div>
-
-          {/* 3) Todos */}
-          <div className="bg-gradient-to-br from-emerald-50 to-white rounded-xl border border-emerald-100 p-6 shadow-sm">
-            <h2 className="font-semibold mb-2 text-emerald-700">Hôm nay là 1 ngày tuyệt vời để: </h2>
-            <div className="text-sm text-gray-700 space-y-3">
-              {todos.map((t) => (
-                <label key={t.id} className="flex items-start gap-2 cursor-pointer select-none">
-                  <input
-                    type="checkbox"
-                    className="mt-0.5 accent-emerald-600"
-                    checked={t.done}
-                    onChange={() => toggleTodo(t.id)}
-                  />
-                  <span className={t.done ? 'line-through text-gray-500' : ''}>{t.text}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-          {/* 4) Quote */}
-          <div className="bg-gradient-to-br from-indigo-50 to-white rounded-xl border border-indigo-100 p-6 shadow-sm">
-            <h2 className="font-semibold mb-2 text-indigo-700">Quote ý nghĩa hôm nay </h2>
-            {quote ? (
-              <div className="text-sm text-gray-800">
-                <p className="italic leading-relaxed">“{quote.content}”</p>
-                <p className="mt-2 text-gray-600">— {quote.author}</p>
+        {/* Main layout: Left side (4 components) + Right side (mood selector) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* LEFT SIDE - 4 components in 2x2 grid */}
+          <div className="lg:col-span-2 space-y-6">
+            <div>
+              <h2 className="text-xl font-bold mb-3 bg-gradient-to-r from-amber-500 via-fuchsia-500 to-sky-500 bg-clip-text text-transparent">Bức sóng cảm xúc (7 ngày)</h2>
+              {/* Legend */}
+              <div className="flex items-center gap-3 mb-4 text-xs">
+                <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-amber-100 text-amber-700">😊 Vui</span>
+                <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-violet-100 text-violet-700">😨 Sợ hãi</span>
+                <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-sky-100 text-sky-700">😢 Buồn</span>
+                <span className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-rose-100 text-rose-700">😡 Tức giận</span>
               </div>
-            ) : (
-              <p className="text-sm text-gray-500">Đang tải quote...</p>
-            )}
+            </div>
+
+            {/* 2x2 grid layout: 1) Wave 2) GIF 3) Todos 4) Quote */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* 1) Emotion multi-line chart */}
+              <div className="rounded-xl p-4 md:p-6 bg-white/60 border border-white/40 shadow-sm">
+                <EmotionLinesChart data={data} />
+              </div>
+
+              {/* 2) GIF with fixed aspect ratio */}
+              <div className="rounded-xl border border-pink-100 p-5 shadow-sm bg-white/60">
+                <h2 className="font-semibold mb-2 text-pink-600">GIF tích cực hôm nay nè</h2>
+                <div className="w-full rounded-lg bg-white/60 border border-pink-100 flex items-center justify-center p-3" style={{ aspectRatio: '16 / 9', maxHeight: 360 }}>
+                  {gifLoading && <div className="w-full h-full flex items-center justify-center text-sm text-gray-500">Đang tải GIF...</div>}
+                  {!gifLoading && gifUrl && (
+                    <img src={gifUrl} alt="daily inspirational gif" className="max-w-full max-h-full object-contain" />
+                  )}
+                </div>
+              </div>
+
+              {/* 3) Todos */}
+              <div className="bg-gradient-to-br from-emerald-50 to-white rounded-xl border border-emerald-100 p-6 shadow-sm">
+                <h2 className="font-semibold mb-2 text-emerald-700">Hôm nay là 1 ngày tuyệt vời để: </h2>
+                <div className="text-sm text-gray-700 space-y-3">
+                  {todos.map((t) => (
+                    <label key={t.id} className="flex items-start gap-2 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        className="mt-0.5 accent-emerald-600"
+                        checked={t.done}
+                        onChange={() => toggleTodo(t.id)}
+                      />
+                      <span className={t.done ? 'line-through text-gray-500' : ''}>{t.text}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              {/* 4) Quote */}
+              <div className="bg-gradient-to-br from-indigo-50 to-white rounded-xl border border-indigo-100 p-6 shadow-sm">
+                <h2 className="font-semibold mb-2 text-indigo-700">Quote ý nghĩa hôm nay </h2>
+                {quote ? (
+                  <div className="text-sm text-gray-800">
+                    <p className="italic leading-relaxed">"{quote.content}"</p>
+                    <p className="mt-2 text-gray-600">— {quote.author}</p>
+                  </div>
+                ) : (
+                  <p className="text-sm text-gray-500">Đang tải quote...</p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT SIDE - Mood selector */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-4 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 rounded-2xl border-2 border-purple-200 p-6 shadow-lg">
+              <h2 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Hôm nay bạn cảm thấy thế nào?
+              </h2>
+              
+              {todayMood && (
+                <div className="mb-4 text-center text-sm text-gray-600 bg-white/60 rounded-lg p-2">
+                  ✓ Bạn đã chọn cảm xúc hôm nay
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-4">
+                {moodCharacters.map((mood) => (
+                  <button
+                    key={mood.key}
+                    onClick={() => handleMoodSelect(mood.key)}
+                    disabled={isLoadingMood}
+                    className={`
+                      relative group p-6 rounded-2xl border-2 transition-all duration-300
+                      ${selectedMood === mood.key 
+                        ? `${mood.borderColor} bg-gradient-to-br ${mood.color} shadow-xl scale-105` 
+                        : `border-gray-200 ${mood.bgColor} hover:scale-105 hover:shadow-lg`
+                      }
+                      ${isLoadingMood ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+                    `}
+                  >
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="w-24 h-24 transform group-hover:scale-110 transition-transform flex items-center justify-center">
+                        <img 
+                          src={mood.image} 
+                          alt={mood.character}
+                          className="w-full h-full object-contain drop-shadow-lg"
+                          onError={(e) => {
+                            // Fallback to emoji if image fails to load
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const fallback = target.nextElementSibling as HTMLDivElement;
+                            if (fallback) fallback.style.display = 'block';
+                          }}
+                        />
+                        <div className="text-6xl hidden">
+                          {mood.key === 'happy' ? '😊' : mood.key === 'fear' ? '😨' : mood.key === 'sad' ? '😢' : '😡'}
+                        </div>
+                      </div>
+                      <div className={`font-semibold text-lg ${
+                        selectedMood === mood.key ? 'text-white' : 'text-gray-700'
+                      }`}>
+                        {mood.label}
+                      </div>
+                      <div className={`text-xs ${
+                        selectedMood === mood.key ? 'text-white/80' : 'text-gray-500'
+                      }`}>
+                        {mood.character}
+                      </div>
+                    </div>
+                    {selectedMood === mood.key && (
+                      <div className="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-md">
+                        <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-6 text-center text-xs text-gray-500">
+                Chọn một cảm xúc để lưu vào nhật ký của bạn
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
