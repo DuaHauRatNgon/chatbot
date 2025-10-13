@@ -232,7 +232,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onSwitchToRegi
         if (e.target === e.currentTarget && !displayError) {
             handleClose();
         } else if (displayError) {
-            // console.log('Modal close blocked due to error state'); // Debug log
         }
     };
 

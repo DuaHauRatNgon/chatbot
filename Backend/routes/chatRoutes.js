@@ -19,4 +19,12 @@ router.post(
   chatController.chat
 );
 
+// POST /chat/suggestions
+router.post(
+  "/suggestions",
+  authenticateToken,
+  requirePermission({ roles: ["customer"] }),
+  chatController.generateSuggestions
+);
+
 module.exports = router;

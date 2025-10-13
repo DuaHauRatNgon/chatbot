@@ -78,6 +78,22 @@ class MessageRepository {
       return 0;
     }
   }
+
+  // Lấy tin nhắn gần đây nhất theo conversation_id
+  async getLastMessagesByConversationId(conversationId, limit = 3) {
+    try {
+      if (!conversationId) {
+        return [];
+      }
+      const messages = await Message.find({ conversation_id: conversationId })
+        .sort({ timestamp: -1 })
+        .limit(limit);
+      return messages.reverse(); // Đảo ngược để có thứ tự thời gian tăng dần
+    } catch (error) {
+      console.error('Lỗi khi lấy tin nhắn gần đây:', error.message);
+      return [];
+    }
+  }
 }
 
 module.exports = new MessageRepository();

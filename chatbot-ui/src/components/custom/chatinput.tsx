@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { ArrowUpIcon } from "./icons"
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
-import { useState, useCallback, useMemo,useEffect } from 'react'; // Thêm useMemo
+import { useState, useCallback, useMemo, useEffect, forwardRef, useImperativeHandle } from 'react'; // Thêm useMemo
 import { useNewMessageBot } from '../../hooks/useNewMessage';
 import { useNewTitle } from '../../hooks/useNewTitle';
 import { useCreateMessage } from "@/hooks/useCreateMessage";
@@ -23,6 +23,10 @@ interface ChatInputProps {
   isFirstMessage?: boolean; // Prop từ parent
 }
 
+export interface ChatInputRef {
+  handleSubmit: (text?: string) => void;
+}
+
 const suggestedActions = [
   {
     title: 'Hôm nay tôi rất buồn',
@@ -36,7 +40,7 @@ const suggestedActions = [
   },
 ];
 
-export const ChatInput = ({
+export const ChatInput = forwardRef<ChatInputRef, ChatInputProps>(({
   question,
   setQuestion,
   onSubmit, // Callback để parent thêm tin nhắn user tạm thời vào UI
@@ -45,7 +49,7 @@ export const ChatInput = ({
   onMessageReceived,
   onTitleCreated,
   onError
-}: ChatInputProps) => {
+}, ref) => {
   const [showSuggestions, setShowSuggestions] = useState(true);
 
   // Lấy selectedConversationId và addConversation, setSelectedConversationId từ context
@@ -214,6 +218,10 @@ export const ChatInput = ({
       }
   }, [question, combinedLoading]);
 
+  // Expose handleSubmit method to parent via ref
+  useImperativeHandle(ref, () => ({
+    handleSubmit
+  }), [handleSubmit]);
 
   return (
     <div className="relative w-full flex flex-col gap-4">
@@ -268,4 +276,6 @@ export const ChatInput = ({
       )}
     </div>
   );
-};
+});
+
+ChatInput.displayName = 'ChatInput';

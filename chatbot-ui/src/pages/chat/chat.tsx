@@ -1,8 +1,9 @@
 
-import { ChatInput } from "@/components/custom/chatinput";
+import { ChatInput, ChatInputRef } from "@/components/custom/chatinput";
+import { ChatSuggestions } from "@/components/custom/ChatSuggestions";
 import { PreviewMessage, ThinkingMessage } from "../../components/custom/message";
 import { useScrollToBottom } from '@/components/custom/use-scroll-to-bottom';
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ApiMessage } from '@/services/type';
 import { Overview } from "@/components/custom/overview";
 import { Header } from "@/components/custom/header";
@@ -34,6 +35,8 @@ export function Chat() {
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(() => window.innerWidth >= 768);
   const [rightSidebarOpen, setRightSidebarOpen] = useState(() => window.innerWidth >= 768);
   const [isBotThinking, setIsBotThinking] = useState<boolean>(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const chatInputRef = useRef<ChatInputRef>(null);
 
   // Assessment hook
   const {
@@ -96,6 +99,9 @@ export function Chat() {
     const messageText = text || question;
     if (!messageText.trim()) return;
 
+    // Ẩn suggestions khi user gửi tin nhắn
+    setShowSuggestions(false);
+
     const userMessage: ApiMessage = {
       content: messageText,
       sender: "user",
@@ -152,13 +158,15 @@ export function Chat() {
 
     setDisplayedMessages(prev => [...prev, botMessage]);
 
+    // Hiển thị suggestions sau khi bot trả lời
+    setTimeout(() => {
+      setShowSuggestions(true);
+    }, 1000); // Delay 1 giây để user đọc tin nhắn bot
+
     // Kiểm tra có nên trigger assessment không
-    console.log(`[DEBUG] Should trigger quiz: ${shouldTriggerQuiz}, Quiz type: ${quizType}, Conversation ID: ${selectedConversationId}`);
-    
     if (shouldTriggerQuiz && quizType && selectedConversationId) {
       // Lấy userId từ localStorage hoặc context (giả sử có sẵn)
       const userId = localStorage.getItem('userId') || 'temp-user-id';
-      console.log(`[DEBUG] Starting assessment for user: ${userId}`);
       
       // Tạo tin nhắn gợi ý assessment với thông tin AI
       let assessmentContent = `Để hiểu rõ hơn về tình trạng của bạn, mình muốn mời bạn làm một bảng đánh giá ngắn về ${quizType}. ${quizReason}`;
@@ -224,7 +232,18 @@ export function Chat() {
     setDisplayedMessages([]); 
     setQuestion('');
     setIsBotThinking(false);
+    setShowSuggestions(false);
   }, [setSelectedConversationId]);
+
+  // Callback khi user click vào suggestion
+  const handleSuggestionClick = useCallback((suggestion: string) => {
+    setQuestion(suggestion);
+    setShowSuggestions(false);
+    // Gọi trực tiếp handleSubmit của ChatInput để kích hoạt bot response
+    if (chatInputRef.current) {
+      chatInputRef.current.handleSubmit(suggestion);
+    }
+  }, []);
 
   return (
     <div className="flex flex-col h-dvh">
@@ -288,8 +307,17 @@ export function Chat() {
             </div>
           </div>
 
+          {/* Chat Suggestions */}
+          <ChatSuggestions
+            conversationId={selectedConversationId}
+            onSuggestionClick={handleSuggestionClick}
+            isVisible={showSuggestions && !isFirstMessage && !isBotThinking}
+            className="mx-auto w-full md:max-w-3xl px-4 pb-2"
+          />
+
           <div className="flex mx-auto px-4 chat-theme-surface pb-4 md:pb-6 gap-2 w-full md:max-w-3xl">
             <ChatInput
+              ref={chatInputRef}
               question={question}
               setQuestion={setQuestion}
               onSubmit={handleChatSubmit}
@@ -320,6 +348,7 @@ export function Chat() {
           onClose={closeResults}
         />
       )}
+
 
       {(leftSidebarOpen || rightSidebarOpen) && (
         <div

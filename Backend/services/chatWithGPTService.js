@@ -515,6 +515,85 @@ class ChatGPT {
       return null
     }
   }
+
+  async generateChatSuggestions(conversationId, lastMessagesCount = 3) {
+    try {
+      // Lấy tin nhắn gần đây từ cuộc trò chuyện
+      const messagesResult = await messageRepository.getLastMessagesByConversationId(
+        conversationId, 
+        lastMessagesCount
+      );
+      
+      if (!messagesResult || messagesResult.length === 0) {
+        // Trả về gợi ý mặc định nếu không có tin nhắn
+        return {
+          success: true,
+          suggestions: [
+            "Hôm nay thế nào?",
+            "Có gì lo lắng không?",
+            "Cảm giác ra sao?"
+          ]
+        };
+      }
+
+      // Tạo context từ tin nhắn gần đây
+      const conversationContext = messagesResult
+        .map(msg => `${msg.sender === 'user' ? 'Người dùng' : 'Bot'}: ${msg.content}`)
+        .join('\n');
+
+      const response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        temperature: 0.8,
+        max_tokens: 300,
+        messages: [
+          {
+            role: "system",
+            content: `Bạn là một trợ lý AI chuyên tâm lý. Dựa trên đoạn hội thoại gần đây, hãy tạo ra 3-4 gợi ý câu hỏi NGẮN GỌN và LIÊN QUAN TRỰC TIẾP đến tình huống của người dùng.
+
+Quy tắc QUAN TRỌNG:
+- Mỗi gợi ý phải CỰC KỲ NGẮN GỌN (dưới 30 ký tự)
+- Phải LIÊN QUAN TRỰC TIẾP đến vấn đề cụ thể người dùng đang gặp
+- Sử dụng ngôn ngữ đơn giản, thân thiện
+- Tập trung vào tình huống cụ thể, không chung chung
+- Trả về định dạng JSON: {"suggestions": ["gợi ý 1", "gợi ý 2", "gợi ý 3"]}
+
+Ví dụ theo tình huống:
+- Nếu user nói về điểm thi kém → "Điểm kém có sao không?", "Cách thi được điểm cao?", "Bố mẹ có biết không?"
+- Nếu user nói về cãi nhau với bạn → "Ai sai trước?", "Muốn làm hòa không?", "Bạn ấy nghĩ gì?"
+- Nếu user nói về stress → "Nguyên nhân là gì?", "Có cách giải tỏa không?", "Ai có thể giúp?"
+- Nếu user nói về buồn → "Vì điều gì vậy?", "Từ khi nào thế?", "Có muốn kể không?"
+
+Lưu ý: Gợi ý phải NGẮN, TRỰC TIẾP và LIÊN QUAN đến chủ đề cụ thể người dùng vừa nói.`
+          },
+          {
+            role: "user",
+            content: `Đoạn hội thoại gần đây:\n${conversationContext}\n\nHãy tạo 3-4 gợi ý tiếp tục cuộc trò chuyện.`
+          }
+        ]
+      });
+
+      const result = JSON.parse(response.choices[0].message.content);
+      
+      return {
+        success: true,
+        suggestions: result.suggestions || []
+      };
+
+    } catch (error) {
+      console.error("Lỗi khi tạo gợi ý chat:", error.message);
+      
+      // Fallback với gợi ý mặc định
+      return {
+        success: true,
+        suggestions: [
+          "Cảm thấy thế nào?",
+          "Có gì lo lắng không?",
+          "Cần giúp gì thêm?",
+          "Muốn chia sẻ thêm?"
+        ]
+      };
+    }
+  }
 }
 
 module.exports = new ChatGPT();

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
-import { CheckCircle, AlertTriangle, Info, X } from 'lucide-react';
+import { CheckCircle, AlertTriangle, Info, X, Brain, Loader2 } from 'lucide-react';
 import { AssessmentAnswerResponse } from '@/interfaces/interfaces';
+import { generateAIRecommendations } from '@/services/aiRecommendations';
 
 interface AssessmentResultsProps {
   result: AssessmentAnswerResponse;
@@ -13,6 +14,110 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
   result,
   onClose
 }) => {
+  const [aiRecommendations, setAiRecommendations] = useState<any>(null);
+  const [isGeneratingAI, setIsGeneratingAI] = useState(false);
+  const [aiError, setAiError] = useState<string | null>(null);
+
+  // Generate AI recommendations khi component mount
+  useEffect(() => {
+    const generateRecommendations = async () => {
+      // Nếu đã có recommendations từ API và đầy đủ, không cần generate AI
+      if (result.recommendations && 
+          result.recommendations.immediateActions && 
+          result.recommendations.immediateActions.length > 0) {
+        return;
+      }
+
+      // Nếu không có assessment data, skip
+      if (!result.assessment) {
+        return;
+      }
+      setIsGeneratingAI(true);
+      setAiError(null);
+
+      try {
+        const aiRecs = await generateAIRecommendations(
+          result.assessment,
+          result.totalScore || 0,
+          result.interpretation || ''
+        );
+        setAiRecommendations(aiRecs);
+      } catch (error) {
+        console.error('[ERROR] Failed to generate AI recommendations:', error);
+        setAiError('Không thể tạo khuyến nghị AI. Sử dụng khuyến nghị mặc định.');
+      } finally {
+        setIsGeneratingAI(false);
+      }
+    };
+
+    generateRecommendations();
+  }, [result]);
+
+  // Tạo recommendations mặc định nếu AI fail
+  const getFallbackRecommendations = () => {
+    const interpretation = result.interpretation || '';
+    const isHighSeverity = interpretation.includes('nặng') || interpretation.includes('cao');
+    const isModerateSeverity = interpretation.includes('nhẹ') || interpretation.includes('trung bình');
+    
+    return {
+      immediateActions: isHighSeverity ? [
+        'Tìm kiếm sự hỗ trợ từ gia đình và bạn bè',
+        'Liên hệ với chuyên gia tâm lý để được tư vấn',
+        'Tránh các quyết định quan trọng khi tâm trạng không ổn định'
+      ] : isModerateSeverity ? [
+        'Dành thời gian cho bản thân mỗi ngày',
+        'Thực hiện các hoạt động thư giãn',
+        'Chia sẻ cảm xúc với người tin tưởng'
+      ] : [
+        'Duy trì lối sống lành mạnh hiện tại',
+        'Tiếp tục các hoạt động tích cực'
+      ],
+      
+      dailyPractices: [
+        'Thực hiện bài tập thở sâu 5-10 phút mỗi ngày',
+        'Duy trì giấc ngủ đủ 7-8 tiếng mỗi đêm',
+        'Tập thể dục nhẹ nhàng 20-30 phút',
+        'Viết nhật ký cảm xúc',
+        'Thực hành chánh niệm (mindfulness)'
+      ],
+      
+      professionalHelp: {
+        needed: isHighSeverity,
+        urgency: isHighSeverity ? 'Cao' : isModerateSeverity ? 'Trung bình' : 'Thấp',
+        recommendations: isHighSeverity ? [
+          'Tham khảo ý kiến bác sĩ tâm lý hoặc psychiatrist',
+          'Cân nhắc liệu pháp tâm lý (CBT, DBT)',
+          'Tham gia nhóm hỗ trợ'
+        ] : isModerateSeverity ? [
+          'Tư vấn tâm lý ngắn hạn',
+          'Tham gia các khóa học quản lý stress'
+        ] : []
+      },
+      
+      resources: [
+        'Ứng dụng thiền định: Headspace, Calm',
+        'Sách: "Tâm lý học tích cực" - Martin Seligman',
+        'Đường dây nóng tâm lý: 1900 6013',
+        'Website: https://www.who.int/mental_health',
+        'Ứng dụng theo dõi tâm trạng: Daylio, Mood Meter'
+      ],
+      
+      followUp: {
+        timeline: isHighSeverity ? '1-2 tuần' : isModerateSeverity ? '1 tháng' : '3 tháng',
+        actions: [
+          'Thực hiện lại bài đánh giá để theo dõi tiến triển',
+          'Đánh giá hiệu quả của các biện pháp đã áp dụng',
+          'Điều chỉnh kế hoạch chăm sóc nếu cần thiết'
+        ]
+      },
+      
+      aiGenerated: false
+    };
+  };
+  
+  // Ưu tiên: API recommendations > AI recommendations > Fallback
+  const recommendations = result.recommendations || aiRecommendations || getFallbackRecommendations();
+  
   const getSeverityColor = (interpretation: string) => {
     if (interpretation.includes('tối thiểu') || interpretation.includes('thấp')) {
       return 'text-green-600 dark:text-green-400';
@@ -156,25 +261,78 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
             )}
 
             {/* Recommendations */}
-            {result.recommendations && (
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-                <div className="flex items-center justify-between mb-4">
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
                   <h4 className="text-lg font-medium text-blue-900 dark:text-blue-100">
                     Khuyến nghị
                   </h4>
-                  {result.recommendations.aiGenerated && (
+                  {isGeneratingAI && (
+                    <div className="flex items-center gap-1 text-blue-600">
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span className="text-xs">AI đang phân tích...</span>
+                    </div>
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  {aiError && (
+                    <span className="px-2 py-1 bg-yellow-200 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-200 rounded-full text-xs">
+                      Fallback
+                    </span>
+                  )}
+                  {aiRecommendations && (
+                    <span className="px-2 py-1 bg-purple-200 dark:bg-purple-800 text-purple-800 dark:text-purple-200 rounded-full text-xs flex items-center gap-1">
+                      <Brain className="w-3 h-3" />
+                      AI Powered
+                    </span>
+                  )}
+                  {result.recommendations?.aiGenerated && (
                     <span className="px-2 py-1 bg-blue-200 dark:bg-blue-800 text-blue-800 dark:text-blue-200 rounded-full text-xs">
-                      AI Generated
+                      API Generated
                     </span>
                   )}
                 </div>
+              </div>
+
+              {/* AI Analysis Reasoning */}
+              {aiRecommendations?.reasoning && (
+                <div className="mb-4 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <Brain className="w-4 h-4 text-purple-600 dark:text-purple-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h5 className="font-medium text-purple-800 dark:text-purple-200 text-sm mb-1">
+                        Phân tích AI:
+                      </h5>
+                      <p className="text-purple-700 dark:text-purple-300 text-sm">
+                        {aiRecommendations.reasoning}
+                      </p>
+                      {aiRecommendations.confidence && (
+                        <p className="text-purple-600 dark:text-purple-400 text-xs mt-1">
+                          Độ tin cậy: {Math.round(aiRecommendations.confidence * 100)}%
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {aiError && (
+                <div className="mb-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <AlertTriangle className="w-4 h-4 text-yellow-600 dark:text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-yellow-700 dark:text-yellow-300 text-sm">
+                      {aiError}
+                    </p>
+                  </div>
+                </div>
+              )}
 
                 {/* Immediate Actions */}
-                {result.recommendations.immediateActions && result.recommendations.immediateActions.length > 0 && (
+                {recommendations.immediateActions && recommendations.immediateActions.length > 0 && (
                   <div className="mb-6">
                     <h5 className="font-medium text-blue-800 dark:text-blue-200 mb-3">Hành động ngay lập tức:</h5>
                     <ul className="space-y-2">
-                      {result.recommendations.immediateActions.map((action, index) => (
+                      {recommendations.immediateActions.map((action, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-blue-800 dark:text-blue-200">{action}</span>
@@ -185,11 +343,11 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
                 )}
 
                 {/* Daily Practices */}
-                {result.recommendations.dailyPractices && result.recommendations.dailyPractices.length > 0 && (
+                {recommendations.dailyPractices && recommendations.dailyPractices.length > 0 && (
                   <div className="mb-6">
                     <h5 className="font-medium text-blue-800 dark:text-blue-200 mb-3">Thực hành hàng ngày:</h5>
                     <ul className="space-y-2">
-                      {result.recommendations.dailyPractices.map((practice, index) => (
+                      {recommendations.dailyPractices.map((practice, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-blue-800 dark:text-blue-200">{practice}</span>
@@ -200,15 +358,15 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
                 )}
 
                 {/* Professional Help */}
-                {result.recommendations.professionalHelp && result.recommendations.professionalHelp.needed && (
+                {recommendations.professionalHelp && recommendations.professionalHelp.needed && (
                   <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
                     <h5 className="font-medium text-red-800 dark:text-red-200 mb-3 flex items-center gap-2">
                       <AlertTriangle className="w-5 h-5" />
                       Cần hỗ trợ chuyên môn
                     </h5>
-                    {result.recommendations.professionalHelp.recommendations && (
+                    {recommendations.professionalHelp.recommendations && (
                       <ul className="space-y-2">
-                        {result.recommendations.professionalHelp.recommendations.map((rec, index) => (
+                        {recommendations.professionalHelp.recommendations.map((rec, index) => (
                           <li key={index} className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
                             <span className="text-red-800 dark:text-red-200">{rec}</span>
@@ -216,20 +374,20 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
                         ))}
                       </ul>
                     )}
-                    {result.recommendations.professionalHelp.urgency && (
+                    {recommendations.professionalHelp.urgency && (
                       <p className="mt-2 text-sm text-red-700 dark:text-red-300">
-                        Mức độ khẩn cấp: {result.recommendations.professionalHelp.urgency}
+                        Mức độ khẩn cấp: {recommendations.professionalHelp.urgency}
                       </p>
                     )}
                   </div>
                 )}
 
                 {/* Resources */}
-                {result.recommendations.resources && result.recommendations.resources.length > 0 && (
+                {recommendations.resources && recommendations.resources.length > 0 && (
                   <div className="mb-6">
                     <h5 className="font-medium text-blue-800 dark:text-blue-200 mb-3">Tài nguyên hỗ trợ:</h5>
                     <ul className="space-y-2">
-                      {result.recommendations.resources.map((resource, index) => (
+                      {recommendations.resources.map((resource, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-blue-800 dark:text-blue-200">{resource}</span>
@@ -240,15 +398,15 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
                 )}
 
                 {/* Follow Up */}
-                {result.recommendations.followUp && (
+                {recommendations.followUp && (
                   <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <h5 className="font-medium text-yellow-800 dark:text-yellow-200 mb-2">Theo dõi tiếp theo:</h5>
                     <p className="text-yellow-700 dark:text-yellow-300">
-                      Thời gian: {result.recommendations.followUp.timeline}
+                      Thời gian: {recommendations.followUp.timeline}
                     </p>
-                    {result.recommendations.followUp.actions && (
+                    {recommendations.followUp.actions && (
                       <ul className="mt-2 space-y-1">
-                        {result.recommendations.followUp.actions.map((action, index) => (
+                        {recommendations.followUp.actions.map((action, index) => (
                           <li key={index} className="text-yellow-700 dark:text-yellow-300 text-sm">
                             • {action}
                           </li>
@@ -258,7 +416,6 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
                   </div>
                 )}
               </div>
-            )}
 
             {/* Important Notice */}
             <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6">
@@ -285,7 +442,6 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
             <Button 
               onClick={() => {
                 // Có thể thêm chức năng chia sẻ kết quả hoặc lưu PDF
-                console.log('Share results');
               }}
             >
               Lưu kết quả

@@ -1,10 +1,12 @@
 // components/ChatArea.tsx (Tên gợi ý, có thể đặt ở vị trí khác)
 import React, { useState, useEffect, useCallback } from 'react';
 import { useConversationContext } from '@/context/ConversationContext';
-import useMessages from '@/hooks/useMessages'; // Hook để fetch tin nhắn
+import useMessages from '@/hooks/useMessage'; // Hook để fetch tin nhắn
 import { ChatInput } from './chatinput'; // Component chat input
+import { ChatSuggestions } from './ChatSuggestions'; // Component chat suggestions
 import { ApiMessage } from '@/services/type'; // Định nghĩa kiểu tin nhắn
 import { toast } from 'sonner';
+import { Button } from '../ui/button';
 
 // Giả định có component để hiển thị từng tin nhắn
 // Bạn cần tạo component này nếu chưa có
@@ -16,9 +18,9 @@ export const ChatArea: React.FC = () => {
   // State để lưu trữ tin nhắn hiện tại hiển thị trong UI
   const [displayedMessages, setDisplayedMessages] = useState<ApiMessage[]>([]);
   const [question, setQuestion] = useState(''); // State cho input của ChatInput
-
+  const [showSuggestions, setShowSuggestions] = useState(false); // State để hiển thị suggestions
   // Sử dụng useMessages hook với selectedConversationId từ context
-  const { messages: fetchedMessages, isLoading: isLoadingMessages, error: messagesError, fetchMessages } = useMessages(selectedConversationId || undefined);
+  const { messages: fetchedMessages, isLoading: isLoadingMessages, error: messagesError } = useMessages(selectedConversationId || undefined);
 
   // Theo dõi fetchedMessages. Khi fetch xong (hoặc selectedId thay đổi), cập nhật displayedMessages
     useEffect(() => {
@@ -54,9 +56,13 @@ export const ChatArea: React.FC = () => {
                __v: 0
            };
            setDisplayedMessages(prev => [...prev, newBotMessage]);
+           
+           // Hiển thị suggestions sau khi bot trả lời
+           setTimeout(() => {
+               setShowSuggestions(true);
+           }, 1000); // Delay 1 giây để user đọc tin nhắn bot
       } catch (error) {
            console.error("Error processing bot response:", error);
-           toast.error("Failed to process bot response.");
       }
   }, [selectedConversationId]); // Dependency on selectedConversationId
 
@@ -65,8 +71,8 @@ export const ChatArea: React.FC = () => {
         // Log hoặc xử lý thêm nếu cần.
         // Việc thêm conversation mới vào context và chọn nó
         // đã được xử lý trong ChatInput ngay sau khi submitTitle thành công.
-        // console.log("Title created:", title, "Mood:", mood);
-    }, []);
+        addConversation({ _id: 'temp', title, mood_before: mood });
+    }, [addConversation]);
 
   // Xử lý khi người dùng bắt đầu chat mới (ví dụ: click nút "New Chat")
   const startNewChat = useCallback(() => {
@@ -121,6 +127,9 @@ export const ChatArea: React.FC = () => {
       const messageText = text || question;
        if (!messageText.trim()) return;
 
+      // Ẩn suggestions khi user gửi tin nhắn
+      setShowSuggestions(false);
+
       // Thêm tin nhắn của người dùng vào danh sách hiển thị ngay lập tức
       const newUserMessage: ApiMessage = {
           _id: `temp-user-${Date.now()}`, // ID tạm thời
@@ -141,6 +150,14 @@ export const ChatArea: React.FC = () => {
       // và sau đó gọi lại handleMessageReceived và/hoặc handleTitleCreated
   }, [question, selectedConversationId, setQuestion]);
 
+  // Callback khi user click vào suggestion
+  const handleSuggestionClick = useCallback((suggestion: string) => {
+      setQuestion(suggestion);
+      setShowSuggestions(false);
+      // Tự động gửi tin nhắn suggestion
+      handleChatSubmit(suggestion);
+  }, [handleChatSubmit, setQuestion]);
+
 
   return (
     <div className="flex flex-col h-full">
@@ -156,6 +173,14 @@ export const ChatArea: React.FC = () => {
 
         {/* Khu vực hiển thị tin nhắn */}
         {renderMessages()}
+
+        {/* Chat Suggestions */}
+        <ChatSuggestions
+            conversationId={selectedConversationId}
+            onSuggestionClick={handleSuggestionClick}
+            isVisible={showSuggestions && !isFirstMessageInCurrentContext}
+            className="border-t bg-gray-50"
+        />
 
         {/* Khu vực ChatInput */}
         <div className="p-4 border-t">
