@@ -37,6 +37,8 @@ export function Chat() {
   const [isBotThinking, setIsBotThinking] = useState<boolean>(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const chatInputRef = useRef<ChatInputRef>(null);
+  // Track Assessment status per conversation
+  const [assessmentTriggered, setAssessmentTriggered] = useState<Set<string>>(new Set());
 
   // Assessment hook
   const {
@@ -165,6 +167,12 @@ export function Chat() {
 
     // Kiểm tra có nên trigger assessment không
     if (shouldTriggerQuiz && quizType && selectedConversationId) {
+      // Kiểm tra xem Assessment đã được trigger trong conversation này chưa
+      if (assessmentTriggered.has(selectedConversationId)) {
+        console.log(`Assessment already triggered for conversation: ${selectedConversationId}`);
+        return; // Không trigger Assessment nữa
+      }
+      
       // Lấy userId từ localStorage hoặc context (giả sử có sẵn)
       const userId = localStorage.getItem('userId') || 'temp-user-id';
       
@@ -198,12 +206,15 @@ export function Chat() {
       
       setDisplayedMessages(prev => [...prev, assessmentPromptMessage]);
       
+      // Đánh dấu Assessment đã được trigger cho conversation này
+      setAssessmentTriggered(prev => new Set(prev).add(selectedConversationId));
+      
       // Tự động bắt đầu assessment (có thể thay đổi thành hỏi user trước)
       setTimeout(() => {
         startAssessment(quizType, userId, selectedConversationId);
       }, 2000); // Delay 2 giây để user đọc tin nhắn
     }
-  }, [selectedConversationId, startAssessment]);
+  }, [selectedConversationId, startAssessment, assessmentTriggered, setAssessmentTriggered]);
 
   const handleTitleCreated = useCallback((_title: string, _mood: number) => {
   }, []);
@@ -233,6 +244,8 @@ export function Chat() {
     setQuestion('');
     setIsBotThinking(false);
     setShowSuggestions(false);
+    // Reset Assessment tracking khi bắt đầu chat mới
+    setAssessmentTriggered(new Set());
   }, [setSelectedConversationId]);
 
   // Callback khi user click vào suggestion
