@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from '../ui/button';
-import { Search, X, PlusCircle, MessageCircle, Calendar, ArrowLeft } from 'lucide-react';
+import { Search, X, PlusCircle, MessageCircle, Calendar, ChevronLeft } from 'lucide-react';
 import { cx } from 'classix';
 import { useConversationContext } from '@/context/ConversationContext';
 
@@ -63,32 +63,34 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({ isOpen, onClose, onNew
       {/* Sidebar */}
       <div
         className={cx(
-          "fixed top-0 left-0 h-full z-40 flex flex-col transition-all duration-300 ease-in-out",
+          "fixed top-0 left-0 h-screen z-40 flex flex-col transition-all duration-300 ease-in-out",
           "bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800",
           "border-r border-gray-200 dark:border-gray-700 shadow-xl",
           // Responsive width
           "w-80 md:w-72 lg:w-80",
           // Transform based on isOpen
-          isOpen ? "translate-x-0" : "-translate-x-full",
-          // Mobile: full screen height, Desktop: account for header
-          "md:top-16 md:h-[calc(100vh-4rem)]"
+          isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {/* Header Section */}
         <div className="p-4 border-b border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
-          {/* Close button for mobile */}
+          {/* Close button for mobile and desktop */}
           <div className="flex items-center justify-between mb-4 md:mb-2">
             <h2 className="text-xl font-bold text-gray-800 dark:text-white">
               MindCare AI
             </h2>
-            <Button
-              onClick={onClose}
-              variant="ghost"
-              size="sm"
-              className="md:hidden text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
+            <div className="flex items-center gap-2">
+              {/* Toggle button - visible on all screens */}
+              <Button
+                onClick={onClose}
+                variant="ghost"
+                size="sm"
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
+                title="Đóng sidebar"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+            </div>
           </div>
 
           {/* New Chat Button */}

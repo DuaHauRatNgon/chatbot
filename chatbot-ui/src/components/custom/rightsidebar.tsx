@@ -12,9 +12,10 @@ import { useNavigate } from "react-router-dom";
 interface RightSidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  onThemeChange?: () => void;
 }
 
-export const RightSidebar = ({ isOpen, onClose }: RightSidebarProps) => {
+export const RightSidebar = ({ isOpen, onClose, onThemeChange }: RightSidebarProps) => {
   const [activeTab, setActiveTab] = useState('theme');
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -50,7 +51,7 @@ export const RightSidebar = ({ isOpen, onClose }: RightSidebarProps) => {
       <div className="flex-1 mt-12 mb-2 flex flex-col min-h-0">
         <HorizontalMenu activeTab={activeTab} onTabChange={setActiveTab} />
         <div className="flex-1 overflow-y-auto">
-          {activeTab === 'theme' && <ChatThemeSelector />}
+          {activeTab === 'theme' && <ChatThemeSelector onThemeChange={onThemeChange} />}
           {activeTab === 'music' && <Music isActive={true} />}
           {activeTab === 'mood' && (
             <div className="p-1">

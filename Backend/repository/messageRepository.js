@@ -4,16 +4,25 @@ class MessageRepository {
   // Tạo tin nhắn mới
   async createMessage(messageData) {
     try {
+      console.log(`[DEBUG Repository] Input messageData:`, messageData);
+      
       const message = new Message(messageData);
-      await message.save();
+      console.log(`[DEBUG Repository] Before save - emotion: ${message.emotion}`);
+      
+      const savedMessage = await message.save();
+      console.log(`[DEBUG Repository] After save - emotion: ${savedMessage.emotion}`);
+      console.log(`[DEBUG Repository] Saved message ID: ${savedMessage._id}`);
+      
       return {
         success: true,
         message: "Thêm dữ liệu message thành công",
+        data: savedMessage
       };
     } catch (error) {
+      console.error(`[ERROR Repository] Error saving message:`, error);
       return {
         success: false,
-        message: "Lỗi khi thêm dữ liệu vào message",
+        message: `Lỗi khi thêm dữ liệu vào message: ${error.message}`,
       };
     }
   }

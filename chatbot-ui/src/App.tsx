@@ -13,6 +13,7 @@ import MoodPage from '@/pages/mood/MoodPage';
 import BooksPage from '@/pages/books/BooksPage';
 import { ConversationProvider } from '@/context/ConversationContext';
 import ChatBot404 from '@/pages/404'; // Import trang 404
+import EmotionAnalysisPage from '@/pages/emotion-analysis'; // Import trang phân tích cảm xúc
 
 
 
@@ -71,6 +72,14 @@ function App(): JSX.Element {
                   element={
                     <ProtectedRoute>
                       <BooksPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route 
+                  path='/emotion-analysis' 
+                  element={
+                    <ProtectedRoute>
+                      <EmotionAnalysisPage />
                     </ProtectedRoute>
                   }
                 />

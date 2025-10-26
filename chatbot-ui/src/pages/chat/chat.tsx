@@ -6,7 +6,6 @@ import { useScrollToBottom } from '@/components/custom/use-scroll-to-bottom';
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ApiMessage } from '@/services/type';
 import { Overview } from "@/components/custom/overview";
-import { Header } from "@/components/custom/header";
 import { LeftSidebar } from "@/components/custom/leftsidebar"
 import { RightSidebar } from "@/components/custom/rightsidebar"
 import { v4 as uuidv4 } from 'uuid';
@@ -16,6 +15,9 @@ import useMessages from '@/hooks/useMessage';
 import { useAssessment } from '@/hooks/useAssessment';
 import { AssessmentQuiz } from '@/components/custom/AssessmentQuiz';
 import { AssessmentResults } from '@/components/custom/AssessmentResults';
+import { useEmotionBackground } from '@/hooks/useEmotionBackground';
+import { EmotionIndicator } from '@/components/custom/EmotionIndicator';
+import { useChatTheme } from '@/context/ChatThemeContext';
 
 export function Chat() {
   const {
@@ -51,6 +53,29 @@ export function Chat() {
   } = useAssessment();
 
   const [messagesContainerRef, messagesEndRef] = useScrollToBottom<HTMLDivElement>();
+
+  // Background mode: 'auto' (emotion-based) or 'manual' (user-selected theme)
+  const [backgroundMode, setBackgroundMode] = useState<'auto' | 'manual'>('auto');
+
+  // Emotion-based background (auto mode)
+  const { dominantEmotion, backgroundImage: emotionBackground } = useEmotionBackground(displayedMessages, 5);
+  
+  // Manual theme selection
+  const { currentTheme } = useChatTheme();
+  
+  // Determine which background to use
+  const backgroundImage = backgroundMode === 'auto' 
+    ? emotionBackground 
+    : (currentTheme.backgroundImage || emotionBackground);
+
+  // Debug logging
+  useEffect(() => {
+    console.log(`[Chat] Background Mode: ${backgroundMode}`);
+    console.log(`[Chat] Dominant Emotion: ${dominantEmotion}`);
+    console.log(`[Chat] Emotion Background: ${emotionBackground}`);
+    console.log(`[Chat] Final Background: ${backgroundImage}`);
+    console.log(`[Chat] Displayed Messages Count: ${displayedMessages.length}`);
+  }, [backgroundMode, dominantEmotion, emotionBackground, backgroundImage, displayedMessages.length]);
 
   // Fixed useEffect to properly handle conversation switching
   useEffect(() => {
@@ -109,7 +134,7 @@ export function Chat() {
       sender: "user",
       _id: `temp-user-${uuidv4()}`,
       conversation_id: selectedConversationId || 'temp',
-      emotion: 'fear',
+      emotion: 'neutral', // Tạm thời, sẽ được AI phân tích sau
       timestamp: new Date().toISOString(),
       __v: 0
     };
@@ -126,6 +151,7 @@ export function Chat() {
     let shouldTriggerQuiz = false;
     let quizType = '';
     let quizReason = '';
+    let detectedEmotion = 'neutral'; // Default emotion
 
     if (botResponse && botResponse.message) {
       try {
@@ -134,6 +160,9 @@ export function Chat() {
         shouldTriggerQuiz = parsedMessage.trigger_quiz || false;
         quizType = parsedMessage.quiz_type || '';
         quizReason = parsedMessage.quiz_reason || '';
+        detectedEmotion = parsedMessage.emotion || 'neutral'; // Lấy emotion từ AI
+        
+        console.log(`[DEBUG Frontend] Detected emotion from AI: ${detectedEmotion}`);
         
         if (!content) {
           console.warn("Chat.tsx: Parsed message has no content:", parsedMessage);
@@ -153,7 +182,7 @@ export function Chat() {
       sender: "bot",
       _id: `temp-bot-${uuidv4()}`,
       conversation_id: selectedConversationId || 'temp',
-      emotion: 'fear',
+      emotion: detectedEmotion, // Sử dụng emotion từ AI
       timestamp: new Date().toISOString(),
       __v: 0
     };
@@ -199,7 +228,7 @@ export function Chat() {
         sender: "bot",
         _id: `temp-bot-assessment-${uuidv4()}`,
         conversation_id: selectedConversationId,
-        emotion: 'fear',
+        emotion: 'neutral',
         timestamp: new Date().toISOString(),
         __v: 0
       };
@@ -260,21 +289,33 @@ export function Chat() {
 
   return (
     <div className="flex flex-col h-dvh">
-      {/* Fixed Header */}
-      <div className="flex-shrink-0 z-10">
-        <Header />
-      </div>
-
-      {/* Main Content Area with Fixed Background */}
-      <div className="flex flex-1 min-h-0 relative chat-theme-bg">
-        <LeftSidebar isOpen={leftSidebarOpen} onClose={closeLeftSidebar} onNewChat={handleNewChat} />
+      {/* Main Content Area with Dynamic Emotion Background */}
+      <div className="flex flex-1 min-h-0 relative">
+        {/* Fixed Background Layer - không scroll theo content */}
+        <div 
+          className="fixed inset-0 z-0 transition-all duration-1000 ease-in-out"
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            pointerEvents: 'none'
+          }}
+        />
+        
+        {/* Content wrapper với relative positioning để nằm trên background */}
+        <LeftSidebar 
+          isOpen={leftSidebarOpen} 
+          onClose={closeLeftSidebar} 
+          onNewChat={handleNewChat} 
+        />
 
         <div className="flex flex-col flex-1 min-w-0 relative">
           <div className="relative flex-1 min-w-0">
             {!leftSidebarOpen && (
               <button
                 onClick={toggleLeftSidebar}
-                className="fixed left-4 top-20 z-30 bg-white dark:bg-gray-800 shadow-lg rounded-full p-2 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                className="fixed left-4 top-4 z-30 bg-white dark:bg-gray-800 shadow-lg rounded-full p-2 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                 aria-label="Mở sidebar trái"
               >
                 <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-400" />
@@ -284,11 +325,33 @@ export function Chat() {
             {!rightSidebarOpen && (
               <button
                 onClick={toggleRightSidebar}
-                className="fixed right-4 top-20 z-30 bg-white dark:bg-gray-800 shadow-lg rounded-full p-2 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                className="fixed right-4 top-4 z-30 bg-white dark:bg-gray-800 shadow-lg rounded-full p-2 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                 aria-label="Mở sidebar phải"
               >
                 <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
               </button>
+            )}
+
+            {/* Background Mode Toggle */}
+            <div className="fixed right-4 top-20 z-30">
+              <button
+                onClick={() => setBackgroundMode(mode => mode === 'auto' ? 'manual' : 'auto')}
+                className="bg-white dark:bg-gray-800 shadow-lg rounded-lg px-3 py-2 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-xs font-medium"
+                title={backgroundMode === 'auto' ? 'Chế độ tự động (theo cảm xúc)' : 'Chế độ thủ công (chọn theme)'}
+              >
+                {backgroundMode === 'auto' ? '🤖 Auto' : '🎨 Manual'}
+              </button>
+            </div>
+
+            {/* Emotion Indicator - chỉ hiển thị khi ở auto mode */}
+            {backgroundMode === 'auto' && displayedMessages.length > 0 && dominantEmotion !== 'neutral' && (
+              <div className="fixed right-20 top-20 z-30 animate-fade-in">
+                <EmotionIndicator 
+                  emotion={dominantEmotion} 
+                  showLabel={true}
+                  size="md"
+                />
+              </div>
             )}
 
             {/* Messages Container with Transparent Background */}
@@ -343,7 +406,11 @@ export function Chat() {
           </div>
         </div>
 
-        <RightSidebar isOpen={rightSidebarOpen} onClose={closeRightSidebar} />
+        <RightSidebar 
+          isOpen={rightSidebarOpen} 
+          onClose={closeRightSidebar}
+          onThemeChange={() => setBackgroundMode('manual')}
+        />
       </div>
 
       {/* Assessment Quiz Modal */}

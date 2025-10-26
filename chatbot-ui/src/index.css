@@ -164,3 +164,26 @@
     --chat-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
   }
 }
+
+/* Custom Animations for Emotion Background */
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+  
+  /* Smooth background transition */
+  .bg-transition-smooth {
+    transition: background-image 1s ease-in-out;
+  }
+}

@@ -16,29 +16,18 @@ const Badge = ({ className, children, variant = 'default', ...props }: any) => (
 import { Palette, Check, RotateCcw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export const ChatThemeSelector: React.FC = () => {
+interface ChatThemeSelectorProps {
+  onThemeChange?: () => void;
+}
+
+export const ChatThemeSelector: React.FC<ChatThemeSelectorProps> = ({ onThemeChange }) => {
   const { currentTheme, availableThemes, setTheme, resetToDefault } = useChatTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'nature': return '';
-      case 'ocean': return '';
-      case 'space': return '';
-      case 'sunset': return '';
-      case 'forest': return '';
-      default: return '';
-    }
-  };
-
-  const getStyleBadgeColor = (style: string) => {
-    switch (style) {
-      case 'minimal': return 'bg-gray-100 text-gray-800';
-      case 'cozy': return 'bg-orange-100 text-orange-800';
-      case 'modern': return 'bg-blue-100 text-blue-800';
-      case 'vibrant': return 'bg-purple-100 text-purple-800';
-      case 'calm': return 'bg-green-100 text-green-800';
-      default: return 'bg-gray-100 text-gray-800';
+  const handleThemeSelect = (themeId: string) => {
+    setTheme(themeId);
+    if (onThemeChange) {
+      onThemeChange();
     }
   };
 
@@ -87,8 +76,8 @@ export const ChatThemeSelector: React.FC = () => {
                   <div className="text-xs text-gray-500">{currentTheme.description}</div>
                 </div>
               </div>
-              <Badge className={getStyleBadgeColor(currentTheme.style)}>
-                {currentTheme.style}
+              <Badge className="bg-blue-100 text-blue-800">
+                {currentTheme.name}
               </Badge>
             </div>
           </div>
@@ -117,7 +106,7 @@ export const ChatThemeSelector: React.FC = () => {
                             ? 'border-blue-500 bg-blue-50' 
                             : 'border-gray-200 hover:border-gray-300'
                         }`}
-                        onClick={() => setTheme(theme.id)}
+                        onClick={() => handleThemeSelect(theme.id)}
                       >
                         <div className="flex items-center gap-3 w-full">
                           <div 
@@ -135,7 +124,6 @@ export const ChatThemeSelector: React.FC = () => {
                           <div className="flex-1 text-left">
                             <div className="flex items-center gap-2">
                               <span className="font-medium text-sm">{theme.name}</span>
-                              <span className="text-xs">{getCategoryIcon(theme.category)}</span>
                               {currentTheme.id === theme.id && (
                                 <Check className="w-4 h-4 text-blue-600" />
                               )}
@@ -144,12 +132,6 @@ export const ChatThemeSelector: React.FC = () => {
                               {theme.description}
                             </div>
                           </div>
-                          <Badge 
-                            variant="secondary" 
-                            className={`text-xs ${getStyleBadgeColor(theme.style)}`}
-                          >
-                            {theme.style}
-                          </Badge>
                         </div>
                       </Button>
                     </motion.div>

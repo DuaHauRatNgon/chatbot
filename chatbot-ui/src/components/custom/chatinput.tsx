@@ -135,17 +135,15 @@ export const ChatInput = forwardRef<ChatInputRef, ChatInputProps>(({
            // Trường hợp hiếm xảy ra nếu logic trên đúng, nhưng thêm để an toàn
            toast.error("Internal error: No conversation ID available.");
            onError?.("Internal error: No conversation ID available.");
-           return;
-      }
-       const createUserMessagePayload = {
-          conversation_id: currentConversationId,
-          content: messageText,
-          sender: "user"
-          // Có thể thêm emotion nếu đã phân tích ở client
-      };
-      // Không cần await ở đây nếu bạn muốn tin nhắn bot hiển thị sớm hơn
-      // Nhưng để đảm bảo thứ tự, tốt nhất là await
-      await createMessage.submitMessage(createUserMessagePayload);
+      } 
+      // 3. SKIP: Không lưu user message ở frontend nữa
+      // Backend sẽ tự động lưu user message với emotion từ AI
+      // const createUserMessagePayload = {
+      //    conversation_id: currentConversationId,
+      //    content: messageText,
+      //    sender: "user"
+      // };
+      // await createMessage.submitMessage(createUserMessagePayload);
 
 
       // 4. Gửi tin nhắn của người dùng đến bot AI bằng useNewMessageBot
@@ -154,16 +152,16 @@ export const ChatInput = forwardRef<ChatInputRef, ChatInputProps>(({
 
       if (newMessageBotResponse && newMessageBotResponse.message) {
 
-        // 5. Parse và lưu tin nhắn của bot vào database bằng useCreateMessage
+        // 5. SKIP: Không lưu bot message ở frontend nữa
+        // Backend đã tự động lưu bot message
         try {
-            const botMessageContent = JSON.parse(newMessageBotResponse.message).content; // Đảm bảo parsing đúng cấu trúc
-             const createBotMessagePayload = {
-                conversation_id: currentConversationId,
-                content: botMessageContent,
-                sender: "bot"
-                // Có thể thêm emotion từ bot response nếu có
-            };
-            await createMessage.submitMessage(createBotMessagePayload);
+            // const botMessageContent = JSON.parse(newMessageBotResponse.message).content;
+            // const createBotMessagePayload = {
+            //    conversation_id: currentConversationId,
+            //    content: botMessageContent,
+            //    sender: "bot"
+            // };
+            // await createMessage.submitMessage(createBotMessagePayload);
 
             onMessageReceived?.(newMessageBotResponse); // Gọi callback để parent hiển thị tin nhắn bot
         } catch (parseError) {

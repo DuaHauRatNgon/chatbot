@@ -15,7 +15,7 @@ export interface ChatTheme {
   backgroundImage?: string;
   backgroundGradient?: string;
   style: 'minimal' | 'cozy' | 'modern' | 'vibrant' | 'calm';
-  category: 'default' | 'nature' | 'space' | 'ocean' | 'sunset' | 'forest';
+  category: 'positive' | 'negative' | 'neutral';
 }
 
 export interface ChatThemeContextType {

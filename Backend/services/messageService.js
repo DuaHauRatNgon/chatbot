@@ -27,10 +27,14 @@ class MessageService {
       }
 
       // Validate emotion nếu có
-      if (messageData.emotion && !['happy', 'sad', 'angry', 'fear'].includes(messageData.emotion)) {
+      const validEmotions = [
+        'happy', 'excited', 'love', 'sad', 'depression', 
+        'anxiety', 'fear', 'angry', 'disgust', 'surprise', 'neutral'
+      ];
+      if (messageData.emotion && !validEmotions.includes(messageData.emotion)) {
         return {
           success: false,
-          message: "Emotion phải là một trong: happy, sad, angry, fear"
+          message: `Emotion phải là một trong: ${validEmotions.join(', ')}`
         };
       }
 

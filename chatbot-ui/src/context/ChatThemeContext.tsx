@@ -1,150 +1,169 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { ChatTheme, ChatThemeContextType } from '@/interfaces/chatTheme';
 
-// Định nghĩa các theme có sẵn
+// Định nghĩa các theme có sẵn - Emotion-themed backgrounds
 const defaultThemes: ChatTheme[] = [
   {
-    id: 'default',
-    name: 'Mặc định',
-    description: 'Giao diện đơn giản và sạch sẽ',
+    id: 'joy',
+    name: 'Vui Vẻ',
+    description: 'Cảm xúc vui vẻ, hạnh phúc, tích cực',
     colors: {
-      primary: 'hsl(0 0% 9%)',
-      secondary: 'hsl(0 0% 96.1%)',
-      background: 'hsl(0 0% 100%)',
-      surface: 'hsl(0 0% 100%)',
-      text: 'hsl(0 0% 3.9%)',
-      textSecondary: 'hsl(0 0% 45.1%)',
-      border: 'hsl(0 0% 89.8%)',
-      accent: 'hsl(0 0% 96.1%)',
+      primary: 'hsl(45 100% 50%)',
+      secondary: 'hsl(45 100% 95%)',
+      background: 'hsl(45 100% 98%)',
+      surface: 'hsl(45 100% 100%)',
+      text: 'hsl(45 20% 15%)',
+      textSecondary: 'hsl(45 10% 50%)',
+      border: 'hsl(45 30% 85%)',
+      accent: 'hsl(45 80% 90%)',
     },
+    backgroundImage: '/src/assets/backgrounds/Io_Joy_standard2.png',
+    style: 'vibrant',
+    category: 'positive'
+  },
+  {
+    id: 'sadness',
+    name: 'Buồn Bã',
+    description: 'Cảm xúc buồn, trầm lắng, u ám',
+    colors: {
+      primary: 'hsl(210 30% 35%)',
+      secondary: 'hsl(210 20% 90%)',
+      background: 'hsl(210 15% 95%)',
+      surface: 'hsl(210 10% 98%)',
+      text: 'hsl(210 25% 20%)',
+      textSecondary: 'hsl(210 15% 45%)',
+      border: 'hsl(210 15% 80%)',
+      accent: 'hsl(210 25% 85%)',
+    },
+    backgroundImage: '/src/assets/backgrounds/Io_Sadness_standard2.png',
+    style: 'calm',
+    category: 'negative'
+  },
+  {
+    id: 'anger',
+    name: 'Tức Giận',
+    description: 'Cảm xúc giận dữ, bực bội, căng thẳng',
+    colors: {
+      primary: 'hsl(0 70% 45%)',
+      secondary: 'hsl(0 50% 95%)',
+      background: 'hsl(0 40% 98%)',
+      surface: 'hsl(0 30% 100%)',
+      text: 'hsl(0 30% 20%)',
+      textSecondary: 'hsl(0 20% 50%)',
+      border: 'hsl(0 30% 85%)',
+      accent: 'hsl(0 60% 90%)',
+    },
+    backgroundImage: '/src/assets/backgrounds/Io_Anger_standard2.png',
+    style: 'vibrant',
+    category: 'negative'
+  },
+  {
+    id: 'fear',
+    name: 'Sợ Hãi',
+    description: 'Cảm xúc sợ hãi, lo lắng, bất an',
+    colors: {
+      primary: 'hsl(270 50% 40%)',
+      secondary: 'hsl(270 30% 92%)',
+      background: 'hsl(270 20% 96%)',
+      surface: 'hsl(270 15% 99%)',
+      text: 'hsl(270 25% 22%)',
+      textSecondary: 'hsl(270 15% 48%)',
+      border: 'hsl(270 20% 83%)',
+      accent: 'hsl(270 40% 88%)',
+    },
+    backgroundImage: '/src/assets/backgrounds/Io_Fear_standard2.png',
+    style: 'modern',
+    category: 'negative'
+  },
+  {
+    id: 'anxiety',
+    name: 'Lo Âu',
+    description: 'Cảm xúc lo âu, căng thẳng, bồn chồn',
+    colors: {
+      primary: 'hsl(25 65% 45%)',
+      secondary: 'hsl(25 45% 93%)',
+      background: 'hsl(25 35% 97%)',
+      surface: 'hsl(25 25% 99%)',
+      text: 'hsl(25 28% 18%)',
+      textSecondary: 'hsl(25 18% 48%)',
+      border: 'hsl(25 28% 84%)',
+      accent: 'hsl(25 55% 89%)',
+    },
+    backgroundImage: '/src/assets/backgrounds/Io_Anxiety_standard2.png',
+    style: 'cozy',
+    category: 'negative'
+  },
+  {
+    id: 'disgust',
+    name: 'Ghê Tởm',
+    description: 'Cảm xúc ghê tởm, khó chịu, phản cảm',
+    colors: {
+      primary: 'hsl(120 40% 35%)',
+      secondary: 'hsl(120 30% 92%)',
+      background: 'hsl(120 20% 96%)',
+      surface: 'hsl(120 15% 99%)',
+      text: 'hsl(120 25% 20%)',
+      textSecondary: 'hsl(120 15% 47%)',
+      border: 'hsl(120 20% 83%)',
+      accent: 'hsl(120 35% 88%)',
+    },
+    backgroundImage: '/src/assets/backgrounds/Io_Disgust_standard2.png',
+    style: 'calm',
+    category: 'negative'
+  },
+  {
+    id: 'embarrassment',
+    name: 'Xấu Hổ',
+    description: 'Cảm xúc xấu hổ, ngượng ngùng, bối rối',
+    colors: {
+      primary: 'hsl(340 45% 42%)',
+      secondary: 'hsl(340 35% 93%)',
+      background: 'hsl(340 25% 97%)',
+      surface: 'hsl(340 20% 99%)',
+      text: 'hsl(340 23% 19%)',
+      textSecondary: 'hsl(340 18% 49%)',
+      border: 'hsl(340 23% 84%)',
+      accent: 'hsl(340 40% 89%)',
+    },
+    backgroundImage: '/src/assets/backgrounds/Io_Embarrassment_standard2.png',
+    style: 'cozy',
+    category: 'neutral'
+  },
+  {
+    id: 'ennui',
+    name: 'Chán Nản',
+    description: 'Cảm xúc chán nản, buồn tẻ, mệt mỏi',
+    colors: {
+      primary: 'hsl(200 15% 40%)',
+      secondary: 'hsl(200 10% 92%)',
+      background: 'hsl(200 8% 96%)',
+      surface: 'hsl(200 5% 99%)',
+      text: 'hsl(200 12% 22%)',
+      textSecondary: 'hsl(200 8% 50%)',
+      border: 'hsl(200 10% 84%)',
+      accent: 'hsl(200 12% 88%)',
+    },
+    backgroundImage: '/src/assets/backgrounds/Io_Ennui_standard2.png',
     style: 'minimal',
-    category: 'default'
+    category: 'neutral'
   },
   {
-    id: 'calm-blue',
-    name: 'Xanh Dịu Dàng',
-    description: 'Màu xanh nhẹ nhàng giúp thư giãn',
+    id: 'envy',
+    name: 'Ghen Tị',
+    description: 'Cảm xúc ghen tị, đố kỵ, không hài lòng',
     colors: {
-      primary: 'hsl(210 40% 25%)',
-      secondary: 'hsl(210 30% 95%)',
-      background: 'hsl(210 20% 98%)',
-      surface: 'hsl(210 15% 100%)',
-      text: 'hsl(210 20% 15%)',
-      textSecondary: 'hsl(210 10% 50%)',
-      border: 'hsl(210 20% 85%)',
-      accent: 'hsl(210 40% 90%)',
+      primary: 'hsl(150 40% 38%)',
+      secondary: 'hsl(150 30% 92%)',
+      background: 'hsl(150 20% 96%)',
+      surface: 'hsl(150 15% 99%)',
+      text: 'hsl(150 23% 21%)',
+      textSecondary: 'hsl(150 15% 48%)',
+      border: 'hsl(150 20% 83%)',
+      accent: 'hsl(150 35% 88%)',
     },
-    backgroundImage: '/src/assets/backgrounds/calm-blue.svg',
-    style: 'calm',
-    category: 'ocean'
-  },
-  {
-    id: 'warm-sunset',
-    name: 'Hoàng Hôn Ấm Áp',
-    description: 'Sắc cam vàng ấm áp như hoàng hôn',
-    colors: {
-      primary: 'hsl(25 70% 45%)',
-      secondary: 'hsl(25 30% 95%)',
-      background: 'hsl(25 20% 98%)',
-      surface: 'hsl(25 15% 100%)',
-      text: 'hsl(25 20% 15%)',
-      textSecondary: 'hsl(25 10% 50%)',
-      border: 'hsl(25 20% 85%)',
-      accent: 'hsl(25 40% 90%)',
-    },
-    backgroundImage: '/src/assets/backgrounds/warm-sunset.svg',
-    style: 'cozy',
-    category: 'sunset'
-  },
-  {
-    id: 'forest-green',
-    name: 'Rừng Xanh',
-    description: 'Màu xanh lá cây tự nhiên, gần gũi với thiên nhiên',
-    colors: {
-      primary: 'hsl(120 40% 25%)',
-      secondary: 'hsl(120 30% 95%)',
-      background: 'hsl(120 20% 98%)',
-      surface: 'hsl(120 15% 100%)',
-      text: 'hsl(120 20% 15%)',
-      textSecondary: 'hsl(120 10% 50%)',
-      border: 'hsl(120 20% 85%)',
-      accent: 'hsl(120 40% 90%)',
-    },
-    backgroundImage: '/src/assets/backgrounds/forest-green.svg',
-    style: 'calm',
-    category: 'forest'
-  },
-  {
-    id: 'lavender-dream',
-    name: 'Hoa Bằng Lăng',
-    description: 'Màu tím nhẹ nhàng, thư giãn tinh thần',
-    colors: {
-      primary: 'hsl(270 40% 35%)',
-      secondary: 'hsl(270 30% 95%)',
-      background: 'hsl(270 20% 98%)',
-      surface: 'hsl(270 15% 100%)',
-      text: 'hsl(270 20% 15%)',
-      textSecondary: 'hsl(270 10% 50%)',
-      border: 'hsl(270 20% 85%)',
-      accent: 'hsl(270 40% 90%)',
-    },
-    backgroundImage: '/src/assets/backgrounds/lavender-dream.svg',
-    style: 'calm',
-    category: 'nature'
-  },
-  {
-    id: 'space-dark',
-    name: 'Không Gian Vũ Trụ',
-    description: 'Tông màu tối với điểm nhấn xanh dương',
-    colors: {
-      primary: 'hsl(220 60% 60%)',
-      secondary: 'hsl(220 20% 15%)',
-      background: 'hsl(220 15% 8%)',
-      surface: 'hsl(220 20% 12%)',
-      text: 'hsl(220 10% 90%)',
-      textSecondary: 'hsl(220 10% 70%)',
-      border: 'hsl(220 20% 20%)',
-      accent: 'hsl(220 40% 25%)',
-    },
-    backgroundImage: '/src/assets/backgrounds/space-dark.svg',
+    backgroundImage: '/src/assets/backgrounds/Io_Envy_standard2.png',
     style: 'modern',
-    category: 'space'
-  },
-  {
-    id: 'rose-gold',
-    name: 'Hồng Vàng',
-    description: 'Sắc hồng vàng sang trọng và ấm áp',
-    colors: {
-      primary: 'hsl(340 50% 45%)',
-      secondary: 'hsl(340 30% 95%)',
-      background: 'hsl(340 20% 98%)',
-      surface: 'hsl(340 15% 100%)',
-      text: 'hsl(340 20% 15%)',
-      textSecondary: 'hsl(340 10% 50%)',
-      border: 'hsl(340 20% 85%)',
-      accent: 'hsl(340 40% 90%)',
-    },
-    backgroundImage: '/src/assets/backgrounds/rose-gold.svg',
-    style: 'cozy',
-    category: 'sunset'
-  },
-  {
-    id: 'mint-fresh',
-    name: 'Bạc Hà Tươi Mát',
-    description: 'Màu xanh bạc hà tươi mát, sảng khoái',
-    colors: {
-      primary: 'hsl(160 50% 35%)',
-      secondary: 'hsl(160 30% 95%)',
-      background: 'hsl(160 20% 98%)',
-      surface: 'hsl(160 15% 100%)',
-      text: 'hsl(160 20% 15%)',
-      textSecondary: 'hsl(160 10% 50%)',
-      border: 'hsl(160 20% 85%)',
-      accent: 'hsl(160 40% 90%)',
-    },
-    backgroundImage: '/src/assets/backgrounds/mint-fresh.svg',
-    style: 'modern',
-    category: 'nature'
+    category: 'negative'
   }
 ];
 
@@ -167,7 +186,7 @@ export function ChatThemeProvider({ children }: { children: ReactNode }) {
   };
 
   const resetToDefault = () => {
-    setTheme('default');
+    setTheme('ennui'); // Chán Nản - neutral theme
   };
 
   const applyThemeToDocument = (theme: ChatTheme) => {
