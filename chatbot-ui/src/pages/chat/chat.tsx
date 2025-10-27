@@ -68,14 +68,6 @@ export function Chat() {
     ? emotionBackground 
     : (currentTheme.backgroundImage || emotionBackground);
 
-  // Debug logging
-  useEffect(() => {
-    console.log(`[Chat] Background Mode: ${backgroundMode}`);
-    console.log(`[Chat] Dominant Emotion: ${dominantEmotion}`);
-    console.log(`[Chat] Emotion Background: ${emotionBackground}`);
-    console.log(`[Chat] Final Background: ${backgroundImage}`);
-    console.log(`[Chat] Displayed Messages Count: ${displayedMessages.length}`);
-  }, [backgroundMode, dominantEmotion, emotionBackground, backgroundImage, displayedMessages.length]);
 
   // Fixed useEffect to properly handle conversation switching
   useEffect(() => {
@@ -174,8 +166,6 @@ export function Chat() {
         quizReason = parsedMessage.quiz_reason || '';
         detectedEmotion = parsedMessage.emotion || 'neutral'; // Lấy emotion từ AI
         
-        console.log(`[DEBUG Frontend] Detected emotion from AI: ${detectedEmotion}`);
-        
         if (!content) {
           console.warn("Chat.tsx: Parsed message has no content:", parsedMessage);
           content = JSON.stringify(parsedMessage);
@@ -210,7 +200,6 @@ export function Chat() {
     if (shouldTriggerQuiz && quizType && selectedConversationId) {
       // Kiểm tra xem Assessment đã được trigger trong conversation này chưa
       if (assessmentTriggered.has(selectedConversationId)) {
-        console.log(`Assessment already triggered for conversation: ${selectedConversationId}`);
         return; // Không trigger Assessment nữa
       }
       

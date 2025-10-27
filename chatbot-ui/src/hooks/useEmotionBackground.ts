@@ -84,13 +84,6 @@ export function useEmotionBackground(
       .filter(msg => msg.sender === 'user')
       .slice(-recentMessageCount); // Lấy N tin nhắn gần nhất
 
-    console.log(`[Emotion Analysis] Total messages: ${messages.length}`);
-    console.log(`[Emotion Analysis] User messages (recent ${recentMessageCount}):`, userMessages.map(m => ({
-      content: m.content?.substring(0, 30),
-      emotion: m.emotion,
-      sender: m.sender
-    })));
-
     if (userMessages.length === 0) {
       return 'neutral';
     }
@@ -116,9 +109,6 @@ export function useEmotionBackground(
       }
     });
 
-    console.log(`[Emotion Analysis] Scores:`, emotionScores);
-    console.log(`[Emotion Analysis] Dominant: ${dominant} (score: ${maxScore})`);
-
     return dominant;
   }, [messages, recentMessageCount]);
 
@@ -133,8 +123,6 @@ export function useEmotionBackground(
         || EMOTION_BACKGROUND_MAP['neutral'];
       
       setBackgroundImage(newBackground);
-      
-      console.log(`[Emotion Background] Changed to: ${newDominantEmotion} -> ${newBackground}`);
     }
   }, [analyzeDominantEmotion, dominantEmotion]);
 

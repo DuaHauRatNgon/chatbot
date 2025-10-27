@@ -48,9 +48,6 @@ export default function EmotionAnalysisPage() {
       const token = localStorage.getItem('token');
       const userStr = localStorage.getItem('user');
       
-      console.log('Token:', token ? 'exists' : 'missing');
-      console.log('User string:', userStr);
-      
       if (!userStr) {
         const errMsg = 'Chưa đăng nhập. Vui lòng đăng nhập lại.';
         console.error('User data not found in localStorage');
@@ -59,11 +56,9 @@ export default function EmotionAnalysisPage() {
       }
       
       const user = JSON.parse(userStr);
-      console.log('Parsed user:', user);
       
       // Backend trả về user.id (không phải user._id)
       const userId = user.id || user._id;
-      console.log('User ID:', userId);
 
       if (!userId) {
         const errMsg = 'Không tìm thấy User ID. Vui lòng đăng xuất và đăng nhập lại.';
@@ -73,8 +68,6 @@ export default function EmotionAnalysisPage() {
       }
       
       setError(''); // Clear previous errors
-
-      console.log('Fetching emotion data for user:', userId);
       
       const response = await fetch(
         `${API_URL}/api/emotion-analysis/${userId}`,
@@ -85,12 +78,9 @@ export default function EmotionAnalysisPage() {
         }
       );
 
-      console.log('Response status:', response.status);
       const data = await response.json();
-      console.log('Response data:', data);
 
       if (data.success) {
-        console.log('Emotions found:', data.data.emotions.length);
         setEmotions(data.data.emotions);
         setStats(data.data.stats);
         setError('');

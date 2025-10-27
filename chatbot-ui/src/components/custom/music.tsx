@@ -29,12 +29,11 @@ export const Music: React.FC<MusicProps> = ({ isActive }) => {
     };
 
     const handleCanPlay = () => {
-      console.log('✅ Audio can play:', audio.src);
       setAudioError(null);
     };
 
     const handleLoadStart = () => {
-      console.log('🔄 Loading audio:', audio.src);
+      // Audio loading started
     };
 
     audio.addEventListener('error', handleError);
@@ -53,7 +52,6 @@ export const Music: React.FC<MusicProps> = ({ isActive }) => {
     if (!currentSong || !audioRef.current) return;
 
     if (isPlaying) {
-      console.log('▶️ Playing:', currentSong.title);
       audioRef.current.play().catch((err) => {
         console.error('🔴 Play error:', err);
         setAudioError('Lỗi phát nhạc. Thử lại...');

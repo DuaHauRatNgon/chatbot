@@ -69,15 +69,6 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
         duration: 3000,
       });
       
-      // Có thể log ra console để debug
-      console.log('[Assessment] Saved result:', {
-        assessmentId: result.assessment?._id,
-        scaleType: result.assessment?.scaleType,
-        totalScore: result.totalScore,
-        interpretation: result.interpretation,
-        savedAt: new Date().toISOString()
-      });
-      
     } catch (error) {
       // Xử lý lỗi (nếu có)
       toast.error('Có lỗi xảy ra khi lưu kết quả', {
