@@ -14,6 +14,7 @@ import BooksPage from '@/pages/books/BooksPage';
 import { ConversationProvider } from '@/context/ConversationContext';
 import ChatBot404 from '@/pages/404'; // Import trang 404
 import EmotionAnalysisPage from '@/pages/emotion-analysis'; // Import trang phân tích cảm xúc
+import { Toaster } from 'sonner'; // Toast notification
 
 
 
@@ -38,6 +39,7 @@ function App(): JSX.Element {
         <ChatThemeProvider>
           <Router>
             <NavigatorSetup /> {/* ✅ useNavigate nằm trong Router */}
+            <Toaster position="top-right" richColors closeButton />
             <div className="w-full h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
               <Routes>
                 {/* Route được bảo vệ - chỉ user đã đăng nhập mới vào được */}

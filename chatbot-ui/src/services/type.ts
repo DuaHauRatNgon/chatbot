@@ -93,13 +93,24 @@ export interface GetMessagesApiResponse {
 export interface Music {
     _id: string;
     title: string;
+    artist?: string;           // Artist name (từ Jamendo API)
     duration: string;
     file_url: string;
+    stream_url?: string;       // Stream URL (có thể khác file_url)
+    image?: string;            // Cover image URL
+    album?: string;            // Album name
+    source?: 'jamendo' | 'local';  // Nguồn nhạc
+    tags?: string;             // Tags/genres
+    license?: string;          // License URL (cho Jamendo)
+    popularity?: number;       // Độ phổ biến (0-100)
+    releasedate?: string;      // Ngày phát hành
   }
   
 export interface GetAllMusics {
     success: boolean;
-    data: {
+    source?: 'jamendo' | 'local';  // Nguồn data
+    message?: string;               // Message từ API
+    data: Music[] | {               // Support cả 2 formats
       data: Music[];
     };
 }

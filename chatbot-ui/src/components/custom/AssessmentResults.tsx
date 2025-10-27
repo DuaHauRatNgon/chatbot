@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
-import { CheckCircle, AlertTriangle, Info, X, Brain, Loader2 } from 'lucide-react';
+import { CheckCircle, AlertTriangle, Info, X, Brain, Loader2, Save } from 'lucide-react';
 import { AssessmentAnswerResponse } from '@/interfaces/interfaces';
 import { generateAIRecommendations } from '@/services/aiRecommendations';
+import { toast } from 'sonner';
 
 interface AssessmentResultsProps {
   result: AssessmentAnswerResponse;
@@ -17,6 +18,7 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
   const [aiRecommendations, setAiRecommendations] = useState<any>(null);
   const [isGeneratingAI, setIsGeneratingAI] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   // Generate AI recommendations khi component mount
   useEffect(() => {
@@ -52,6 +54,41 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
 
     generateRecommendations();
   }, [result]);
+
+  // Handler để lưu kết quả (tạm thời giả lập)
+  const handleSaveResults = async () => {
+    setIsSaving(true);
+    
+    // Giả lập việc lưu với setTimeout (1.5 giây)
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Thông báo thành công
+      toast.success('Lưu kết quả thành công!', {
+        description: 'Kết quả đánh giá đã được lưu vào hệ thống',
+        duration: 3000,
+      });
+      
+      // Có thể log ra console để debug
+      console.log('[Assessment] Saved result:', {
+        assessmentId: result.assessment?._id,
+        scaleType: result.assessment?.scaleType,
+        totalScore: result.totalScore,
+        interpretation: result.interpretation,
+        savedAt: new Date().toISOString()
+      });
+      
+    } catch (error) {
+      // Xử lý lỗi (nếu có)
+      toast.error('Có lỗi xảy ra khi lưu kết quả', {
+        description: 'Vui lòng thử lại sau',
+        duration: 3000,
+      });
+      console.error('[Assessment] Save error:', error);
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   // Tạo recommendations mặc định nếu AI fail
   const getFallbackRecommendations = () => {
@@ -436,15 +473,25 @@ export const AssessmentResults: React.FC<AssessmentResultsProps> = ({
 
           {/* Actions */}
           <div className="flex justify-end gap-3 mt-6">
-            <Button variant="outline" onClick={onClose}>
+            <Button variant="outline" onClick={onClose} disabled={isSaving}>
               Đóng
             </Button>
             <Button 
-              onClick={() => {
-                // Có thể thêm chức năng chia sẻ kết quả hoặc lưu PDF
-              }}
+              onClick={handleSaveResults}
+              disabled={isSaving}
+              className="min-w-[140px]"
             >
-              Lưu kết quả
+              {isSaving ? (
+                <div className="flex items-center gap-2">
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Đang lưu...</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <Save className="w-4 h-4" />
+                  <span>Lưu kết quả</span>
+                </div>
+              )}
             </Button>
           </div>
         </div>

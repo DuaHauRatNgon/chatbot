@@ -122,6 +122,18 @@ export function Chat() {
     setRightSidebarOpen(false);
   };
 
+  const handleStartAssessmentFromSidebar = useCallback(() => {
+    if (!selectedConversationId) {
+      alert('Vui lòng bắt đầu cuộc trò chuyện trước khi làm bài đánh giá');
+      return;
+    }
+    
+    const userId = localStorage.getItem('userId') || 'temp-user-id';
+    
+    // Default to GAD-7 (anxiety scale) - có thể customize sau
+    startAssessment('GAD-7', userId, selectedConversationId);
+  }, [selectedConversationId, startAssessment]);
+
   const handleChatSubmit = useCallback((text?: string) => {
     const messageText = text || question;
     if (!messageText.trim()) return;
@@ -410,6 +422,7 @@ export function Chat() {
           isOpen={rightSidebarOpen} 
           onClose={closeRightSidebar}
           onThemeChange={() => setBackgroundMode('manual')}
+          onStartAssessment={handleStartAssessmentFromSidebar}
         />
       </div>
 

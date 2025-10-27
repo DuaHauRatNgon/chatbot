@@ -1,150 +1,213 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-// Mock data mở rộng theo nhóm Dương/Âm với mức M1 (nhẹ) và M3 (mạnh)
-// x ~ valence: -1 (Âm) -> +1 (Dương), y ~ arousal: 0 (Yếu) -> 1 (Mạnh)
-const mockEmotions = [
-  // Dương - Hạnh phúc
-  { id: 'pos-happy-m1', group: 'Positive', axis: 'Dương', level: 'M1', name: 'Vui nhẹ', x: 0.6, y: 0.4, color: '#8BC34A', intensity: 55 },
-  { id: 'pos-happy-m2', group: 'Positive', axis: 'Dương', level: 'M2', name: 'Hân hoan', x: 0.75, y: 0.55, color: '#A5D6A7', intensity: 70 },
-  { id: 'pos-happy-m3', group: 'Positive', axis: 'Dương', level: 'M3', name: 'Phấn khích', x: 0.9, y: 0.9, color: '#FF6B35', intensity: 95 },
-  // Dương - Ngạc nhiên
-  { id: 'pos-surprise-m1', group: 'Positive', axis: 'Dương', level: 'M1', name: 'Tò mò', x: 0.3, y: 0.5, color: '#03A9F4', intensity: 50 },
-  { id: 'pos-surprise-m2', group: 'Positive', axis: 'Dương', level: 'M2', name: 'Ngỡ ngàng', x: 0.5, y: 0.6, color: '#81D4FA', intensity: 65 },
-  { id: 'pos-surprise-m3', group: 'Positive', axis: 'Dương', level: 'M3', name: 'Kinh ngạc', x: 0.7, y: 0.85, color: '#FF9800', intensity: 85 },
-  // Dương - Yêu thương
-  { id: 'pos-love-m1', group: 'Positive', axis: 'Dương', level: 'M1', name: 'Thích thú', x: 0.5, y: 0.4, color: '#E91E63', intensity: 60 },
-  { id: 'pos-love-m2', group: 'Positive', axis: 'Dương', level: 'M2', name: 'Mến mộ', x: 0.7, y: 0.5, color: '#F06292', intensity: 70 },
-  { id: 'pos-love-m3', group: 'Positive', axis: 'Dương', level: 'M3', name: 'Say mê', x: 0.9, y: 0.6, color: '#C2185B', intensity: 80 },
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
-  // Âm - Buồn
-  { id: 'neg-sad-m1', group: 'Negative', axis: 'Âm', level: 'M1', name: 'Trầm lắng', x: -0.4, y: 0.2, color: '#4A90E2', intensity: 40 },
-  { id: 'neg-sad-m2', group: 'Negative', axis: 'Âm', level: 'M2', name: 'U sầu', x: -0.6, y: 0.4, color: '#5C6BC0', intensity: 60 },
-  { id: 'neg-sad-m3', group: 'Negative', axis: 'Âm', level: 'M3', name: 'Tuyệt vọng', x: -0.9, y: 0.6, color: '#1E3A8A', intensity: 85 },
-  // Âm - Sợ hãi
-  { id: 'neg-fear-m1', group: 'Negative', axis: 'Âm', level: 'M1', name: 'Lo lắng', x: -0.3, y: 0.6, color: '#9C27B0', intensity: 60 },
-  { id: 'neg-fear-m2', group: 'Negative', axis: 'Âm', level: 'M2', name: 'Bất an', x: -0.55, y: 0.7, color: '#BA68C8', intensity: 75 },
-  { id: 'neg-fear-m3', group: 'Negative', axis: 'Âm', level: 'M3', name: 'Hoảng loạn', x: -0.7, y: 0.95, color: '#6A1B9A', intensity: 92 },
-  // Âm - Tức giận
-  { id: 'neg-anger-m1', group: 'Negative', axis: 'Âm', level: 'M1', name: 'Khó chịu', x: -0.5, y: 0.5, color: '#F87171', intensity: 65 },
-  { id: 'neg-anger-m2', group: 'Negative', axis: 'Âm', level: 'M2', name: 'Bực bội', x: -0.7, y: 0.7, color: '#EF4444', intensity: 78 },
-  { id: 'neg-anger-m3', group: 'Negative', axis: 'Âm', level: 'M3', name: 'Giận dữ', x: -0.85, y: 0.9, color: '#E74C3C', intensity: 90 },
-  // Âm - Ghê tởm
-  { id: 'neg-disgust-m1', group: 'Negative', axis: 'Âm', level: 'M1', name: 'Ác cảm', x: -0.4, y: 0.4, color: '#2E7D32', intensity: 55 },
-  { id: 'neg-disgust-m2', group: 'Negative', axis: 'Âm', level: 'M2', name: 'Ghê ghê', x: -0.6, y: 0.55, color: '#43A047', intensity: 68 },
-  { id: 'neg-disgust-m3', group: 'Negative', axis: 'Âm', level: 'M3', name: 'Căm ghét', x: -0.75, y: 0.7, color: '#1B5E20', intensity: 80 },
-];
+interface EmotionPoint {
+  id: string;
+  emotion: string;
+  name: string;
+  message: string;
+  timestamp: Date;
+  x: number;
+  y: number;
+  valence: number;
+  arousal: number;
+  color: string;
+  group: string;
+  intensity: number;
+}
+
+interface Stats {
+  totalMessages: number;
+  positivePercent: number;
+  negativePercent: number;
+  neutralPercent: number;
+  avgIntensity: number;
+}
 
 export default function EmotionAnalysisPage() {
-  const [selectedEmotion, setSelectedEmotion] = useState(null);
+  const [selectedEmotion, setSelectedEmotion] = useState<EmotionPoint | null>(null);
+  const [emotions, setEmotions] = useState<EmotionPoint[]>([]);
+  const [stats, setStats] = useState<Stats>({
+    totalMessages: 0,
+    positivePercent: 0,
+    negativePercent: 0,
+    neutralPercent: 0,
+    avgIntensity: 0,
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string>('');
+
+  useEffect(() => {
+    fetchEmotionData();
+  }, []);
+
+  const fetchEmotionData = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem('token');
+      const userStr = localStorage.getItem('user');
+      
+      console.log('Token:', token ? 'exists' : 'missing');
+      console.log('User string:', userStr);
+      
+      if (!userStr) {
+        const errMsg = 'Chưa đăng nhập. Vui lòng đăng nhập lại.';
+        console.error('User data not found in localStorage');
+        setError(errMsg);
+        return;
+      }
+      
+      const user = JSON.parse(userStr);
+      console.log('Parsed user:', user);
+      
+      // Backend trả về user.id (không phải user._id)
+      const userId = user.id || user._id;
+      console.log('User ID:', userId);
+
+      if (!userId) {
+        const errMsg = 'Không tìm thấy User ID. Vui lòng đăng xuất và đăng nhập lại.';
+        console.error('User ID not found in user object');
+        setError(errMsg);
+        return;
+      }
+      
+      setError(''); // Clear previous errors
+
+      console.log('Fetching emotion data for user:', userId);
+      
+      const response = await fetch(
+        `${API_URL}/api/emotion-analysis/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log('Response status:', response.status);
+      const data = await response.json();
+      console.log('Response data:', data);
+
+      if (data.success) {
+        console.log('Emotions found:', data.data.emotions.length);
+        setEmotions(data.data.emotions);
+        setStats(data.data.stats);
+        setError('');
+      } else {
+        const errMsg = data.message || 'Không thể lấy dữ liệu cảm xúc';
+        console.error('Failed to fetch emotion data:', errMsg);
+        setError(errMsg);
+      }
+    } catch (error: any) {
+      const errMsg = error.message || 'Lỗi kết nối server';
+      console.error('Error fetching emotion data:', error);
+      setError(errMsg);
+    } finally {
+      setLoading(false);
+    }
+  };
   
 
-  // Jitter ngẫu nhiên (ổn định theo id) để các điểm không thẳng hàng ngang
-  const hashToUnit = (str: string) => {
-    let h = 2166136261;
-    for (let i = 0; i < str.length; i++) {
-      h ^= str.charCodeAt(i);
-      h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
-    }
-    // Convert to 0..1
-    return (h >>> 0) / 4294967295;
-  };
-
-  // Trả về yOffset có jitter theo level nhưng vẫn giữ trong dải hợp lệ
-  // Dải đề xuất (đơn vị chuẩn hóa -1..+1 trước khi nhân centerY):
-  //   M1: +0.20 .. +0.50 (dưới trục)
-  //   M2: -0.08 .. +0.08 (gần trục)
-  //   M3: -0.50 .. -0.20 (trên trục)
-  const getJitteredYOffset = (level: string | undefined, id: string) => {
-    const r = hashToUnit(id);
-    if (level === 'M1') {
-      return 0.20 + r * (0.50 - 0.20);
-    } else if (level === 'M2') {
-      return -0.08 + r * (0.16); // [-0.08, +0.08]
-    } else if (level === 'M3') {
-      return -0.50 + r * (0.30); // [-0.50, -0.20]
-    }
-    return 0;
-  };
-
-  // Giãn cách ngang mạnh hơn + jitter theo id để tránh chồng
-  const getJitteredX = (xNorm: number, id: string, width: number) => {
-    const r = hashToUnit(id + '-x');
-    // Nới rộng ra gần rìa và thêm jitter ±0.15
-    let xn = xNorm + (r - 0.5) * 0.30;
-    // Clamp trong [-0.98, 0.98]
-    xn = Math.max(-0.98, Math.min(0.98, xn));
-    const centerX = width / 2;
-    return centerX + xn * centerX * 0.95; // 0.95 để trải rộng tối đa
-  };
-  
-  // Chuyển đổi tọa độ cảm xúc (-1 to 1) thành pixel (0 to 500)
-  const getPixelCoords = (emotion) => {
-    const chartWidth = 500;
-    const chartHeight = 300; // reserved for future use
-    const centerY = chartHeight / 2;
+  // Chuyển đổi tọa độ cảm xúc (-1 to 1) thành pixel (0 to 900)
+  const getPixelCoords = (emotion: EmotionPoint) => {
+    const chartWidth = 900;
+    const chartHeight = 600;
+    const centerX = chartWidth / 2;
+    const padding = 50; // Increased padding
     
-    // X phụ thuộc valence (Dương/Âm) + jitter để giãn cách
-    const x = getJitteredX(emotion.x, emotion.id, chartWidth);
-    // Y: mức độ + jitter ngẫu nhiên ổn định theo id
-    const yOffset = getJitteredYOffset(emotion.level, emotion.id); // -1 .. +1
-    const y = centerY + (yOffset * centerY * 0.8);
+    // Map valence (-1 to 1) to x with more spread
+    const x = centerX + emotion.x * (chartWidth / 2 - padding);
+    
+    // Map arousal (0 to 1) to y (inverted because SVG y increases downward)
+    const y = chartHeight - padding - (emotion.y * (chartHeight - padding * 2));
     
     return { x, y };
   };
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
-          Phân tích Cảm xúc đẳng cấp pro vip vũ trụ
+          Biểu đồ 2D Cảm xúc
         </h1>
         <p className="text-gray-600 mb-8">
-          Biểu đồ 2D hiển thị cảm xúc theo trục Tích cực/Tiêu cực và Mạnh/Yếu
+          Biểu đồ 2D hiển thị cảm xúc theo trục Tích cực/Tiêu cực và Mạnh/Yếu (Hiển thị tất cả tin nhắn)
         </p>
         
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-lg shadow-lg p-4">
-            <div className="text-2xl font-bold text-green-600">67%</div>
+            <div className="text-2xl font-bold text-blue-600">{stats.totalMessages}</div>
+            <div className="text-sm text-gray-600">Tổng tin nhắn</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-lg p-4">
+            <div className="text-2xl font-bold text-green-600">{stats.positivePercent}%</div>
             <div className="text-sm text-gray-600">Cảm xúc tích cực</div>
           </div>
           <div className="bg-white rounded-lg shadow-lg p-4">
-            <div className="text-2xl font-bold text-red-600">33%</div>
+            <div className="text-2xl font-bold text-red-600">{stats.negativePercent}%</div>
             <div className="text-sm text-gray-600">Cảm xúc tiêu cực</div>
           </div>
           <div className="bg-white rounded-lg shadow-lg p-4">
-            <div className="text-2xl font-bold text-purple-600">75%</div>
+            <div className="text-2xl font-bold text-purple-600">{stats.avgIntensity}%</div>
             <div className="text-sm text-gray-600">Cường độ trung bình</div>
           </div>
         </div>
         
         {/* Main Chart */}
+        {loading ? (
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div className="flex items-center justify-center h-64">
+              <div className="text-gray-500">Đang tải dữ liệu...</div>
+            </div>
+          </div>
+        ) : error ? (
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div className="flex flex-col items-center justify-center h-64 gap-4">
+              <div className="text-red-600 font-medium">⚠️ {error}</div>
+              <button 
+                onClick={fetchEmotionData}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                Thử lại
+              </button>
+            </div>
+          </div>
+        ) : emotions.length === 0 ? (
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div className="flex flex-col items-center justify-center h-64 gap-4">
+              <div className="text-gray-500">Chưa có dữ liệu cảm xúc</div>
+              <div className="text-sm text-gray-400">Hãy bắt đầu chat với bot để tạo dữ liệu cảm xúc</div>
+            </div>
+          </div>
+        ) : (
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <h2 className="text-xl font-semibold mb-4">Biểu đồ 2D Cảm xúc</h2>
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6">
-            <svg width="500" height="300" className="border rounded-lg bg-white mx-auto">
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-6 overflow-x-auto">
+            <div className="min-w-[900px]">
+              <svg width="900" height="600" className="border-2 border-gray-300 rounded-lg bg-white mx-auto" viewBox="0 0 900 600">
               {/* Grid */}
               <defs>
-                <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
-                  <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#f0f0f0" strokeWidth="1"/>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f0f0f0" strokeWidth="1"/>
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid)" />
               
               {/* Axes */}
-              <line x1="250" y1="20" x2="250" y2="280" stroke="#666" strokeWidth="2" />
-              <line x1="20" y1="150" x2="480" y2="150" stroke="#666" strokeWidth="2" />
+              <line x1="450" y1="40" x2="450" y2="560" stroke="#666" strokeWidth="3" />
+              <line x1="40" y1="300" x2="860" y2="300" stroke="#666" strokeWidth="3" />
               
               {/* Labels */}
-              <text x="460" y="145" className="text-xs fill-gray-600">Tích cực</text>
-              <text x="30" y="145" className="text-xs fill-gray-600">Tiêu cực</text>
-              <text x="255" y="30" className="text-xs fill-gray-600">Mạnh</text>
-              <text x="255" y="295" className="text-xs fill-gray-600">Yếu</text>
+              <text x="820" y="295" className="text-base font-semibold fill-gray-700">Tích cực</text>
+              <text x="50" y="295" className="text-base font-semibold fill-gray-700">Tiêu cực</text>
+              <text x="455" y="60" className="text-base font-semibold fill-gray-700">Mạnh</text>
+              <text x="455" y="585" className="text-base font-semibold fill-gray-700">Yếu</text>
               
               {/* Emotion Points */}
-              {mockEmotions.map((emotion) => {
+              {emotions.map((emotion) => {
                 const { x, y } = getPixelCoords(emotion);
-                const radius = Math.max(6, emotion.intensity / 10);
+                const radius = Math.max(8, emotion.intensity / 8); // Larger points
                 
                 return (
                   <g key={emotion.id}>
@@ -160,18 +223,19 @@ export default function EmotionAnalysisPage() {
                     />
                     <text
                       x={x}
-                      y={y - radius - 5}
-                      className="text-xs fill-gray-700"
+                      y={y - radius - 8}
+                      className="text-sm font-medium fill-gray-800"
                       textAnchor="middle"
                     >
-                      {emotion.name} ({emotion.level})
+                      {emotion.name}
                     </text>
                   </g>
                 );
               })}
-            </svg>
+              </svg>
+            </div>
             
-            <div className="mt-4 text-sm text-gray-600">
+            <div className="mt-6 text-sm text-gray-600">
               <p> <strong>Cách đọc:</strong> Trục ngang = Tiêu cực ↔ Tích cực | Trục dọc = Yếu ↔ Mạnh | Kích thước = Cường độ</p>
               <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="bg-white/80 rounded-lg border p-3">
@@ -190,6 +254,7 @@ export default function EmotionAnalysisPage() {
             </div>
           </div>
         </div>
+        )}
         
         {/* Selected Emotion Details */}
         {selectedEmotion && (
@@ -204,33 +269,53 @@ export default function EmotionAnalysisPage() {
               </button>
             </div>
             
-            <div className="flex items-center gap-4">
-              <div 
-                className="w-8 h-8 rounded-full"
-                style={{ backgroundColor: selectedEmotion.color }}
-              />
-              <div>
-                <h4 className="text-xl font-medium">{selectedEmotion.name}</h4>
-                <p className="text-gray-600">Cường độ: {selectedEmotion.intensity}%</p>
-                <p className="text-gray-600">
-                  Tọa độ: ({selectedEmotion.x.toFixed(1)}, {selectedEmotion.y.toFixed(1)})
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div 
+                  className="w-12 h-12 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: selectedEmotion.color }}
+                />
+                <div>
+                  <h4 className="text-xl font-medium">{selectedEmotion.name}</h4>
+                  <p className="text-sm text-gray-500">
+                    {new Date(selectedEmotion.timestamp).toLocaleString('vi-VN')}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="border-t pt-4">
+                <p className="text-sm font-medium text-gray-700 mb-2">Tin nhắn:</p>
+                <p className="text-gray-600 bg-gray-50 p-3 rounded-lg">
+                  {selectedEmotion.message}
                 </p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm text-gray-500">Cường độ</p>
+                  <p className="text-lg font-semibold text-purple-600">{selectedEmotion.intensity}%</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Nhóm</p>
+                  <p className="text-lg font-semibold" style={{
+                    color: selectedEmotion.group === 'Positive' ? '#22c55e' : 
+                           selectedEmotion.group === 'Negative' ? '#ef4444' : '#6b7280'
+                  }}>{selectedEmotion.group}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Valence</p>
+                  <p className="text-lg font-semibold">{selectedEmotion.valence.toFixed(2)}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Arousal</p>
+                  <p className="text-lg font-semibold">{selectedEmotion.arousal.toFixed(2)}</p>
+                </div>
               </div>
             </div>
           </div>
         )}
         
-        {/* Debug Info */}
-        <div className="mt-6 bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-lg font-semibold mb-2">Trạng thái:</h3>
-          <ul className="text-sm text-gray-600 space-y-1">
-            <li>✅ Route /emotion-analysis hoạt động</li>
-            <li>✅ Component render thành công</li>
-            <li>✅ SVG biểu đồ hiển thị</li>
-            <li>✅ Tương tác click hoạt động</li>
-            <li>✅ Mock data 6 cảm xúc</li>
-          </ul>
-        </div>
+        
       </div>
     </div>
   );
