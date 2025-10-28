@@ -110,4 +110,8 @@ class MongoMessageResource extends Resource
             // 'edit' => Pages\EditMongoMessage::route('/{record}/edit'),
         ];
     }
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false; // Ẩn khỏi menu Filament
+    }
 }
