@@ -1,6 +1,7 @@
 // src/api/apiClient.ts
 import axios, { AxiosInstance } from 'axios';
 import { navigateTo } from './navigationService'; // Import the navigation service
+import { useAuth } from '@/context/AuthContext'; // ✅ Thêm dòng này
 
 // Tạo một Axios instance với cấu hình chung
 const apiClient: AxiosInstance = axios.create({
@@ -37,13 +38,18 @@ apiClient.interceptors.response.use(
     console.error('API Error:', error);
 
     if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-      localStorage.removeItem('user')
-      localStorage.removeItem('token');
+      // localStorage.removeItem('user')
+      // localStorage.removeItem('token');
+      const { logout } = useAuth(); // ✅ Lấy hàm logout từ context
+
+      logout(); // ✅ Gọi logout() từ AuthContext
 
       // Only redirect if not already on the welcome page
       if (window.location.pathname !== '/welcome') {
         navigateTo('/welcome'); // Use the navigation service
       }
+      navigateTo('/welcome'); // Use the navigation service
+
     }
 
     return Promise.reject(error);
