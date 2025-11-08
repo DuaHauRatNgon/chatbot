@@ -270,3 +270,40 @@ export const getTodayMoodAPI = async (): Promise<{ success: boolean; data: any; 
     throw error;
   }
 };
+export const sendPasswordMail = async (
+  email: string
+): Promise<{ success: boolean; result: number }> => {
+  try {
+    const response = await apiClient.post(`/emails/${email}`);
+
+    return {
+      success: response.data.success,
+      result: response.data.result,
+    };
+  } catch (error: any) {
+    console.error('Error sendPasswordMail:', error);
+    return {
+      success: false,
+      result: -1, // -1 biểu thị lỗi
+    };
+  }
+};
+
+export const changePassword = async(
+   oldPassword: string, newPassword: string
+)=>{
+  try {
+    const response = await apiClient.post(`/users/password`, {
+      oldPassword,
+      newPassword,
+    });
+
+    return response.data;
+  } catch (error: any) {
+    console.error("Error changePassword:", error);
+    return {
+      success: false,
+      message: error.response?.data?.message || "Lỗi hệ thống",
+    };
+  }
+};

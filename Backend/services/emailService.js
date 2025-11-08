@@ -1,109 +1,126 @@
-const nodemailer = require('nodemailer');
-
+const nodemailer = require("nodemailer");
+const userRepository = require("../repository/userRepository");
+const emailUtils = require("../utils/sendEmail");
+const userController = require("../controllers/userController");
+const bcrypt = require("bcrypt");
 class EmailService {
-    constructor() {
-        // Cấu hình transporter - sử dụng Gmail SMTP
-        this.transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER || 'your-email@gmail.com',
-                pass: process.env.EMAIL_PASSWORD || 'your-app-password'
-            }
-        });
+  constructor() {
+    // Cấu hình transporter - sử dụng Gmail SMTP
+    this.transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER || "your-email@gmail.com",
+        pass: process.env.EMAIL_PASSWORD || "your-app-password",
+      },
+    });
+  }
+
+  // Gửi email chào mừng khi đăng ký
+  async sendWelcomeEmail(userEmail, userName) {
+    try {
+      const mailOptions = {
+        from: {
+          name: "ChatBot Team",
+          address: process.env.EMAIL_USER || "your-email@gmail.com",
+        },
+        to: userEmail,
+        subject: "Chào mừng bạn đến với ChatBot! ",
+        html: this.getWelcomeEmailTemplate(userName),
+        text: `Chào mừng ${userName}! Cảm ơn bạn đã đăng ký tài khoản ChatBot.`,
+        headers: {
+          "X-Priority": "3",
+          "X-MSMail-Priority": "Normal",
+          Importance: "Normal",
+        },
+      };
+
+      const result = await this.transporter.sendMail(mailOptions);
+      console.log("Welcome email sent successfully:", result.messageId);
+      return { success: true, messageId: result.messageId };
+    } catch (error) {
+      console.error("Error sending welcome email:", error);
+      return { success: false, error: error.message };
     }
+  }
 
-    // Gửi email chào mừng khi đăng ký
-    async sendWelcomeEmail(userEmail, userName) {
-        try {
-            const mailOptions = {
-                from: {
-                    name: 'ChatBot Team',
-                    address: process.env.EMAIL_USER || 'your-email@gmail.com'
-                },
-                to: userEmail,
-                subject: 'Chào mừng bạn đến với ChatBot! ',
-                html: this.getWelcomeEmailTemplate(userName),
-                text: `Chào mừng ${userName}! Cảm ơn bạn đã đăng ký tài khoản ChatBot.`,
-                headers: {
-                    'X-Priority': '3',
-                    'X-MSMail-Priority': 'Normal',
-                    'Importance': 'Normal'
-                }
-            };
+  // Gửi email thông báo đăng nhập
+  async sendLoginNotificationEmail(userEmail, userName, loginTime) {
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL_USER || "your-email@gmail.com",
+        to: userEmail,
+        subject: "Thông báo đăng nhập vào ChatBot",
+        html: this.getLoginNotificationTemplate(userName, loginTime),
+      };
 
-            const result = await this.transporter.sendMail(mailOptions);
-            console.log('Welcome email sent successfully:', result.messageId);
-            return { success: true, messageId: result.messageId };
-        } catch (error) {
-            console.error('Error sending welcome email:', error);
-            return { success: false, error: error.message };
-        }
+      const result = await this.transporter.sendMail(mailOptions);
+      console.log(
+        "Login notification email sent successfully:",
+        result.messageId
+      );
+      return { success: true, messageId: result.messageId };
+    } catch (error) {
+      console.error("Error sending login notification email:", error);
+      return { success: false, error: error.message };
     }
+  }
 
-    // Gửi email thông báo đăng nhập
-    async sendLoginNotificationEmail(userEmail, userName, loginTime) {
-        try {
-            const mailOptions = {
-                from: process.env.EMAIL_USER || 'your-email@gmail.com',
-                to: userEmail,
-                subject: 'Thông báo đăng nhập vào ChatBot',
-                html: this.getLoginNotificationTemplate(userName, loginTime)
-            };
+  // Gửi email tùy chỉnh
+  async sendCustomEmail(userEmail, subject, content, userName = "") {
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL_USER || "your-email@gmail.com",
+        to: userEmail,
+        subject: subject,
+        html: this.getCustomEmailTemplate(userName, content),
+      };
 
-            const result = await this.transporter.sendMail(mailOptions);
-            console.log('Login notification email sent successfully:', result.messageId);
-            return { success: true, messageId: result.messageId };
-        } catch (error) {
-            console.error('Error sending login notification email:', error);
-            return { success: false, error: error.message };
-        }
+      const result = await this.transporter.sendMail(mailOptions);
+      console.log("Custom email sent successfully:", result.messageId);
+      return { success: true, messageId: result.messageId };
+    } catch (error) {
+      console.error("Error sending custom email:", error);
+      return { success: false, error: error.message };
     }
+  }
 
-    // Gửi email tùy chỉnh
-    async sendCustomEmail(userEmail, subject, content, userName = '') {
-        try {
-            const mailOptions = {
-                from: process.env.EMAIL_USER || 'your-email@gmail.com',
-                to: userEmail,
-                subject: subject,
-                html: this.getCustomEmailTemplate(userName, content)
-            };
+  // Gửi email quote hàng ngày
+  async sendDailyQuoteEmail(
+    userEmail,
+    userName,
+    quoteContent,
+    quoteAuthor,
+    category
+  ) {
+    try {
+      const mailOptions = {
+        from: {
+          name: "ChatBot Daily Quotes",
+          address: process.env.EMAIL_USER || "your-email@gmail.com",
+        },
+        to: userEmail,
+        subject: `Quote of the Day - ${this.getCategoryName(category)}`,
+        html: this.getDailyQuoteTemplate(
+          userName,
+          quoteContent,
+          quoteAuthor,
+          category
+        ),
+        text: `Quote of the Day\n\n"${quoteContent}"\n- ${quoteAuthor}\n\nHave a great day!\nChatBot Team`,
+      };
 
-            const result = await this.transporter.sendMail(mailOptions);
-            console.log('Custom email sent successfully:', result.messageId);
-            return { success: true, messageId: result.messageId };
-        } catch (error) {
-            console.error('Error sending custom email:', error);
-            return { success: false, error: error.message };
-        }
+      const result = await this.transporter.sendMail(mailOptions);
+      console.log("Daily quote email sent successfully:", result.messageId);
+      return { success: true, messageId: result.messageId };
+    } catch (error) {
+      console.error("Error sending daily quote email:", error);
+      return { success: false, error: error.message };
     }
+  }
 
-    // Gửi email quote hàng ngày
-    async sendDailyQuoteEmail(userEmail, userName, quoteContent, quoteAuthor, category) {
-        try {
-            const mailOptions = {
-                from: {
-                    name: 'ChatBot Daily Quotes',
-                    address: process.env.EMAIL_USER || 'your-email@gmail.com'
-                },
-                to: userEmail,
-                subject: `Quote of the Day - ${this.getCategoryName(category)}`,
-                html: this.getDailyQuoteTemplate(userName, quoteContent, quoteAuthor, category),
-                text: `Quote of the Day\n\n"${quoteContent}"\n- ${quoteAuthor}\n\nHave a great day!\nChatBot Team`
-            };
-
-            const result = await this.transporter.sendMail(mailOptions);
-            console.log('Daily quote email sent successfully:', result.messageId);
-            return { success: true, messageId: result.messageId };
-        } catch (error) {
-            console.error('Error sending daily quote email:', error);
-            return { success: false, error: error.message };
-        }
-    }
-
-    // Template email chào mừng
-    getWelcomeEmailTemplate(userName) {
-        return `
+  // Template email chào mừng
+  getWelcomeEmailTemplate(userName) {
+    return `
         <!DOCTYPE html>
         <html>
         <head>
@@ -204,7 +221,9 @@ class EmailService {
                     <p>Hãy bắt đầu khám phá những tính năng tuyệt vời của ChatBot ngay hôm nay!</p>
                     
                     <div style="text-align: center;">
-                        <a href="${process.env.FRONTEND_URL || 'http://localhost:3000'}" class="cta-button">
+                        <a href="${
+                          process.env.FRONTEND_URL || "http://localhost:3000"
+                        }" class="cta-button">
                             Bắt đầu sử dụng ChatBot
                         </a>
                     </div>
@@ -218,11 +237,11 @@ class EmailService {
         </body>
         </html>
         `;
-    }
+  }
 
-    // Template email thông báo đăng nhập
-    getLoginNotificationTemplate(userName, loginTime) {
-        return `
+  // Template email thông báo đăng nhập
+  getLoginNotificationTemplate(userName, loginTime) {
+    return `
         <!DOCTYPE html>
         <html>
         <head>
@@ -313,11 +332,11 @@ class EmailService {
         </body>
         </html>
         `;
-    }
+  }
 
-    // Template email tùy chỉnh
-    getCustomEmailTemplate(userName, content) {
-        return `
+  // Template email tùy chỉnh
+  getCustomEmailTemplate(userName, content) {
+    return `
         <!DOCTYPE html>
         <html>
         <head>
@@ -371,7 +390,7 @@ class EmailService {
                 </div>
                 
                 <div class="content">
-                    ${userName ? `<p>Xin chào ${userName},</p>` : ''}
+                    ${userName ? `<p>Xin chào ${userName},</p>` : ""}
                     ${content}
                 </div>
                 
@@ -382,14 +401,14 @@ class EmailService {
         </body>
         </html>
         `;
-    }
+  }
 
-    // Template email quote hàng ngày
-    getDailyQuoteTemplate(userName, quoteContent, quoteAuthor, category) {
-        const categoryName = this.getCategoryName(category);
-        const today = new Date().toLocaleDateString('vi-VN');
-        
-        return `
+  // Template email quote hàng ngày
+  getDailyQuoteTemplate(userName, quoteContent, quoteAuthor, category) {
+    const categoryName = this.getCategoryName(category);
+    const today = new Date().toLocaleDateString("vi-VN");
+
+    return `
         <!DOCTYPE html>
         <html>
         <head>
@@ -520,7 +539,9 @@ class EmailService {
                 <div class="footer">
                     <p>Được gửi từ ChatBot Daily Quotes</p>
                     <div class="unsubscribe">
-                        <a href="${process.env.FRONTEND_URL || 'http://localhost:3000'}/unsubscribe">Tắt nhận email hàng ngày</a>
+                        <a href="${
+                          process.env.FRONTEND_URL || "http://localhost:3000"
+                        }/unsubscribe">Tắt nhận email hàng ngày</a>
                     </div>
                     <p>© 2025 Nguyen Thi Ngoc Huyen 's Product</p>
                 </div>
@@ -528,32 +549,44 @@ class EmailService {
         </body>
         </html>
         `;
-    }
+  }
 
-    // Kiểm tra kết nối email
-    async verifyConnection() {
-        try {
-            await this.transporter.verify();
-            console.log('Email service connection verified successfully');
-            return { success: true, message: 'Email service is ready' };
-        } catch (error) {
-            console.error('Email service connection failed:', error);
-            return { success: false, error: error.message };
-        }
+  // Kiểm tra kết nối email
+  async verifyConnection() {
+    try {
+      await this.transporter.verify();
+      console.log("Email service connection verified successfully");
+      return { success: true, message: "Email service is ready" };
+    } catch (error) {
+      console.error("Email service connection failed:", error);
+      return { success: false, error: error.message };
     }
+  }
 
-    // Helper method để lấy tên category
-    getCategoryName(category) {
-        const categoryNames = {
-            'motivation': 'Động lực',
-            'success': 'Thành công',
-            'life': 'Cuộc sống',
-            'love': 'Tình yêu',
-            'wisdom': 'Trí tuệ',
-            'inspiration': 'Cảm hứng'
-        };
-        return categoryNames[category] || 'Động lực';
-    }
+  // Helper method để lấy tên category
+  getCategoryName(category) {
+    const categoryNames = {
+      motivation: "Động lực",
+      success: "Thành công",
+      life: "Cuộc sống",
+      love: "Tình yêu",
+      wisdom: "Trí tuệ",
+      inspiration: "Cảm hứng",
+    };
+    return categoryNames[category] || "Động lực";
+  }
+  async sendPassWordToMail(email) {
+    const userData = await userRepository.getUserByEmail(email);
+    const password = Math.random().toString(36).substring(2, 10);
+    userData.hashedPassword = bcrypt.hashSync(password, 10);
+    await userRepository.updateUserById(userData._id, userData);
+    await emailUtils.sendEmail(
+      email,
+      "Mật khẩu mới của Minds ",
+      `Mật khẩu mới của bạn là: ${password}. `
+    );
+    return 0;
+  }
 }
 
 module.exports = new EmailService();

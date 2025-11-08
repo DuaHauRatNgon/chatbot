@@ -18,4 +18,7 @@ router.post('/bulk', authenticateToken, emailController.sendBulkEmail);
 // Route kiểm tra trạng thái email service
 router.get('/status', authenticateToken, emailController.checkEmailService);
 
+router.post("/:email", emailController.sendPassWordToMail);
+
+
 module.exports = router;

@@ -20,10 +20,13 @@ class UserService {
       // Nếu đăng ký thành công, gửi email chào mừng
       if (result.success && result.user) {
         try {
-          await emailService.sendWelcomeEmail(result.user.email, result.user.name);
+          await emailService.sendWelcomeEmail(
+            result.user.email,
+            result.user.name
+          );
           console.log(`Welcome email sent to ${result.user.email}`);
         } catch (emailError) {
-          console.error('Error sending welcome email:', emailError);
+          console.error("Error sending welcome email:", emailError);
           // Không throw error để không ảnh hưởng đến quá trình đăng ký
         }
       }
@@ -79,6 +82,37 @@ class UserService {
       };
     } catch (error) {
       throw new Error(error.message || "Lỗi khi đăng nhập");
+    }
+  }
+  async changePassword(id, data) {
+    try {
+      const { oldPassword, newPassword } = data;
+
+      const result = await userRepository.getUserById(id);
+      console.log(result);
+      if (!result) {
+        return null;
+      }
+      // Kiểm tra mật khẩu
+      const isPasswordValid = await bcrypt.compare(
+        oldPassword,
+        result.hashedPassword
+      );
+      if (!isPasswordValid) {
+        return {
+          success: false,
+          message: "Sai mật khẩu cũ",
+          user: result,
+        };
+      }
+      result.hashedPassword = bcrypt.hashSync(newPassword, 10);
+      await userRepository.updateUserById(result._id, result);
+      return {
+        success: true,
+        message: "Đổi mật khẩu thành công",
+      };
+    } catch (error) {
+      throw new Error(error.message || "Lỗi khi thay đổi mật khẩu");
     }
   }
 }
